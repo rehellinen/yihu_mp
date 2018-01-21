@@ -1,0 +1,120 @@
+.index-container
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.banner
+{
+  width: 750rpx;
+  height: 415rpx;  
+}
+
+.banner image
+{
+  width: 750rpx;
+  height: 415rpx;  
+}
+
+.theme
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.theme-text
+{
+  text-align: center;
+  margin: 0 0 20rpx 0;
+  font-size: 13px;
+}
+
+.theme-photo-container
+{
+  flex-direction: row;
+}
+
+.theme-photo-container image
+{
+  width: 371rpx;
+  height: 202rpx;
+  margin: 0 1rpx;
+}
+
+.find-image
+{
+  width: 750rpx;
+  height: 120rpx;
+  margin-bottom: 10rpx;
+}
+
+.find-detail-container
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.find-detail
+{
+  display: flex;
+  flex-direction: column;
+  width: 300rpx;
+  height: 310rpx;  
+  margin-left: 50rpx;
+  margin-bottom: 35rpx;
+  box-shadow:0 0 5px #ebebeb;
+  border-radius: 8px
+}
+
+.find-detail-image
+{
+  width: 300rpx;
+  height: 220rpx;
+}
+
+.find-detail-text
+{
+  color: #757575;
+  font-size: 14px;
+  margin-top: 20rpx;
+  margin-left: 15rpx;
+}
+
+.price-quantity
+{
+  display: flex;
+  flex-direction: row;
+  height: 60rpx;
+  margin-bottom: 5rpx;
+  margin-top: 5rpx;
+}
+
+.price
+{
+  color: #fa3e3d;
+  font-size: 20px;
+  margin-left: 15rpx;
+}
+
+.quantity
+{
+  height: 30rpx;
+  margin-left: 100rpx;
+}
+
+.quantity image
+{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle
+}
+
+.quantity text
+{
+  color: #757575;
+  font-size: 14px;
+  margin: 0 6rpx;
+  vertical-align: middle
+}
+
