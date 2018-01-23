@@ -15,11 +15,11 @@
 
       <view class='shop-photos'>
         <view class='left'>
-          <image class='left-image' src='/images/theme/shop@left1.png'></image>
+          <image class='left-image' src='/images/theme/shop@left1.jpg'></image>
         </view>
         <view class='right'>
-          <image class='right1-image' src='/images/theme/shop@right1.png'></image>
-          <image class='right2-image' src='/images/theme/shop@right2.png'></image>
+          <image class='right1-image' src='/images/theme/shop@right1.jpg'></image>
+          <image class='right2-image' src='/images/theme/shop@right2.jpg'></image>
         </view>
         
       </view>
@@ -35,11 +35,11 @@
 
       <view class='shop-photos'>
         <view class='left'>
-          <image class='left-image' src='/images/theme/shop@left1.png'></image>
+          <image class='left-image' src='/images/theme/shop@left1.jpg'></image>
         </view>
         <view class='right'>
-          <image class='right1-image' src='/images/theme/shop@right1.png'></image>
-          <image class='right2-image' src='/images/theme/shop@right2.png'></image>
+          <image class='right1-image' src='/images/theme/shop@right1.jpg'></image>
+          <image class='right2-image' src='/images/theme/shop@right2.jpg'></image>
         </view>
         
       </view>
@@ -54,13 +54,12 @@
 
       <view class='shop-photos'>
         <view class='left'>
-          <image class='left-image' src='/images/theme/shop@left1.png'></image>
+          <image class='left-image' src='/images/theme/shop@left1.jpg'></image>
         </view>
         <view class='right'>
-          <image class='right1-image' src='/images/theme/shop@right1.png'></image>
-          <image class='right2-image' src='/images/theme/shop@right2.png'></image>
-        </view>
-        
+          <image class='right1-image' src='/images/theme/shop@right1.jpg'></image>
+          <image class='right2-image' src='/images/theme/shop@right2.jpg'></image>
+        </view>        
       </view>
     </view>
 </view>

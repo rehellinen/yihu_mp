@@ -26,7 +26,14 @@
 				{
 					"id": -1,
 					"name": "shop",
-					"pathName": "pages/shop/shop"
+					"pathName": "pages/shop/shop",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "my",
+					"pathName": "pages/personal/personal",
+					"query": ""
 				}
 			]
 		}

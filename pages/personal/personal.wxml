@@ -1,0 +1,48 @@
+<view class='container'>
+  <!-- 个人信息栏 -->
+  <view class='info'>
+    <image class='header-image' src='/images/theme/personal@header.jpg'></image>  
+    <image class='avatar' src='/images/theme/personal@avatar.jpg'></image>  
+    <text class='avatar-name'>rehellinen</text>  
+    <text class='avatar-quote'>生活就像海洋，只有意志坚强的人才能到达彼岸</text> 
+  </view>
+  <!-- 个人信息栏 -->  
+
+  <!-- 电费栏 -->
+  <view class='elec-container'>
+    <image class='back-image' src='/images/theme/personal@backElec.png'></image>
+    <view class='elec-detail'>
+      <view class='surplus'>
+        <text class='surplus-text'>剩余电量</text>
+        <text class='surplus-num'>106.7</text>
+      </view> 
+
+      <view class='line'></view>
+
+       <view class='surplus'>
+        <text class='surplus-text'>近三天用电</text>
+        <text class='surplus-num'>47.4</text>
+      </view>    
+    </view>
+  </view>
+  <!-- 电费栏 -->
+  
+  <!-- 我的订单 -->
+  <view class='order'>
+    <image></image>
+
+    <view>
+      <image></image>
+      <view>
+        <image></image>
+        <view>
+          <text></text>
+          <text></text>
+        </view>
+        <text></text>
+      </view>
+    </view>
+  </view>
+  <!-- 我的订单 -->
+
+</view>
