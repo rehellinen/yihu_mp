@@ -10,7 +10,7 @@
 {
   display: flex;
   flex-direction: column;
-  width: 93%;
+  width: 675rpx;
   margin-top: 20px;
 }
 
@@ -54,4 +54,42 @@
   height: 45rpx;
   float: right;
   vertical-align: middle
+}
+
+.left-image
+{
+  width: 400rpx;
+  height: 310rpx;
+}
+
+.right1-image
+{
+  width: 270rpx;
+  height: 150rpx;
+}
+
+.right2-image
+{
+  width: 270rpx;
+  height: 158rpx;
+  margin-top: 5rpx;
+}
+
+.shop-photos
+{
+  display: flex;
+  flex: row;
+}
+
+.left
+{
+  width: 400rpx;  
+}
+
+.right
+{
+  display: flex;
+  flex-direction: column;
+  width: 270rpx;
+  margin-left: 5rpx;
 }

@@ -5,7 +5,7 @@
   <image class='recommend-image' src='/images/theme/recommend.png'></image>
   <!-- 头图  -->
 
-  <!-- 商店列表  -->
+    <!-- 商店列表  -->
     <view class='shop-container'>
       <view class='photo-text-container'>
         <image class='shop-avatar' src='/images/theme/shop@avatar.png'></image>
@@ -13,12 +13,55 @@
         <image class='come-image' src='/images/theme/shop@come.png'></image>
       </view>
 
-      <view>
-        <image></image>
-        <image></image>
-        <image></image>
+      <view class='shop-photos'>
+        <view class='left'>
+          <image class='left-image' src='/images/theme/shop@left1.png'></image>
+        </view>
+        <view class='right'>
+          <image class='right1-image' src='/images/theme/shop@right1.png'></image>
+          <image class='right2-image' src='/images/theme/shop@right2.png'></image>
+        </view>
+        
       </view>
     </view>
-  <!-- 商店列表  -->
+    <!-- 商店列表  -->
+
+    <view class='shop-container'>
+      <view class='photo-text-container'>
+        <image class='shop-avatar' src='/images/theme/shop@avatar.png'></image>
+        <text class='avatar-text'>暖暖礼品店</text>
+        <image class='come-image' src='/images/theme/shop@come.png'></image>
+      </view>
+
+      <view class='shop-photos'>
+        <view class='left'>
+          <image class='left-image' src='/images/theme/shop@left1.png'></image>
+        </view>
+        <view class='right'>
+          <image class='right1-image' src='/images/theme/shop@right1.png'></image>
+          <image class='right2-image' src='/images/theme/shop@right2.png'></image>
+        </view>
+        
+      </view>
+    </view>
+
+    <view class='shop-container'>
+      <view class='photo-text-container'>
+        <image class='shop-avatar' src='/images/theme/shop@avatar.png'></image>
+        <text class='avatar-text'>暖暖礼品店</text>
+        <image class='come-image' src='/images/theme/shop@come.png'></image>
+      </view>
+
+      <view class='shop-photos'>
+        <view class='left'>
+          <image class='left-image' src='/images/theme/shop@left1.png'></image>
+        </view>
+        <view class='right'>
+          <image class='right1-image' src='/images/theme/shop@right1.png'></image>
+          <image class='right2-image' src='/images/theme/shop@right2.png'></image>
+        </view>
+        
+      </view>
+    </view>
 </view>
 <!-- 总view -->
