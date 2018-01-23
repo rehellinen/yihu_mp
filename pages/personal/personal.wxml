@@ -29,17 +29,56 @@
   
   <!-- 我的订单 -->
   <view class='order'>
-    <image></image>
+    <image class='my-order-image' src='/images/theme/personal@order.png'></image>
+
 
     <view>
-      <image></image>
-      <view>
-        <image></image>
-        <view>
-          <text></text>
-          <text></text>
+      <image class='line-image' src='/images/theme/line.jpg'></image>
+
+      <view class='detail-container'>
+        <view class='detail-image-container'>
+          <image class='detail-image' src='/images/theme/shop@left1.jpg'></image>
         </view>
-        <text></text>
+        <view class='two-text'>
+          <text class='name-text'>办公室小饰品</text>
+          <text class='status-text'>商家发货中</text>
+        </view>
+        <text class='price'>￥ 12.00</text>
+      </view>
+    </view>
+
+
+
+    <view>
+      <image class='line-image' src='/images/theme/line.jpg'></image>
+
+      <view class='detail-container'>
+        <view class='detail-image-container'>
+          <image class='detail-image' src='/images/theme/shop@left1.jpg'></image>
+        </view>
+        <view class='two-text'>
+          <text class='name-text'>办公室小饰品</text>
+          <text class='status-text'>商家发货中</text>
+        </view>
+        <text class='price'>￥ 12.00</text>
+      </view>
+    </view>
+
+
+
+
+    <view>
+      <image class='line-image' src='/images/theme/line.jpg'></image>
+
+      <view class='detail-container'>
+        <view class='detail-image-container'>
+          <image class='detail-image' src='/images/theme/shop@left1.jpg'></image>
+        </view>
+        <view class='two-text'>
+          <text class='name-text'>办公室小饰品</text>
+          <text class='status-text'>商家发货中</text>
+        </view>
+        <text class='price'>￥ 12.00</text>
       </view>
     </view>
   </view>
