@@ -82,6 +82,8 @@
       </view>
     </view>
   </view>
+
+  <image class='line-image-end' src='/images/theme/line.jpg'></image>
   <!-- 我的订单 -->
 
 </view>
