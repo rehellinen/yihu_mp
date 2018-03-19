@@ -1,51 +1,51 @@
-.index-container
-{
+.index-container{
   display: flex;
   flex-direction: column;
 }
 
-.banner
-{
+/* banner */
+.banner{
   width: 750rpx;
   height: 415rpx;  
 }
 
-.banner image
-{
+.banner image{
   width: 750rpx;
   height: 415rpx;  
 }
+/* banner */
 
-.theme
-{
+
+/* theme */
+.theme{
   display: flex;
   flex-direction: column;
 }
 
-.theme-text
-{
+.theme-text{
   text-align: center;
-  margin: 0 0 20rpx 0;
-  font-size: 13px;
+  margin-bottom: 5px;
+  font-size: 14px;
 }
 
-.theme-photo-container
-{
+.theme-photo-container{
   flex-direction: row;
 }
 
-.theme-photo-container image
-{
-  width: 371rpx;
-  height: 202rpx;
-  margin: 0 1rpx;
+.theme-photo-container image{
+  width: 365rpx;
+  height: 180rpx;
+  margin-left: 8rpx;
 }
+/* theme */
+
 
 .find-image
 {
   width: 750rpx;
   height: 120rpx;
-  margin-bottom: 10rpx;
+  margin-bottom: 3px;
+  margin-top: 5.5px;
 }
 
 .find-detail-container
@@ -59,9 +59,9 @@
 {
   display: flex;
   flex-direction: column;
-  width: 300rpx;
-  height: 310rpx;  
-  margin-left: 50rpx;
+  width: 350rpx;
+  height: 380rpx;  
+  margin-left: 18rpx;
   margin-bottom: 35rpx;
   box-shadow:0 0 5px #ebebeb;
   border-radius: 8px
@@ -69,15 +69,15 @@
 
 .find-detail-image
 {
-  width: 300rpx;
-  height: 220rpx;
+  width: 350rpx;
+  height: 250rpx;
 }
 
 .find-detail-text
 {
   color: #757575;
   font-size: 14px;
-  margin-top: 20rpx;
+  margin-top: 9px;
   margin-left: 15rpx;
 }
 
@@ -85,9 +85,9 @@
 {
   display: flex;
   flex-direction: row;
-  height: 60rpx;
-  margin-bottom: 5rpx;
-  margin-top: 5rpx;
+  height: 30px;
+  margin-bottom: 3px;
+  margin-top: 3px;
 }
 
 .price
@@ -95,12 +95,13 @@
   color: #fa3e3d;
   font-size: 20px;
   margin-left: 15rpx;
+  width: 50%;
 }
 
 .quantity
 {
   height: 30rpx;
-  margin-left: 100rpx;
+  margin-left: 10%;
 }
 
 .quantity image
@@ -115,6 +116,5 @@
   color: #757575;
   font-size: 14px;
   margin: 0 6rpx;
-  vertical-align: middle
 }
 

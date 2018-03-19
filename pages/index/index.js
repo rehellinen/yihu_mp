@@ -11,15 +11,25 @@ Page({
   },
 
   // 加载所有数据
-  _loadData : function(callBack)
-  {
-    var that = this;
-
+  _loadData : function(callBack) {
     // 获取Banner
     index.getBanners( (data) => {
       this.setData({
-        banner : data
+        banner : data.data
       })
+    })
+
+    index.getGoods( (data) => {
+      this.setData({
+        goods: data.data.data
+      })
+    })
+  },
+
+  detailTap(event){
+    let id = event.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../detail/detail?id=' + id,
     })
   }
 })

@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   width: 675rpx;
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .header-image
@@ -23,14 +23,15 @@
 .recommend-image
 {
   margin: 0 auto;
-  width: 200rpx;
-  height: 125rpx;
+  width: 250rpx;
+  height: 153rpx;
   margin-top: 5px;
+  margin-bottom: 20px;
 }
 
 .photo-text-container
 {
-  height: 90rpx;  
+  height: 80rpx;  
 }
 
 .shop-avatar

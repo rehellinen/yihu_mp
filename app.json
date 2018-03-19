@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/shop/shop",
-    "pages/personal/personal"
+    "pages/cart/cart",
+    "pages/personal/personal",
+    "pages/detail/detail"
   ],
   "window": {
     "navigationBarTitleText": "跳蚤市场",
