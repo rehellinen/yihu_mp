@@ -5,9 +5,16 @@ class DetailModel extends Base{
     super()
   }
 
-  getDetail(id, callBack){
+  getDetail(id, cb){
     let params = {
-      url: 'goods/id'
+      url: 'goods/' + id,
+      callBack: function (data) {
+        data = data.data;
+        cb && cb(data);
+      }
     }
+    this.request(params)
   }
 }
+
+export { DetailModel }

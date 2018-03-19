@@ -1,2 +1,53 @@
-<!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<view class='container'>
+  <view class='detail'>
+    <image src='{{product.photo}}' class='head-image'></image>
+    <view class='info'>
+      <text class='name'>{{product.name}}</text>
+      <text class='subname'>产于景德镇，质地优良</text>
+      <view class='hr'></view>
+      <view class='quantity-container'>
+        <text class='price'>￥{{product.price}}</text>
+        <text class='quantity'>库存：{{product.quantity}}</text>
+        <view class='count-container'>
+          <image class='icon' src='/images/icon/minus.png'></image>
+          <text class='count'>12</text>
+          <image class='icon' src='/images/icon/plus.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='hr2'></view>    
+  </view>
+
+  <view class='title-container'>
+    <text class='title'>商品信息</text>
+  </view>
+
+  
+        
+  <view class='introduction'>
+    <text>{{product.description}}</text>
+  </view>
+  <view class='hr2'></view> 
+  
+
+  <view class='title-container'>
+    <text class='title'>商品评价</text>
+  </view> 
+
+  <view class='comment'>       
+    <view class='avatar'>
+      <image src='/images/icon/user@default.png' class='avatar-image'></image>
+      <text class='avatar-name'>张先森</text>
+    </view>
+    <text class='comment-text'>五星好评，商家很用心，东西很满意</text>
+  </view>
+
+  <view class='comment'>       
+    <view class='avatar'>
+      <image src='/images/icon/user@default.png' class='avatar-image'></image>
+      <text class='avatar-name'>张先森</text>
+    </view>
+    <text class='comment-text'>五星好评，商家很用心，东西很满意</text>
+  </view>
+</view>
+
