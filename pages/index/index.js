@@ -15,13 +15,13 @@ Page({
     // 获取Banner
     index.getBanners( (data) => {
       this.setData({
-        banner : data.data
+        banner : data
       })
     })
 
     index.getGoods( (data) => {
       this.setData({
-        goods: data.data.data
+        goods: data
       })
     })
   },

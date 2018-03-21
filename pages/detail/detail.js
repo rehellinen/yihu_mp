@@ -9,9 +9,8 @@ Page({
   onLoad: function (options) {
     let id = options.id
     detail.getDetail(id, (data) => {
-      console.log(data)
       this.setData({
-        product: data.data
+        product: data
       })
     })
   }

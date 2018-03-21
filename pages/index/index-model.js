@@ -7,26 +7,22 @@ class Index extends Base
   }
 
   // 获取banner
-  getBanners(callBack){
-    var that = this;
+  getBanners(cb){
     var param = {
       url : 'banner',
       callBack : function(data){
-        data = data.data;
-        callBack && callBack(data);
+        cb && cb(data);
       }
     }
     this.request(param);
   }
 
   // 获取商品信息
-  getGoods(callBack) {
-    var that = this;
+  getGoods(cb) {
     var param = {
       url: 'goods',
       callBack: function (data) {
-        data = data.data;
-        callBack && callBack(data);
+        cb && cb(data.data);
       }
     }
     this.request(param);

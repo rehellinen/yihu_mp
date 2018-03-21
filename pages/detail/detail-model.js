@@ -9,7 +9,6 @@ class DetailModel extends Base{
     let params = {
       url: 'goods/' + id,
       callBack: function (data) {
-        data = data.data;
         cb && cb(data);
       }
     }

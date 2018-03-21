@@ -17,7 +17,7 @@ class Base
     var that = this;
     var url = this.baseUrl + params.url;
     if(!params.type) {
-      params.type = 'get';
+      params.type = 'GET';
     }
     // 发起请求
     wx.request({
@@ -31,9 +31,8 @@ class Base
       success: function(res){
         var code = res.statusCode.toString();
         var startChar = code.charAt(0);
-
         if(startChar == '2') {
-          params.callBack && params.callBack(res.data);
+          params.callBack && params.callBack(res.data.data.data);
         }
       },
       fail: function(err){
