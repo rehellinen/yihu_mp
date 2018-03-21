@@ -2,8 +2,7 @@ import {Config} from 'config.js';
 
 class Base
 {
-  constructor()
-  {
+  constructor(){
     "use strict";
     this.baseUrl = Config.restUrl;
   }
@@ -14,24 +13,22 @@ class Base
   // 2. type [http请求方式]
   // 3. data [请求时携带的参数]
   // 4. callBack [回调函数]
-  request(params)
-  {
+  request(params){
     var that = this;
     var url = this.baseUrl + params.url;
     if(!params.type) {
       params.type = 'get';
     }
-
     // 发起请求
     wx.request({
       url: url,
       data: params.data,
+      method: params.type,
       header: {
-        'content-type' : 'application/json'
+        'content-type' : 'application/json',
+        'token': wx.getStorageSync('token')
       },
-
-      success: function(res)
-      {
+      success: function(res){
         var code = res.statusCode.toString();
         var startChar = code.charAt(0);
 
@@ -39,9 +36,7 @@ class Base
           params.callBack && params.callBack(res.data);
         }
       },
-
-      fail: function(res)
-      {
+      fail: function(err){
         
       }
     })
