@@ -1,6 +1,9 @@
-text
-{
+.container{
+  display: flex;
+  flex-direction: column;
   color: #494949;
   font-family: MicroSoft Yahei;
   font-size: 18px;
+  align-items: center;
+  justify-content: space-between;
 }

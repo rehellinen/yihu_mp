@@ -3,7 +3,8 @@ let detail = new DetailModel
 
 Page({
   data: {
-    product: {}
+    product: {},
+    selectedCount: 1
   },
 
   onLoad: function (options) {

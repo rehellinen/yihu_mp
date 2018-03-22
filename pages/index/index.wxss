@@ -1,6 +1,7 @@
+@import '/app.wxss';
+
 .index-container{
-  display: flex;
-  flex-direction: column;
+  
 }
 
 /* banner */
@@ -35,17 +36,17 @@
 .theme-photo-container image{
   width: 365rpx;
   height: 180rpx;
-  margin-left: 8rpx;
+  margin-left: 3rpx;
+  margin-right: 4rpx;
 }
 /* theme */
 
 
 .find-image
 {
-  width: 750rpx;
-  height: 120rpx;
-  margin-bottom: 3px;
-  margin-top: 5.5px;
+  width: 300rpx;
+  height: 60rpx;
+  margin: 40rpx 0 40rpx 225rpx;
 }
 
 .find-detail-container
@@ -97,24 +98,3 @@
   margin-left: 15rpx;
   width: 50%;
 }
-
-.quantity
-{
-  height: 30rpx;
-  margin-left: 10%;
-}
-
-.quantity image
-{
-  width: 30rpx;
-  height: 30rpx;
-  vertical-align: middle
-}
-
-.quantity text
-{
-  color: #757575;
-  font-size: 14px;
-  margin: 0 6rpx;
-}
-

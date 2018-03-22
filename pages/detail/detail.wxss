@@ -4,6 +4,23 @@
   flex-direction: column;
 }
 
+.cart-container{
+  position: fixed;
+  width: 90rpx;
+  height: 90rpx;
+  top: 30rpx;
+  right: 20rpx;
+  background-color: white;
+  border-radius:50px;
+  opacity: 0.9;
+}
+
+.cart image{
+  width: 60rpx;
+  height: 60rpx;
+  margin: 15rpx;
+}
+
 .head-image{
   width: 750rpx;
   height: 375rpx;
@@ -20,6 +37,15 @@
   flex-direction: column;
 }
 
+.info-up{
+  display: flex;
+  flex-direction: row;
+}
+
+.name-container{
+  width: 75%;
+}
+
 .name{
   color: #62502f;
   font-size: 20px;
@@ -28,6 +54,29 @@
 .subname{
   color: #d99009;
   font-size: 15px;
+}
+
+.picker{
+  width: 35%;
+  line-height: 50px;
+}
+
+.picker text{
+  /* float: right; */
+  color: #d99009;
+  font-size: 15px;
+  margin-left: 30rpx;
+}
+
+.picker-arrow{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+  margin-left: 24rpx;
+}
+
+.selected-count{
+  margin-left: 20rpx;
 }
 
 .hr{
@@ -50,31 +99,11 @@
   color: #d99009;
 }
 
-.count-container{
-  margin-left: 20%;
-  display: flex;
-  flex-direction: row;
-}
-
 .quantity{
-  margin-top: 5px;
+  margin-top: 6px;
   width: 25%;
-  margin-left: 20rpx;
-  font-size: 15px;
-  color: #9c9c9c;
-}
-
-.icon{
-  width: 25px;
-  height: 25px;
-  padding-top: 3px;
-}
-
-.count{
-  margin-top: 5px;
-  margin-left: 12rpx;
-  margin-right: 12rpx;
-  font-size: 15px;
+  margin-left: 16rpx;
+  font-size: 14px;
   color: #9c9c9c;
 }
 
