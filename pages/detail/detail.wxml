@@ -11,14 +11,17 @@
       <view class='info-up'>
         <view class='name-container'>
           <text class='name'>{{product.name}}</text>
-          <view class='subname'><text>产于景德镇，质地优良</text></view>
-        </view>
-        
+          <view class='subname'><text>{{product.subtitle}}</text></view>
+        </view>        
         <view class='picker'> 
-          <text>数量</text>
-          <text class='selected-count'>{{selectedCount}}</text>
-          <image class='picker-arrow' src='/images/icon/arrow.png'></image>
-        </view>
+          <picker range="{{countArray}}" bindchange='pickerchange' 
+          class="{{product.quantity == 0 ? 'picker-disabled' : ''}}" 
+          disabled='{{product.quantity == 0 ? true : false}}'>
+            <text>数量</text>
+            <text class='selected-count'>{{selectedCount}}</text>
+            <image class='picker-arrow' src='/images/icon/arrow.png'></image>
+          </picker>
+        </view>        
       </view>
       
       <view class='hr'></view>
@@ -28,7 +31,7 @@
           <text class='quantity'>库存：{{product.quantity}}</text>
         </view>
         
-        <view class='cart-text-container'>
+        <view class="cart-text-container {{product.quantity == 0 ? 'picker-disabled' : ''}}">
           <text class='cart-text'>加入购物车</text>
           <image class='down-cart' src='/images/icon/cart.png'></image>
         </view>        

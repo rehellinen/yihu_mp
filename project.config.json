@@ -53,6 +53,12 @@
 					"name": "detail",
 					"pathName": "pages/detail/detail",
 					"query": "id=28"
+				},
+				{
+					"id": -1,
+					"name": "cart",
+					"pathName": "pages/cart/cart",
+					"query": ""
 				}
 			]
 		}

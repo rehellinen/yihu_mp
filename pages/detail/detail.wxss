@@ -59,6 +59,8 @@
   font-size: 15px;
 }
 
+
+
 .picker{
   width: 40%;
   line-height: 50px;
@@ -71,15 +73,23 @@
   font-size: 15px;
 }
 
-.picker-arrow{
-  width: 15px;
-  height: 15px;
-  margin-top: 18px;
-  margin-left: 10px;
+.picker-disabled text{
+  color: #D0D0D7;
+}
+
+.picker-disabled image{
+  display: none;
 }
 
 .selected-count{
   margin-left: 20rpx;
+}
+
+.picker-arrow{
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
+  vertical-align: middle;
 }
 
 .hr{

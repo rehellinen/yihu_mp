@@ -4,8 +4,9 @@ let detail = new DetailModel
 Page({
   data: {
     product: {},
-    selectedCount: 100,
-    currentTabsIndex: 0
+    selectedCount: 1,
+    currentTabsIndex: 0,
+    countArray:[1, 2, 3, 4, 5, 6]
   },
 
   onLoad: function (options) {
@@ -21,6 +22,13 @@ Page({
     let index = event.currentTarget.dataset.index
     this.setData({
       currentTabsIndex: index
+    })
+  },
+
+  pickerchange(event){
+    let index = event.detail.value
+    this.setData({
+      selectedCount: this.data.countArray[index]
     })
   }
 })
