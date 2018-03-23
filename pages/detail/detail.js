@@ -4,7 +4,8 @@ let detail = new DetailModel
 Page({
   data: {
     product: {},
-    selectedCount: 1
+    selectedCount: 100,
+    currentTabsIndex: 0
   },
 
   onLoad: function (options) {
@@ -13,6 +14,13 @@ Page({
       this.setData({
         product: data
       })
+    })
+  },
+
+  onTabsItemTap(event){
+    let index = event.currentTarget.dataset.index
+    this.setData({
+      currentTabsIndex: index
     })
   }
 })

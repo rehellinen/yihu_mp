@@ -2,7 +2,7 @@
   <view class='detail'>
     <view class="cart-container">
       <view class="cart">
-        <image src="/images/icon/cart@top.png"></image>
+        <image src="/images/icon/cart.png"></image>
       </view>
     </view>
 
@@ -17,46 +17,39 @@
         <view class='picker'> 
           <text>数量</text>
           <text class='selected-count'>{{selectedCount}}</text>
-          <image class='picker-arrow' src='/images/icon/minus.png'></image>
+          <image class='picker-arrow' src='/images/icon/arrow.png'></image>
         </view>
       </view>
       
       <view class='hr'></view>
       <view class='quantity-container'>
-        <text class='price'>￥{{product.price}}</text>
-        <text class='quantity'>库存：{{product.quantity}}</text>
-      </view>
-    </view>
-    <view class='hr2'></view>    
-  </view>
-
-
-  <view class='info'>
-  
-  </view>
-
-  <view class='title-container'>
-    <text class='title'>商品信息</text>
-  </view>
-
-  
+        <view class='price-quantity-container'>
+          <text class='price'>￥{{product.price}}</text>
+          <text class='quantity'>库存：{{product.quantity}}</text>
+        </view>
         
-  <view class='introduction'>
-    <text>{{product.description}}</text>
+        <view class='cart-text-container'>
+          <text class='cart-text'>加入购物车</text>
+          <image class='down-cart' src='/images/icon/cart.png'></image>
+        </view>        
+      </view>
+    </view>   
+  </view>  
+      
+  <view class='tab-container'>
+    <block wx:for="{{['商品详情' ,'商家信息']}}" wx:key="">
+      <view class="tabs-item {{currentTabsIndex==index?'selected':''}}" bindtap="onTabsItemTap" data-index="{{index}}">
+        {{item}}
+      </view>
+    </block>
   </view>
-  <view class='hr2'></view> 
-  
 
-  <view class='title-container'>
-    <text class='title'>商品评价</text>
-  </view> 
+  <view hidden='{{currentTabsIndex != 0}}' class='goods-info'>
+    {{product.description}}
+  </view>
 
-  <!-- <view class='comment'>       
-    <view class='avatar'>
-      <image src='/images/icon/user@default.png' class='avatar-image'></image>
-      <text class='avatar-name'>张先森</text>
-    </view>
-    <text class='comment-text'>五星好评，商家很用心，东西很满意</text>
-  </view> -->
+  <view hidden='{{currentTabsIndex != 1}}' class='seller-info'>
+    <text>商家信息</text>
+  </view>
 </view>
 
