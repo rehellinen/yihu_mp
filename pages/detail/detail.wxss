@@ -18,13 +18,29 @@
   right: 20rpx;
   background-color: white;
   border-radius:50px;
-  opacity: 0.95;
 }
 
-.cart image{
+.cart-icon{
   width: 60rpx;
   height: 60rpx;
   margin: 15rpx;
+}
+
+.cart-count-container{
+  width: 20px;
+  height: 20px;
+  background-color: #a9936e;
+  border-radius:50px;
+  text-align: center;
+  line-height: 18px;
+  position: fixed;
+  top: 15px;
+  right: 8px;
+  color: white;
+}
+
+.cart-selected-count{
+  font-size: 13px;  
 }
 
 .head-image{

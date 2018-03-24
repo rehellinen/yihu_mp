@@ -11,14 +11,14 @@ class CartModel extends Base{
   // goods->商品；count->数量
   add(goods, count){
     let cartData = this.getCartDataFromLocal()
-    let isExisted = this._isExistedThatOne(item.id, cartData)
+    let isExisted = this._isExistedThatOne(goods.id, cartData)
 
     if(isExisted.index == -1){
-      item.count = count
-      item.selected = true
-      cartData.push(item)
+      goods.count = count
+      goods.selected = true
+      cartData.push(goods)
     }else{
-      cartData[isHasInfo.index].count += count
+      cartData[isExisted.index].count += count
     }
 
     wx.setStorageSync(this._storageKeyName, cartData)
@@ -38,7 +38,7 @@ class CartModel extends Base{
   _isExistedThatOne(id, cartData){
     let item, result = {index : -1}
     for(let i = 0; i < cartData.length; i++){
-      item = arr[i]
+      item = cartData[i]
       if(item.id == id){
         result = {
           data: item,
@@ -48,6 +48,23 @@ class CartModel extends Base{
       }
     }
     return result
+  }
+
+  // 获取购物车所有商品数量
+  // flag为true时考虑商品的选中状态
+  getCartTotalCount(flag = false){
+    let cartData = this.getCartDataFromLocal()
+    let count = 0
+    for(let i = 0; i < cartData.length; i++){
+      if(flag){
+        if(cartData[i].selected == true){
+          count += cartData[i].count
+        }
+      }else{
+        count += cartData[i].count
+      }      
+    }
+    return count
   }
 }
 

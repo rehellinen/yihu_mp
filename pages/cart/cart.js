@@ -1,66 +1,39 @@
-// pages/cart/cart.js
-Page({
+import { CartModel } from './cart-model.js'
+let cart = new CartModel()
 
-  /**
-   * 页面的初始数据
-   */
+Page({
   data: {
   
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-  
+    let cartData = cart.getCartDataFromLocal()
+    let cartDetailInfo = this._calTotalCountAndPrice(cartData)
+
+    this.setData({
+      selectedCount: cartDetailInfo.selectedCount,
+      cartData: cartData,
+      selectedType: cartDetailInfo.selectedType,
+      totalPrice: cartDetailInfo.totalPrice
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
+  // 计算选择的商品总数以及总金额
+  _calTotalCountAndPrice(cartData){
+    let totalPrice = 0, selectedCount = 0, selectedType = 0
+    let multiple = 100
+    for(let i = 0; i < cartData.length; i++){
+      if (cartData[i].selected){
+        totalPrice += (cartData[i].count * multiple) * (cartData[i].price * multiple)
+        selectedCount += cartData[i].count
+        selectedType ++
+      }
+    }
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+    return{
+      selectedCount: selectedCount,
+      selectedType: selectedType,
+      totalPrice: totalPrice / (multiple * multiple)
+    }
   }
 })
