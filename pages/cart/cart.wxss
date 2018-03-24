@@ -106,7 +106,7 @@
     color: #454553;
     font-size: 27rpx;
     box-sizing: border-box;
-    padding-top: 6rpx;
+    padding-top: 6.5rpx;
 }
 
 .cart-item-count .plus-btn{
@@ -142,10 +142,12 @@
     display: flex;
     align-items: center;
 }
+
 .all-select{
     font-size: 28rpx;
     width: 40%;
 }
+
 .all-select image{
     height: 48rpx;
     width: 48rpx;
@@ -164,6 +166,7 @@
     justify-content: center;
     height: 32rpx;
 }
+
 .accounts-btn{
     width: 50%;
     font-size: 28rpx;
@@ -171,14 +174,16 @@
 }
 
 .price-text{
-    width: 20%;
+    width: 30%;
     font-size: 28rpx;
     margin-left: 10rpx;
 
 }
+
 .arrow-icon{
-    width: 30%;
+    width: 20%;
 }
+
 .arrow-icon image{
     height: 32rpx;
     width: 32rpx;

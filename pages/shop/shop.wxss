@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center
 }
 
 .header-image{
@@ -70,12 +69,12 @@
 }
 
 .right1-image{
-  width: 280rpx;
+  width: 285rpx;
   height: 155rpx;
 }
 
 .right2-image{
-  width: 280rpx;
+  width: 285rpx;
   height: 163rpx;
   margin-top: 5rpx;
 }

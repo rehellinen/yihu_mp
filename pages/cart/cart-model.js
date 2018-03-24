@@ -33,23 +33,6 @@ class CartModel extends Base{
     return res;
   }
 
-  // 根据商品id判断此商品是否存在于缓存中
-  // id->商品id；cartData->缓存中购物车商品
-  _isExistedThatOne(id, cartData){
-    let item, result = {index : -1}
-    for(let i = 0; i < cartData.length; i++){
-      item = cartData[i]
-      if(item.id == id){
-        result = {
-          data: item,
-          index: i
-        }
-        break
-      }
-    }
-    return result
-  }
-
   // 获取购物车所有商品数量
   // flag为true时考虑商品的选中状态
   getCartTotalCount(flag = false){
@@ -65,6 +48,36 @@ class CartModel extends Base{
       }      
     }
     return count
+  }
+
+  // 根据商品id判断此商品是否存在于缓存中
+  // id->商品id；cartData->缓存中购物车商品
+  _isExistedThatOne(id, cartData) {
+    let item, result = { index: -1 }
+    for (let i = 0; i < cartData.length; i++) {
+      item = cartData[i]
+      if (item.id == id) {
+        result = {
+          data: item,
+          index: i
+        }
+        break
+      }
+    }
+    return result
+  }
+
+  // 修改商品数量
+  // id->商品id；count->数量
+  _updateCount(id, count){
+    let cartData = this.getCartDataFromLocal()
+    let isExisted = this._isExistedThatOne()
+    if(isExisted.index != -1){
+      if (isExisted.data.count > 1){
+        cartData[isExisted.index].count += count
+      }
+    }
+    wx.setStorageSync(this._storageKeyName, cartData)
   }
 }
 
