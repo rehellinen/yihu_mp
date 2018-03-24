@@ -4,20 +4,48 @@
       <block wx:for="{{cartData}}">
         <view class='cart-item'>
           <view class='cart-item-main'>
-
             <view class='cart-item-checkbox'>
               <image wx:if="{{item.selected}}" src='/images/icon/circle@selected.png'>
               </image>
               <image wx:else src='/images/icon/circle@noselected.png'>
               </image>
             </view>
-
+            <view class='cart-item-img'>
+              <image class='goods-image' src='{{item.photo}}' mode='aspectFill'></image>
+            </view>
+            <view class='cart-item-word'>
+              <view class='title-box'>
+                <text>{{item.name}}</text>
+                <text>￥{{item.price}}</text>
+              </view>
+              <view class='bottom-box'>
+                <view class='cart-item-count'>
+                  <view class='minus-btn'>-</view>
+                  <view class='count'>{{item.count}}</view>
+                  <view class='plus-btn'>+</view>
+                </view> 
+                <view class='delete'>x</view> 
+              </view>
+            </view>
           </view>
         </view>
       </block>
     </view>
 
     <view class='footer-account-box'>
+      <view class="all-select" ontap="toggleSelectAll" data-status="{{selectedType==cartData.length?'true':'false'}}">
+        <image wx:if="{{selectedTypeCounts==cartData.length}}" class="title-icon" src="/images/icon/all@selected.png"></image>
+        <image wx:else class="title-icon" src="/images/icon/all.png"></image>
+        <text>全选({{selectedCount}})</text>
+      </view>
+      <view class="all-price-submit {{account==0?'disabled':''}}" bindtap="submitOrder">
+        <view class="accounts-btn">下单</view>
+        <view class="price-text">￥{{account}}</view>
+        <view class="arrow-icon">
+          <image wx:if="{{account==0}}" src="/images/icon/arrow@grey.png"></image>
+          <image wx:else src="/images/icon/arrow.png"></image>
+        </view>
+      </view>
     </view>
   </block>
   <view wx:else class='no-data'>您还没有添加任何商品</view>
