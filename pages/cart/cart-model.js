@@ -24,6 +24,28 @@ class CartModel extends Base{
     wx.setStorageSync(this._storageKeyName, cartData)
   }
 
+  plusCount(id){
+    this._updateCount(id, 1)
+  }
+
+  minusCount(id){
+    this._updateCount(id, -1)
+  }
+
+  // delete(ids){
+  //   if(!(ids instanceof Array)){
+  //     ids = [ids]
+  //   }
+  //   let cartData = this.getCartDataFromLocal();
+  //   for(let i = 0; i < ids.length; i++){
+  //     let isExisted = this._isExistedThatOne(ids[i], cartData)
+  //     if(isExisted.index != -1){
+  //       cartData.splice(isExisted.index, 1)
+  //     }
+  //   }
+  //   wx.setStorageSync(this._storageKeyName, cartData)
+  // }
+
   // 从缓存中获取所有购物车商品
   getCartDataFromLocal(){
     let res = wx.getStorageSync(this._storageKeyName)
@@ -71,7 +93,7 @@ class CartModel extends Base{
   // id->商品id；count->数量
   _updateCount(id, count){
     let cartData = this.getCartDataFromLocal()
-    let isExisted = this._isExistedThatOne()
+    let isExisted = this._isExistedThatOne(id, cartData)
     if(isExisted.index != -1){
       if (isExisted.data.count > 1){
         cartData[isExisted.index].count += count

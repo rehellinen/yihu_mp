@@ -48,5 +48,11 @@ Page({
     this.setData({      
       cartSelectedCount: cart.getCartTotalCount()
     })
+  },
+
+  toCartTap(){
+    wx.switchTab({
+      url: '../cart/cart',
+    })
   }
 })

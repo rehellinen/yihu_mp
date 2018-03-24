@@ -1,7 +1,7 @@
 <view class='container'>
   <view class='detail'>
     <view class="cart-container">
-      <view class="cart">
+      <view class="cart" bindtap='toCartTap'>
         <image class="cart-icon" src="/images/icon/cart.png"></image>
         <view class='cart-count-container'>
           <text class='cart-selected-count'>{{cartSelectedCount}}</text> 

@@ -8,7 +8,7 @@ Page({
 
   onLoad: function (options) {
     this._loadData();
-  },
+  },  
 
   // 加载所有数据
   _loadData : function(callBack) {

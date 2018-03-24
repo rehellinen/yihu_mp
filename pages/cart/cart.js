@@ -18,13 +18,15 @@ Page({
     })
   },  
 
-  // 1. 修改UI样式
-  // 2. 修改缓存数据
+  onHide() {
+    wx.setStorageSync(cart._storageKeyName, this.data.cartData)
+  },
+
   selectTap(event){
     let id = event.currentTarget.dataset.id
     let selected = event.currentTarget.dataset.selected    
     let index = this._getIndexByID(id)
-    // 修改UI样式
+
     this.data.cartData[index].selected = !selected
     this._updateCartData()
   },
@@ -43,7 +45,24 @@ Page({
     let type = event.currentTarget.dataset.type
     let index = this._getIndexByID(id)
     let count = 1
-    if()
+
+    if(type == 'plus'){
+      cart.plusCount(id)      
+    }else{
+      count = -1
+      cart.minusCount(id)
+    }
+    
+    this.data.cartData[index].count += count
+    this._updateCartData()
+  },
+
+  delete(event){
+    let id = event.currentTarget.dataset.id
+    let index = this._getIndexByID(id)
+    this.data.cartData.splice(index, 1)
+    this._updateCartData()
+    // cart.delete(id)
   },
   
   // 更新购物车页面的数据
