@@ -16,12 +16,12 @@
           <text class='name'>{{product.name}}</text>
           <view class='subname'><text>{{product.subtitle}}</text></view>
         </view>        
-        <view class='picker'> 
+        <view class="picker {{product.quantity == 0 ? 'disabled' : 'normal'}}"> 
           <picker range="{{countArray}}" bindchange='pickerchange' 
-          class="{{product.quantity == 0 ? 'picker-disabled' : ''}}" 
+           
           disabled='{{product.quantity == 0 ? true : false}}'>
             <text>数量</text>
-            <text class='selected-count'>{{selectedCount}}</text>
+            <text>{{selectedCount}}</text>
             <image class='picker-arrow' src='/images/icon/arrow.png'></image>
           </picker>
         </view>        
@@ -34,15 +34,15 @@
           <text class='quantity'>库存：{{product.quantity}}</text>
         </view>
         
-        <view class="cart-text-container {{product.quantity == 0 ? 'picker-disabled' : ''}}" bindtap="addCartTap">
-          <text class='cart-text'>加入购物车</text>
+        <view class="cart-text-container {{product.quantity == 0 ? 'disabled' : 'normal'}}" bindtap="addCartTap">
+          <text>加入购物车</text>
           <image class='down-cart' src='/images/icon/cart.png'></image>
         </view>        
       </view>
     </view>   
   </view>  
       
-  <view class='tab-container'>
+  <view class="tab-container">
     <block wx:for="{{['商品详情' ,'商家信息']}}" wx:key="">
       <view class="tabs-item {{currentTabsIndex==index?'selected':''}}" bindtap="onTabsItemTap" data-index="{{index}}">
         {{item}}
