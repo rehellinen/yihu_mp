@@ -13,14 +13,14 @@
     <block wx:for="{{shop}}" wx:key="">
     <view class='shop-container' bindtap='toShopDetail' data-id='{{item.id}}'>
       <view class='photo-text-container'>
-        <image class='shop-avatar' src='/images/theme/shop@avatar.png'></image>
+        <image class='shop-avatar' src='{{item.avatar_image_id}}'></image>
         <text class='avatar-text'>{{item.name}}</text>
         <image class='come-image' src='/images/theme/shop@come.png'></image>
       </view>
 
       <view class='shop-photos'>
         <view class='left'>
-          <image class='left-image' src='{{item.image_id}}' mode='aspectFill' style='width:700rpx;height:400rpx;'></image>
+          <image class='left-image' src='{{item.main_image_id}}' mode='aspectFill' style='width:700rpx;height:400rpx;'></image>
         </view>
         <!-- <view class='right'>
           <image class='right1-image' src='/images/theme/shop@right1.jpg'></image>
