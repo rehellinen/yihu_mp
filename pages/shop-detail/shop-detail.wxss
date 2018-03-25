@@ -2,3 +2,18 @@
   width: 100%;
   background-color: #F9F9F9;
 }
+
+.home{
+  width: 750rpx;
+  background-color: white;
+}
+
+.all{
+  width: 750rpx;
+  background-color: white;
+}
+
+.new{
+  width: 750rpx;
+  background-color: white;
+}
