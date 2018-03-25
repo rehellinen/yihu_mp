@@ -61,10 +61,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "shop-detail",
 					"pathName": "pages/shop-detail/shop-detail",
-					"query": ""
+					"query": "id=1"
 				}
 			]
 		}

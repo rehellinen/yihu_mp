@@ -1,6 +1,6 @@
 <view class='info'>
-  <image class='header-image' src='/images/theme/personal@header.jpg'></image>  
-  <image class='avatar' src='/images/theme/personal@avatar.jpg'></image>  
-  <text class='avatar-name'>rehellinen</text>  
-  <text class='avatar-quote'>生活就像海洋，只有意志坚强的人才能到达彼岸</text> 
+  <image class='header-image' src='{{top_image}}'></image>  
+  <image class='avatar' src='{{avatar}}'></image>  
+  <text class='avatar-name'>{{name}}</text>  
+  <text class='avatar-quote'>{{quote}}</text> 
 </view>
