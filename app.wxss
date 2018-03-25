@@ -11,3 +11,14 @@
 .disabled{
     pointer-events: none;
 }
+
+.hr{
+  height: 1px;
+  background-color: #e3e3e3;
+  width: 750rpx;
+  margin: 25rpx 0;
+}
+
+.switch-tap-width{
+  width: 100%;
+}

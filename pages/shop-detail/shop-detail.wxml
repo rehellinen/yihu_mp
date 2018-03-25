@@ -1,0 +1,9 @@
+<!--pages/shop-detail/shop-detail.wxml--> 
+<view class='container shop-detail-container'>
+  <image-top></image-top>
+  <switch-tab tab="{{['店铺首页', '全部商品', '新品上架']}}" class="switch-tap-width">
+    <view slot="店铺首页">1</view>
+    <view slot="全部商品">2</view>
+    <view slot="新品上架">3</view>
+  </switch-tab>
+</view>

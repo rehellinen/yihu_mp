@@ -4,7 +4,8 @@
     "pages/shop/shop",
     "pages/cart/cart",
     "pages/personal/personal",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/shop-detail/shop-detail"
   ],
   "window": {
     "navigationBarTitleText": "跳蚤市场",

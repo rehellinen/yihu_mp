@@ -1,0 +1,16 @@
+<!--pages/component/switch-tab/switch-tab.wxml-->
+<view class="tab-container">
+  <block wx:for="{{tab}}" wx:key="">
+    <view class="tabs-item {{currentTabsIndex == index?'selected':''}}" bindtap="onTabsItemTap" data-index="{{index}}">
+       {{item}}
+    </view>    
+  </block>
+</view>
+<view>
+  <block wx:for="{{tab}}" wx:key="">
+    <view hidden="{{currentTabsIndex != index}}">
+      <slot name="{{item}}"></slot>
+    </view>    
+  </block>
+</view>
+

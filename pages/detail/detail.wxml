@@ -21,8 +21,9 @@
            
           disabled='{{product.quantity == 0 ? true : false}}'>
             <text>数量</text>
-            <text>{{selectedCount}}</text>
-            <image class='picker-arrow' src='/images/icon/arrow.png'></image>
+            <text class='selected-count'>{{selectedCount}}</text>
+            <image wx:if="{{product.quantity != 0}}" class='picker-arrow' src='/images/icon/arrow@downOrange.png'></image>
+            <image wx:else class='picker-arrow' src='/images/icon/arrow@downGrey.png'></image>
           </picker>
         </view>        
       </view>
@@ -36,26 +37,16 @@
         
         <view class="cart-text-container {{product.quantity == 0 ? 'disabled' : 'normal'}}" bindtap="addCartTap">
           <text>加入购物车</text>
-          <image class='down-cart' src='/images/icon/cart.png'></image>
+          <image wx:if="{{product.quantity != 0}}" class='down-cart' src='/images/icon/cart.png'></image>
+          <image wx:else class='down-cart' src='/images/icon/cart@grey.png'></image>
         </view>        
       </view>
     </view>   
   </view>  
-      
-  <view class="tab-container">
-    <block wx:for="{{['商品详情' ,'商家信息']}}" wx:key="">
-      <view class="tabs-item {{currentTabsIndex==index?'selected':''}}" bindtap="onTabsItemTap" data-index="{{index}}">
-        {{item}}
-      </view>
-    </block>
-  </view>
 
-  <view hidden='{{currentTabsIndex != 0}}' class='goods-info'>
-    {{product.description}}
-  </view>
-
-  <view hidden='{{currentTabsIndex != 1}}' class='seller-info'>
-    <text>商家信息</text>
-  </view>
+  <switch-tab tab="{{['商品信息', '商家信息']}}" class="switch-tap-width">
+    <view slot="商品信息" class='goods-info'>{{product.description}}</view>
+    <view slot="商家信息" class='seller-info'><text>商家信息</text></view> 
+ </switch-tab>
 </view>
 

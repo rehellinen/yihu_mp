@@ -4,43 +4,6 @@
   flex-direction: column;
 }
 
-.info
-{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.header-image
-{
-  width: 750rpx;
-  height: 280rpx;
-}
-
-.avatar
-{
-  width: 150rpx;
-  height: 150rpx;
-  position: absolute;
-  top: 215rpx;  
-  border-radius:50%;
-  display: block;
-}
-
-.avatar-name
-{
-  margin-top: 110rpx; 
-  color: #cda55f;
-  font-size: 23px;
-}
-
-.avatar-quote
-{
-  margin-top: 10rpx; 
-  color: #d0d0d0;
-  font-size: 22rpx;
-}
-
 .elec-container
 {
   margin-top: 10rpx;

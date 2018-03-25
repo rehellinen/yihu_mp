@@ -1,11 +1,6 @@
 <view class='container'>
   <!-- 个人信息栏 -->
-  <view class='info'>
-    <image class='header-image' src='/images/theme/personal@header.jpg'></image>  
-    <image class='avatar' src='/images/theme/personal@avatar.jpg'></image>  
-    <text class='avatar-name'>rehellinen</text>  
-    <text class='avatar-quote'>生活就像海洋，只有意志坚强的人才能到达彼岸</text> 
-  </view>
+  <image-top></image-top>
   <!-- 个人信息栏 -->  
 
   <!-- 电费栏 -->
