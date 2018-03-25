@@ -38,7 +38,7 @@ Page({
 
   addCartTap(){
     let tempObj = {}
-    let keys = ['id', 'name', 'photo', 'price']
+    let keys = ['id', 'name', 'image_id', 'price']
     for (let key in this.data.product){
       if(keys.indexOf(key) >= 0){
         tempObj[key] = this.data.product[key]

@@ -5,7 +5,7 @@
   <swiper class='banner' indicator-dots='{{false}}' autoplay='{{true}}' interval='5000'>
     <block wx:for="{{banner}}" wx:key=""> 
       <swiper-item>
-        <image src="{{item.photo}}"></image> 
+        <image src="{{item.image_id}}"></image> 
       </swiper-item>        
     </block> 
   </swiper>  
@@ -16,12 +16,9 @@
   <view class='theme'>
     <text class='theme-text'>精选主题</text>
     <view class='theme-photo-container'>
-      <image src='/images/theme/food.png'></image>
-      <image src='/images/theme/book.png'></image>
-    </view>
-    <view class='theme-photo-container'>
-      <image src='/images/theme/electronic.png'></image>
-      <image src='/images/theme/daily.png'></image>
+      <block wx:for="{{theme}}" wx:key="">
+        <image src='{{item.image_id}}'></image>
+      </block>
     </view>
   </view>
   <!-- 精选主题 -->
@@ -36,7 +33,7 @@
     <view class='find-detail-container'>
       <block wx:for="{{goods}}" wx:key=""> 
         <view class='find-detail' bindtap='detailTap' data-id='{{item.id}}'>
-          <image class='find-detail-image' src='{{item.photo}}' mode='aspectFill'></image>
+          <image class='find-detail-image' src='{{item.image_id}}' mode='aspectFill'></image>
           <text class='find-detail-text'>{{item.name}}</text>
           <view class='price-quantity'>
             <text class='price'>${{item.price}}</text>

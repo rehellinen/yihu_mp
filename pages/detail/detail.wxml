@@ -9,7 +9,7 @@
       </view>
     </view>
 
-    <image src='{{product.photo}}' class='head-image'></image>
+    <image src='{{product.image_id}}' class='head-image' mode='aspectFill'></image>
     <view class='info'>
       <view class='info-up'>
         <view class='name-container'>

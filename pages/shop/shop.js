@@ -1,23 +1,22 @@
-// pages/shop/shop.js
+import { ShopModel } from './shop-model.js'
+let shop = new ShopModel()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
   
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    console.log(1)
+    shop.getShop( (data) => {
+      this.setData({
+        shop: data
+      })
+    })
   },
 
   toShopDetail(event){
+    let id = event.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/shop-detail/shop-detail',
+      url: '/pages/shop-detail/shop-detail?id=' + id,
     })
   }
 })

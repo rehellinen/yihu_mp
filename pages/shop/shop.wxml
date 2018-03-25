@@ -1,73 +1,34 @@
 <!-- 总view -->
-<view class='container'>
+<view class='container foot-container'>
   <!-- 头图  -->
-  <image class='header-image' src='/images/theme/shop@header.png'></image>
-  <image class='recommend-image' src='/images/theme/recommend.png'></image>
+  <view class='header-image-container'>
+    <image class='header-image' src='/images/theme/shop@header.png'></image>
+  </view>  
+  <view class='recommend-image-container'>
+    <image class='recommend-image' src='/images/theme/recommend.png'></image>
+  </view>  
   <!-- 头图  -->
 
     <!-- 商店列表  -->
-    <view class='shop-container' bindtap='toShopDetail'>
+    <block wx:for="{{shop}}" wx:key="">
+    <view class='shop-container' bindtap='toShopDetail' data-id='{{item.id}}'>
       <view class='photo-text-container'>
         <image class='shop-avatar' src='/images/theme/shop@avatar.png'></image>
-        <text class='avatar-text'>暖暖礼品店</text>
+        <text class='avatar-text'>{{item.name}}</text>
         <image class='come-image' src='/images/theme/shop@come.png'></image>
       </view>
 
       <view class='shop-photos'>
         <view class='left'>
-          <image class='left-image' src='/images/theme/shop@left1.jpg'></image>
+          <image class='left-image' src='{{item.image_id}}' mode='aspectFill' style='width:700rpx;height:400rpx;'></image>
         </view>
-        <view class='right'>
+        <!-- <view class='right'>
           <image class='right1-image' src='/images/theme/shop@right1.jpg'></image>
           <image class='right2-image' src='/images/theme/shop@right2.jpg'></image>
-        </view>        
+        </view>         -->
       </view>      
-    </view>
-    <view class='hr'></view>
-    <!-- 商店列表  -->
-
-        <!-- 商店列表  -->
-    <view class='shop-container' bindtap='toShopDetail'>
-      <view class='photo-text-container'>
-        <image class='shop-avatar' src='/images/theme/shop@avatar.png'></image>
-        <text class='avatar-text'>暖暖礼品店</text>
-        <image class='come-image' src='/images/theme/shop@come.png'></image>
-      </view>
-
-      <view class='shop-photos'>
-        <view class='left'>
-          <image class='left-image' src='/images/theme/shop@left1.jpg'></image>
-        </view>
-        <view class='right'>
-          <image class='right1-image' src='/images/theme/shop@right1.jpg'></image>
-          <image class='right2-image' src='/images/theme/shop@right2.jpg'></image>
-        </view>        
-      </view>      
-    </view>
-    <view class='hr'></view>
-    <!-- 商店列表  -->
-
-        <!-- 商店列表  -->
-    <view class='shop-container' bindtap='toShopDetail'>
-      <view class='photo-text-container'>
-        <image class='shop-avatar' src='/images/theme/shop@avatar.png'></image>
-        <text class='avatar-text'>暖暖礼品店</text>
-        <image class='come-image' src='/images/theme/shop@come.png'></image>
-      </view>
-
-      <view class='shop-photos'>
-        <view class='left'>
-          <image class='left-image' src='/images/theme/shop@left1.jpg'></image>
-        </view>
-        <view class='right'>
-          <image class='right1-image' src='/images/theme/shop@right1.jpg'></image>
-          <image class='right2-image' src='/images/theme/shop@right2.jpg'></image>
-        </view>        
-      </view>      
-    </view>
-    <view class='hr'></view>
-    <!-- 商店列表  -->
-
-
+    </view>    
+    </block>
+    <!-- 商店列表  --> 
 </view>
 <!-- 总view -->

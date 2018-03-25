@@ -1,9 +1,3 @@
-@import '/app.wxss';
-
-.index-container{
-  
-}
-
 /* banner */
 .banner{
   width: 750rpx;
@@ -30,14 +24,16 @@
 }
 
 .theme-photo-container{
+  display: flex;
   flex-direction: row;
+  flex-wrap:wrap ;
 }
 
 .theme-photo-container image{
   width: 365rpx;
   height: 180rpx;
-  margin-left: 3rpx;
-  margin-right: 4rpx;
+  margin-left: 8rpx;
+  margin-top: 8rpx;
 }
 /* theme */
 

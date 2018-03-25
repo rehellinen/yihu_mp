@@ -1,24 +1,44 @@
+.foot-container{
+  background-color: #F9F9F9;
+}
+
+.header-image-container{
+  width: 100%;
+  height: 415rpx;
+  background-color: white;
+}
+
 .header-image{
   width: 100%;
   height: 415rpx;
 }
 
+.recommend-image-container{
+  width: 750rpx;
+  height: 170rpx;
+  background-color: white;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
 .recommend-image{
-  margin: 0 auto;
   width: 250rpx;
   height: 153rpx;
-  margin-top: 5px;
-  margin-bottom: 20px;
 }
 
 .shop-container{
   display: flex;
   flex-direction: column;
-  width: 710rpx;
+  width: 750rpx;
+  margin-bottom: 20rpx;
+  background-color: white;
+  padding: 10rpx 0;
 }
 
 .photo-text-container{
-  height: 70rpx;  
+  height: 70rpx; 
+  margin: 0 25rpx; 
 }
 
 .shop-avatar{
@@ -41,6 +61,7 @@
 }
 
 .shop-photos{
+  margin: 0 25rpx; 
   display: flex;
   flex: row;
 }

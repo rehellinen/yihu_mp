@@ -24,6 +24,12 @@ Page({
         goods: data
       })
     })
+
+    index.getTheme( (data) => {
+      this.setData({
+        theme: data
+      })
+    })
   },
 
   detailTap(event){
