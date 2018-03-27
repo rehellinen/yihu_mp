@@ -1,23 +1,30 @@
 // pages/component/goods-list/goods-list.js
-Component({
-  /**
-   * 组件的属性列表
-   */
+Component({  
   properties: {
-
+    goods: Array,
+    kind: {
+      type: String,
+      value: 'goods'
+    }
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
 
   },
-
-  /**
-   * 组件的方法列表
-   */
+  
   methods: {
-
+    toGoodsDetail(event){
+      let kind = event.currentTarget.dataset.kind
+      let id = event.currentTarget.dataset.id
+      if(kind === 'goods'){
+        wx.navigateTo({
+          url: '/pages/detail/detail?kind=goods&id='+id,
+        })
+      }else{
+        wx.navigateTo({
+          url: '/pages/detail/detail?kind=oldGoods&id=' + id,
+        })
+      }
+    }
   }
 })

@@ -2,8 +2,13 @@
 <view class='container shop-detail-container'>
   <image-top top_image="{{shop.top_image_id}}" name="{{shop.name}}" quote="{{shop.major}}" avatar="{{shop.avatar_image_id}}"></image-top>
   <switch-tab tab="{{['店铺首页', '全部商品', '新品上架']}}" class="switch-tap-width">
-    <view slot="店铺首页" class='home'>1</view>
-    <view slot="全部商品" class='all'>2</view>
-    <view slot="新品上架" class='new'>3</view>
+    <view slot="店铺首页" class='home'>      
+    </view>
+    <view slot="全部商品" class='all'>
+      <goods-list goods="{{goods}}" kind="goods"></goods-list>
+    </view>
+    <view slot="新品上架" class='new'>
+      <goods-list goods="{{recentGoods}}" kind="goods"></goods-list>
+    </view>
   </switch-tab>
 </view>

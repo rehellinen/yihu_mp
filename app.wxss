@@ -22,3 +22,7 @@
 .switch-tap-width{
   width: 100%;
 }
+
+.theme-text-color{
+  color: #d99009;
+}

@@ -19,9 +19,9 @@ Page({
       })
     })
 
-    index.getGoods( (data) => {
+    index.getOldGoods( (data) => {
       this.setData({
-        goods: data
+        oldGoods: data
       })
     })
 

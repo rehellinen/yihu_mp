@@ -1,2 +1,24 @@
 <!--pages/component/goods-list/goods-list.wxml-->
-<text>pages/component/goods-list/goods-list.wxml</text>
+<view class='goods-list-container'>
+  <view class='choose-bar'>
+    <block wx:for="{{['分类', '销量', '价格']}}" wx:key="">
+      <view class='single-choose'>{{item}}</view>
+    </block>
+  </view>
+
+  <view class='goods-container'>
+    <block wx:for="{{goods}}" wx:key="">
+      <view class='single-goods' bindtap='toGoodsDetail' data-kind='{{kind}}' data-id='{{item.id}}'>
+        <image class='goods-image' src='{{item.image_id}}' mode='aspectFill'></image>
+        <view class='goods-text-container'>
+          <text class='name'>{{item.name}}</text>
+          <view>
+            <text class='price'>￥{{item.price}}</text>
+            <text class='sold'>数量：{{item.quantity}}</text>
+          </view>
+        </view>        
+      </view>
+    </block>
+  </view>
+
+</view>

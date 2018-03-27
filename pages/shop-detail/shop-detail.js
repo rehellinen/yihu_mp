@@ -12,5 +12,17 @@ Page({
         shop: data
       })
     })
+
+    shop.getGoodsByShopId(id, (data) => {
+      this.setData({
+        goods: data
+      })
+    })
+
+    shop.getRecentGoodsByShopId(id, (data) => {
+      this.setData({
+        recentGoods: data
+      })
+    })
   }
 })

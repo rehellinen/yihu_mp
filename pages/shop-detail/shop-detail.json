@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "switch-tab": "/pages/component/switch-tab/switch-tab",
-    "image-top": "/pages/component/image-top/image-top"
+    "image-top": "/pages/component/image-top/image-top",
+    "goods-list": "/pages/component/goods-list/goods-list"
   }
 }

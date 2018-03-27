@@ -31,7 +31,7 @@
     </view>
 
     <view class='find-detail-container'>
-      <block wx:for="{{goods}}" wx:key=""> 
+      <block wx:for="{{oldGoods}}" wx:key=""> 
         <view class='find-detail' bindtap='detailTap' data-id='{{item.id}}'>
           <image class='find-detail-image' src='{{item.image_id}}' mode='aspectFill'></image>
           <text class='find-detail-text'>{{item.name}}</text>

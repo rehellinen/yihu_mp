@@ -18,9 +18,9 @@ class Index extends Base
   }
 
   // 获取商品信息
-  getGoods(cb) {
+  getOldGoods(cb) {
     var param = {
-      url: 'goods',
+      url: 'oldGoods',
       callBack: function (data) {
         cb && cb(data.data);
       }

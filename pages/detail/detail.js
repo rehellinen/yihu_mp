@@ -14,12 +14,23 @@ Page({
 
   onLoad: function (options) {
     let id = options.id
-    detail.getDetail(id, (data) => {
-      this.setData({
-        product: data,
-        cartSelectedCount: cart.getCartTotalCount()
+    let kind = options.kind
+    if(kind == 'goods'){
+      detail.getGoodsDetail(id, (data) => {
+        this.setData({
+          product: data,
+          cartSelectedCount: cart.getCartTotalCount()
+        })
       })
-    })
+    }else{
+      detail.getOldGoodsDetail(id, (data) => {
+        this.setData({
+          product: data,
+          cartSelectedCount: cart.getCartTotalCount()
+        })
+      })
+    }
+    
   },
 
   onTabsItemTap(event){
