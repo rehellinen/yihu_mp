@@ -1,0 +1,65 @@
+.elec-container
+{
+  margin-top: 10rpx;
+  background-color: #fdfbfc;
+  width: 750rpx;
+  height: 185rpx;
+}
+
+.back-image
+{
+  width: 750rpx;
+  height: 185rpx;
+  position: absolute;
+}
+
+.elec-detail-container
+{
+  display: flex;
+  flex-direction: row;
+}
+
+.elec-detail
+{
+  position: absolute;
+  text-align: center;
+  width: 98%;
+  display: flex;
+  flex-direction: row;
+  height: 185rpx;
+}
+
+.surplus
+{
+  width: 49%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.surplus-text
+{
+  font-size: 22rpx;
+  z-index: 40;
+  color: #484848;
+  margin-top: 30rpx;
+}
+
+.surplus-num
+{
+  font-size: 50rpx;
+  z-index: 40;
+  color: #484848;
+  margin-top: 20rpx;
+}
+
+.line
+{
+  background-color: #d9d7d7;
+  width: 1.5px;
+  height: 80%;
+  margin-left: 49.5%;
+  margin-top: 2.5%;
+  z-index: 80;
+  position: absolute;
+}

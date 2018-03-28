@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "image-top": "/pages/component/image-top/image-top"
+    "image-top": "/pages/component/image-top/image-top",
+    "electricity": "/pages/component/electricity/electricity"
   }
 }

@@ -1,25 +1,10 @@
 <view class='container'>
   <!-- 个人信息栏 -->
-  <image-top></image-top>
+  <image-top avatar="{{avatar}}" name="{{name}}"></image-top>
   <!-- 个人信息栏 -->  
 
   <!-- 电费栏 -->
-  <view class='elec-container'>
-    <image class='back-image' src='/images/theme/personal@backElec.png'></image>
-    <view class='elec-detail'>
-      <view class='surplus'>
-        <text class='surplus-text'>剩余电量</text>
-        <text class='surplus-num'>106.7</text>
-      </view> 
-
-      <view class='line'></view>
-
-       <view class='surplus'>
-        <text class='surplus-text'>近三天用电</text>
-        <text class='surplus-num'>47.4</text>
-      </view>    
-    </view>
-  </view>
+  <electricity></electricity>
   <!-- 电费栏 -->
   
   <!-- 我的订单 -->
@@ -28,7 +13,7 @@
 
 
     <view>
-      <image class='line-image' src='/images/theme/line.jpg'></image>
+      <view class='hr'></view>
 
       <view class='detail-container'>
         <view class='detail-image-container'>
@@ -45,7 +30,7 @@
 
 
     <view>
-      <image class='line-image' src='/images/theme/line.jpg'></image>
+      <view class='hr'></view>
 
       <view class='detail-container'>
         <view class='detail-image-container'>
@@ -63,7 +48,7 @@
 
 
     <view>
-      <image class='line-image' src='/images/theme/line.jpg'></image>
+      <view class='hr'></view>
 
       <view class='detail-container'>
         <view class='detail-image-container'>
@@ -78,7 +63,7 @@
     </view>
   </view>
 
-  <image class='line-image-end' src='/images/theme/line.jpg'></image>
+  <view class='hr'></view>
   <!-- 我的订单 -->
 
 </view>
