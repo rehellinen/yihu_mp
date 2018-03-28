@@ -20,7 +20,7 @@
 
       <view class='shop-photos'>
         <view class='left'>
-          <image class='left-image' src='{{item.main_image_id}}' mode='aspectFill' style='width:700rpx;height:400rpx;'></image>
+          <image class='left-image' src='{{item.main_image_id.image_url}}' mode='aspectFill' style='width:700rpx;height:400rpx;'></image>
         </view>
         <!-- <view class='right'>
           <image class='right1-image' src='/images/theme/shop@right1.jpg'></image>

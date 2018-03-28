@@ -1,15 +1,15 @@
 <!--pages/component/goods-list/goods-list.wxml-->
 <view class='goods-list-container'>
-  <view class='choose-bar'>
+  <!-- <view class='choose-bar'>
     <block wx:for="{{['分类', '销量', '价格']}}" wx:key="">
       <view class='single-choose'>{{item}}</view>
     </block>
-  </view>
+  </view> -->
 
-  <view class='goods-container'>
+  <view class='goods-container' style="margin-top:5rpx;">
     <block wx:for="{{goods}}" wx:key="">
       <view class='single-goods' bindtap='toGoodsDetail' data-kind='{{kind}}' data-id='{{item.id}}'>
-        <image class='goods-image' src='{{item.image_id}}' mode='aspectFill'></image>
+        <image class='goods-image' src='{{item.image_id.image_url}}' mode='aspectFill'></image>
         <view class='goods-text-container'>
           <text class='name'>{{item.name}}</text>
           <view>
