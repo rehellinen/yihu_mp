@@ -20,24 +20,24 @@
   </view>
 
   <!--地址-->
-  <view class="order-address-info {{orderStatus!=0?'disabled':''}}" bindtap='editInfo'>
-    <block wx:if="{{addressInfo}}">
+  <view class="order-address-info" bindtap='editInfo'>
+    <block wx:if="{{isCompleted}}">
       <view class="contact-box">
         <view>
           <view class="contact">
               <view>
-                <image src="../../imgs/icon/user.png"></image>
-                <text class="val">{{addressInfo.name}}</text>
+                <image src="/images/icon/user.png"></image>
+                <text class="val">{{buyerInfo.name}}</text>
               </view>
               <view class="mobile-box">
-                <image src="../../imgs/icon/mobile.png"></image>
-                <text  class="val">{{addressInfo.mobile}}</text>
+                <image src="/images/icon/mobile.png"></image>
+                <text class="val">{{buyerInfo.telephone}}</text>
               </view>
           </view>
-          <view class="detail">{{addressInfo.totalDetail}}</view>
+          <view class="detail">{{buyerInfo.number}}</view>
         </view>
         <view class="contact-icon" wx:if="{{orderStatus==0}}">
-            <image src="../../imgs/icon/arrow@right.png"></image>
+            <image src="/images/icon/arrow@right.png"></image>
         </view>
       </view>
     </block>
@@ -77,7 +77,7 @@
     <view class="total-account">
       付款合计：￥{{totalPrice}}
     </view>
-    <view wx:if="{{orderStatus <= 1}}" class="pay {{!addressInfo ? 'disabled' : ''}}" ontap="pay">去付款</view>
+    <view class="pay {{isCompleted ? '' : 'disabled'}}" bindtap='pay'>去付款</view>
   </view>
   <!--结算-->
 </view>

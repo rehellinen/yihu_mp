@@ -79,8 +79,8 @@
     width: 100%;
 }
 
-.order-address-info,.order-basic-info{
-    padding:20rpx 40rpx;
+.order-basic-info{
+    padding:30rpx 0;
 }
 
 .order-basic-info{
@@ -106,19 +106,24 @@
     margin-left: 10rpx;
     color: #333;
 }
+
+
+/* 用户信息 */
 .order-address-info{
     margin-bottom: 20rpx;
     width: 100%;
+    padding:30rpx 0;
 }
 
 .contact-box{
     display: flex;
+    margin-left: 40rpx;
 }
 .contact-box>view:first-child{
     flex: 1;
 }
 .contact-icon{
-    flex-basis: 110rpx;
+    flex-basis: 100rpx;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -147,6 +152,8 @@
 }
 .contact .val{
     color:#333;
+    margin-left: 10rpx;
+    margin-top: 1rpx;
 }
 .contact-box .detail{
     color:#999999;

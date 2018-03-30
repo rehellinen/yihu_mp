@@ -32,20 +32,22 @@ class Base
       success: function(res){
         let code = res.statusCode.toString();
         let startChar = code.charAt(0);
-
         if(startChar == '2') {
           params.callBack && params.callBack(res.data.data);
         }else{
           if(code == '401'){
-            if(!noReFetch){
+            if (!noReFetch){
               that._reFetch(params)
-            }            
-          }
-          params.eCallBack && params.eCallBack(res.data)
+            }else{
+              params.eCallBack && params.eCallBack(res.data)
+            }                       
+          }else{
+            params.eCallBack && params.eCallBack(res.data)
+          }         
         }
       },
       fail: function(err){
-        
+        params.eCallBack && params.eCallBack(err)
       }
     })
   }

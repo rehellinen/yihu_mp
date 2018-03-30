@@ -17,7 +17,7 @@ Page({
 
   toEdit(event){
     wx.navigateTo({
-      url: '../edit-info/edit-info',
+      url: '../edit-info/edit-info?from=personal',
     })
   }
 })

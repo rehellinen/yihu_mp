@@ -7,9 +7,11 @@ Page({
   },
 
   onLoad: function (options) {
+    let navFrom = options.from
     editInfo.getBuyerInfo( (res) => {
       this.setData({
-        info: res
+        info: res,
+        navFrom: navFrom
       })
     })
   },
@@ -18,24 +20,23 @@ Page({
     let formValue = event.detail.value
     editInfo.updateBuyerInfo(formValue, (res) => {
       if(res.status == 90000){
-        this.showTip('', res.message)
-      }else{
-        this.showTip('成功', '更新个人信息成功', true)
+        this.showTips('', res.message)
+      }else{        
+        this.showTips('成功', '更新个人信息成功', true)
       }
     })    
   },
 
-  showTip(title, content, flag){
+  showTips(title, content){
+    let that = this
     wx.showModal({
       title: title,
       content: content,
       showCancel: false,
       success(res){
-        if(flag){
-          wx.switchTab({
-            url: '/pages/personal/personal',
-          })
-        }
+        wx.navigateBack({
+
+        })        
       }
     })
   }
