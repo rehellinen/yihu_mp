@@ -1,11 +1,13 @@
-import {CartModel} from '../cart/cart-model.js'
-import {EditInfoModel} from '../edit-info/edit-info-model.js'
+import { CartModel } from '../cart/cart-model.js'
+import { EditInfoModel } from '../edit-info/edit-info-model.js'
+import { OrderModel } from './order-model.js'
 let cart = new CartModel()
 let edit = new EditInfoModel()
+let order = new OrderModel()
 
 Page({
   data: {
-  
+    id: -1
   },
 
   // onLoad获取购物车选中的商品及其相关信息
@@ -62,7 +64,16 @@ Page({
       })
     }
     let that = this
-    order.doOrder()
+    order.placeOrder(orderInfo, (res) => {
+      if(res.pass){
+        let id = data.order_id
+        this.data.id = id
+        // this.data.fromCartFlag = false;
+        this._execPay(id)
+      }else{
+        this._orderFail(res)
+      }
+    })
   },
 
   // 对showModal方法进行封装

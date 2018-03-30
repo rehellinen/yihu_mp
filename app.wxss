@@ -16,7 +16,7 @@
 }
 
 .hr{
-  height: 1px;
+  height: 1rpx;
   background-color: #e3e3e3;
   width: 750rpx;
   margin: 25rpx 0;

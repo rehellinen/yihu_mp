@@ -14,7 +14,7 @@
 
   <!-- 精选主题 -->
   <view class='theme'>
-    <text class='theme-text'>精选主题</text>
+    <text class='theme-text'>精 选 主 题</text>
     <view class='theme-photo-container'>
       <block wx:for="{{theme}}" wx:key="">
         <image src='{{item.image_id}}'></image>

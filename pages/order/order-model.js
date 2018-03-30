@@ -26,3 +26,5 @@ class OrderModel extends Base{
     this.request(params)
   }
 }
+
+export { OrderModel }

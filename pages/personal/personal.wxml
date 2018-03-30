@@ -1,4 +1,4 @@
-<view class='container'>
+<view class='container personal-container'>
   <!-- 个人信息栏 -->
   <image-top avatar="{{avatar}}" name="{{name}}"></image-top>
   <view class='icon-container' bindtap='toEdit'>
@@ -7,66 +7,10 @@
   <!-- 个人信息栏 -->  
 
   <!-- 电费栏 -->
-  <!-- <electricity></electricity> -->
+  <!-- <electricity></electricity>  -->
   <!-- 电费栏 -->
-  
+
   <!-- 我的订单 -->
-  <view class='order'>
-    <image class='my-order-image' src='/images/theme/personal@order.png'></image>
-
-
-    <view>
-      <view class='hr'></view>
-
-      <view class='detail-container'>
-        <view class='detail-image-container'>
-          <image class='detail-image' src='/images/theme/shop@left1.jpg'></image>
-        </view>
-        <view class='two-text'>
-          <text class='name-text'>办公室小饰品</text>
-          <text class='status-text'>商家发货中</text>
-        </view>
-        <text class='price'>￥ 12.00</text>
-      </view>
-    </view>
-
-
-
-    <view>
-      <view class='hr'></view>
-
-      <view class='detail-container'>
-        <view class='detail-image-container'>
-          <image class='detail-image' src='/images/theme/shop@left1.jpg'></image>
-        </view>
-        <view class='two-text'>
-          <text class='name-text'>办公室小饰品</text>
-          <text class='status-text'>商家发货中</text>
-        </view>
-        <text class='price'>￥ 12.00</text>
-      </view>
-    </view>
-
-
-
-
-    <view>
-      <view class='hr'></view>
-
-      <view class='detail-container'>
-        <view class='detail-image-container'>
-          <image class='detail-image' src='/images/theme/shop@left1.jpg'></image>
-        </view>
-        <view class='two-text'>
-          <text class='name-text'>办公室小饰品</text>
-          <text class='status-text'>商家发货中</text>
-        </view>
-        <text class='price'>￥ 12.00</text>
-      </view>
-    </view>
-  </view>
-
-  <view class='hr'></view>
-  <!-- 我的订单 -->
+  <order-overview></order-overview>
 
 </view>
