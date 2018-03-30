@@ -1,4 +1,5 @@
 import {Config} from 'config.js';
+import {Token} from './token.js'
 
 class Base
 {
@@ -13,13 +14,13 @@ class Base
   // 2. type [http请求方式]
   // 3. data [请求时携带的参数]
   // 4. callBack [回调函数]
-  request(params){
+  request(params, noReFetch){
     var that = this;
     var url = this.baseUrl + params.url;
     if(!params.type) {
       params.type = 'GET';
     }
-    // 发起请求
+    
     wx.request({
       url: url,
       data: params.data,
@@ -29,15 +30,30 @@ class Base
         'token': wx.getStorageSync('token')
       },
       success: function(res){
-        var code = res.statusCode.toString();
-        var startChar = code.charAt(0);
+        let code = res.statusCode.toString();
+        let startChar = code.charAt(0);
+
         if(startChar == '2') {
-          params.callBack && params.callBack(res.data.data.data);
+          params.callBack && params.callBack(res.data.data);
+        }else{
+          if(code == '401'){
+            if(!noReFetch){
+              that._reFetch(params)
+            }            
+          }
+          params.eCallBack && params.eCallBack(res.data)
         }
       },
       fail: function(err){
         
       }
+    })
+  }
+
+  _reFetch(params){
+    let token = new Token()
+    token.getTokenFromServer( (token) => {
+      this.request(params, true)
     })
   }
 };

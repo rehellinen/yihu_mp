@@ -22,6 +22,12 @@ Page({
     wx.setStorageSync(cart._storageKeyName, this.data.cartData)
   },
 
+  submitOrder(event){
+    wx.navigateTo({
+      url: '../order/order?totalPrice=' + this.data.totalPrice + '&from=cart',
+    })
+  },
+
   selectTap(event){
     let id = event.currentTarget.dataset.id
     let selected = event.currentTarget.dataset.selected    

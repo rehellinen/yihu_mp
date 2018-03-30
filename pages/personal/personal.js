@@ -13,5 +13,11 @@ Page({
         name: res.nickName
       })
     })
+  },
+
+  toEdit(event){
+    wx.navigateTo({
+      url: '../edit-info/edit-info',
+    })
   }
 })

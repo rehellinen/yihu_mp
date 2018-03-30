@@ -1,10 +1,13 @@
 <view class='container'>
   <!-- 个人信息栏 -->
   <image-top avatar="{{avatar}}" name="{{name}}"></image-top>
+  <view class='icon-container' bindtap='toEdit'>
+    <image class='icon' src='/images/icon/edit.png'></image>
+  </view>
   <!-- 个人信息栏 -->  
 
   <!-- 电费栏 -->
-  <electricity></electricity>
+  <!-- <electricity></electricity> -->
   <!-- 电费栏 -->
   
   <!-- 我的订单 -->

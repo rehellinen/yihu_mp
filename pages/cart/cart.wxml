@@ -11,7 +11,7 @@
               </image>
             </view>
             <view class='cart-item-img'>
-              <image class='goods-image' src='{{item.image_id}}' mode='aspectFill'></image>
+              <image class='goods-image' src='{{item.image_id.image_url}}' mode='aspectFill'></image>
             </view>
             <view class='cart-item-word'>
               <view class='title-box'>

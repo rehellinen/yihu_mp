@@ -4,6 +4,23 @@
   flex-direction: column;
 }
 
+.icon-container{
+  position: absolute;
+  width: 90rpx;
+  height: 90rpx;
+  top: 30rpx;
+  right: 20rpx;
+   background-color: white; 
+  border-radius:50px;
+   opacity: 0.8; 
+}
+
+.icon{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 20rpx;
+}
+
 .order
 {
   display: flex;

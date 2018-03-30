@@ -1,11 +1,14 @@
+
+
 .container{
   display: flex;
   flex-direction: column;
-  color: #494949;
+  color: #6D6D6D;
   font-family: MicroSoft Yahei;
   font-size: 18px;
   align-items: center;
   justify-content: space-between;
+  /* box-sizing: border-box; */
 }
 
 .disabled{

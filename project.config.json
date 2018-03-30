@@ -9,7 +9,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.7.2",
-	"appid": "wx35786d884a469988",
+	"appid": "wx026b7698d91e0904",
 	"projectname": "fleamarket",
 	"condition": {
 		"search": {
@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -65,6 +65,12 @@
 					"name": "shop-detail",
 					"pathName": "pages/shop-detail/shop-detail",
 					"query": "id=4"
+				},
+				{
+					"id": -1,
+					"name": "edit-info",
+					"pathName": "pages/edit-info/edit-info",
+					"query": ""
 				}
 			]
 		}

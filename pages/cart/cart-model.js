@@ -47,11 +47,22 @@ class CartModel extends Base{
   // }
 
   // 从缓存中获取所有购物车商品
-  getCartDataFromLocal(){
+  getCartDataFromLocal(flag){
     let res = wx.getStorageSync(this._storageKeyName)
     if(!res){
       res = [];
     }
+
+    if(flag){
+      let newRes = []
+      for(let i = 0; i < res.length; i++){
+        if(res[i].selected){
+          newRes.push(res[i])
+        }
+      }
+      res = newRes
+    }
+
     return res;
   }
 

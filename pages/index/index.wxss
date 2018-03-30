@@ -15,12 +15,13 @@
 .theme{
   display: flex;
   flex-direction: column;
+  color: #6D6D6D;
 }
 
 .theme-text{
   text-align: center;
   margin-bottom: 5px;
-  font-size: 14px;
+  font-size: 14px;  
 }
 
 .theme-photo-container{
@@ -41,7 +42,7 @@
 .find-image
 {
   width: 300rpx;
-  height: 60rpx;
+  height: 65rpx;
   margin: 50rpx 0 40rpx 225rpx;
 }
 
