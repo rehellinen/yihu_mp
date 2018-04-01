@@ -10,11 +10,11 @@
     </view>
 
     <view class="section">
-      <input name="number" placeholder="学号" value='{{info.number}}'/>
+      <input type="number" name="number" placeholder="学号" value='{{info.number}}'/>
     </view>
 
     <view class="section">
-      <input name="dormitory" placeholder="宿舍" value='{{info.dormitory}}'/>
+      <input type="number" name="dormitory" placeholder="宿舍" value='{{info.dormitory}}'/>
     </view>
     
     <view class="section">

@@ -71,6 +71,12 @@
 					"name": "edit-info",
 					"pathName": "pages/edit-info/edit-info",
 					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "order",
+					"pathName": "pages/order/order",
+					"query": "totalPrice=99"
 				}
 			]
 		}

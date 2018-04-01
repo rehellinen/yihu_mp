@@ -1,0 +1,19 @@
+<view class='detail-container'>
+  <image class='detail-image' src='/images/theme/shop@left1.jpg'></image>
+  <view class='two-text'>
+    <text class='name-text'>办公室小饰品</text>
+    <text class='status-text'>商家发货中</text>
+  </view>
+  <text class='price'>￥ 12.00</text>
+</view>
+
+
+
+<view class='detail-container'>
+  <image class='detail-image' src='/images/theme/shop@left1.jpg'></image>
+  <view class='two-text'>
+    <text class='name-text'>办公室小饰品</text>
+    <text class='status-text'>商家发货中</text>
+  </view>
+  <text class='price'>￥ 12.00</text>
+</view>

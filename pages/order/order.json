@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "buyer-info": "/pages/component/buyer-info/buyer-info"
+  }
+}

@@ -25,6 +25,34 @@ class OrderModel extends Base{
 
     this.request(params)
   }
+
+  execPay(orderNumber, cb){
+    let params = {
+      url: 'pay/pre_order',
+      type: 'POST',
+      data: {id: orderNumber},
+      callBack(res){
+        let timeStamp = res.timeStamp
+        if(timeStamp){
+          wx.requestPayment({
+            timeStamp: timeStamp.toString(),
+            nonceStr: data.nonceStr,
+            package: data.package,
+            signType: data.signType,
+            paySign: data.paySign,
+            success(){
+              cb && cb(2)
+            },
+            fail(){
+              cb && cb(1)
+            }
+          })
+        }else{
+          cb && cb(0)
+        }
+      }
+    }
+  }
 }
 
 export { OrderModel }

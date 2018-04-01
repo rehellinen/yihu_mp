@@ -1,0 +1,5 @@
+{
+  "usingComponents" : {
+    "order-list": "/pages/component/order-list/order-list"
+  }
+}

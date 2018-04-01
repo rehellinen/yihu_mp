@@ -19,9 +19,8 @@ Page({
       goods: goods,
       orderStatus: 0
     })
-  },
+  },  
 
-  // onShow获取用户信息
   onShow(){
     edit.getBuyerInfo((res) => {
       let isCompleted = this.isBuyerInfoCompleted(res)
@@ -29,13 +28,6 @@ Page({
         buyerInfo: res,
         isCompleted: isCompleted
       })
-    })
-  },
-
-  // 跳转修改个人信息的页面
-  editInfo(event){
-    wx.navigateTo({
-      url: '../edit-info/edit-info?from=order',
     })
   },
 
@@ -76,17 +68,46 @@ Page({
     })
   },
 
-  // 对showModal方法进行封装
-  showTips(title, content) {
+  // 进行支付
+  _execPay(id){
     let that = this
-    wx.showModal({
-      title: title,
-      content: content,
-      showCancel: false,
-      success(res) {
-        
+    order.execPay(id, (statusCode) => {
+      if(statusCode != 0){
+        that.deleteGoods()
+        let flag = statusCode == 2
+        wx.navigateTo({
+          url: '../pay-result/pay-result?id=' + id + '&flag=' + flag + '&from=order', 
+        })
       }
     })
+  },
+
+  // 下单失败
+  _orderFail(data){
+    let nameArr = []
+    let name = ''
+    let str = ''
+    let goods = data.goodsArray
+
+    for(let i = 0; i < goods.length; i++){
+      if(!goods[i].haveStock){
+        name = goods[i].name
+        if(name.length > 15){
+          name = name.substr(0, 12) + '...'
+        }
+        nameArr.push(name)
+        if(nameArr.length > 2){
+          break;
+        }
+      }
+    }
+
+    str += nameArr.join('、')
+    if(nameArr.length > 2){
+      str += '等'
+    }
+    str += '缺货'
+    this.showTips('下单失败', str)
   },
 
   // 判断用户信息是否填写完整
@@ -98,5 +119,28 @@ Page({
       }
     }
     return flag
-  }
+  },
+
+  // 删除购物车中已经下单的商品
+  deleteGoods(){
+    let ids = []
+    let goods = this.data.goods
+    for(let i = 0; i < goods.length; i++){
+      ids.push(goods[i].id)
+    }
+    cart.delete(ids)
+  },
+
+  // 对showModal方法进行封装
+  showTips(title, content) {
+    let that = this
+    wx.showModal({
+      title: title,
+      content: content,
+      showCancel: false,
+      success(res) {
+        
+      }
+    })
+  }  
 })

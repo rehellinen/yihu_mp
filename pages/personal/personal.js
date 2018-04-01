@@ -19,5 +19,11 @@ Page({
     wx.navigateTo({
       url: '../edit-info/edit-info?from=personal',
     })
+  },
+
+  toOrderMore(event){
+    wx.navigateTo({
+      url: '../order-more/order-more',
+    })
   }
 })

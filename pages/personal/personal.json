@@ -2,6 +2,6 @@
   "usingComponents": {
     "image-top": "/pages/component/image-top/image-top",
     "electricity": "/pages/component/electricity/electricity",
-    "order-overview": "/pages/component/order-overview/order-overview"
+    "order-list": "/pages/component/order-list/order-list"
   }
 }

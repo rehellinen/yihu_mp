@@ -1,0 +1,29 @@
+<!--地址-->
+  <view class=".order-info-info" bindtap='editInfo'>
+    <block wx:if="{{isCompleted}}">
+      <view class="contact-box">
+        <view class='info-container'>
+          <view class="contact">
+              <view>
+                <image src="/images/icon/user.png"></image>
+                <text class="val">{{buyerInfo.name}}</text>
+              </view>
+              <view class="mobile-box">
+                <image src="/images/icon/mobile.png"></image>
+                <text class="val">{{buyerInfo.telephone}}</text>
+              </view>
+          </view>
+          <view class="detail">{{buyerInfo.number}}</view>
+        </view>
+        <view class="contact-icon" wx:if="{{orderStatus!=0}}">
+            <image src="/images/icon/arrow@right.png"></image>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="add-new-address">
+        <text class="icon">+</text>
+        <text>补充信息</text></view>
+    </block>
+  </view>
+  <!--地址-->
