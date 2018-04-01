@@ -22,12 +22,12 @@
 
       <view class='shop-photos'>
         <view class='left'>
-          <image class='left-image' src='{{item.main_image_id.image_url}}' mode='aspectFill' style='width:700rpx;height:400rpx;'></image>
+          <image class='left-image' src='{{item.main_image_id.image_url}}' mode='aspectFill'></image>
         </view>
-        <!-- <view class='right'>
-          <image class='right1-image' src='/images/theme/shop@right1.jpg'></image>
-          <image class='right2-image' src='/images/theme/shop@right2.jpg'></image>
-        </view>         -->
+         <view class='right'>
+          <image class='right1-image' src='/images/theme/shop@right1.jpg' mode='aspectFill'></image>
+          <image class='right2-image' src='/images/theme/shop@right2.jpg' mode='aspectFill'></image>
+        </view>         
       </view>
     </view>
   </block>

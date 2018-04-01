@@ -83,6 +83,12 @@
 					"name": "order-more",
 					"pathName": "pages/order-more/order-more",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "theme",
+					"pathName": "pages/theme/theme",
+					"query": "id=1"
 				}
 			]
 		}

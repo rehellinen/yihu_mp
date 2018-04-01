@@ -1,5 +1,5 @@
 <view class='order-list-contailer'>
-  <view class='detail-container'>
+  <view class='detail-container' bindtap='toOrderMore'>
     <image class='detail-image' src='/images/theme/shop@left1.jpg'></image>
     <view class='two-text'>
       <text class='name-text'>办公室小饰品</text>

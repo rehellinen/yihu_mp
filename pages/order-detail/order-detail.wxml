@@ -1,0 +1,19 @@
+<view class='container'>
+  <view class="order-basic-info" wx:if="{{basicInfo}}">
+    <view class="order-time-no">
+      <view>
+        <text class="key">下单时间:</text>
+        <text class="val">{{basicInfo.orderTime}}</text>
+      </view>
+      <view>
+        <text class="key">订单编号:</text>
+        <text class="order-no-txt val">{{basicInfo.orderNo}}</text>
+      </view>
+    </view>
+    <view class="order-status">
+      <text class="order-status-txt unpay" wx:if="{{orderStatus==1}}">待付款</text>
+      <text class="order-status-txt payed" wx:if="{{orderStatus==2}}">已付款</text>
+      <text class="order-status-txt done" wx:if="{{orderStatus==3}}">已发货</text>
+    </view>
+  </view>
+</view>

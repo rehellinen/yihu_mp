@@ -1,0 +1,16 @@
+<view class="order-main">
+  <block wx:for="{{goods}}" wx:key="">
+    <view class="product-item">
+      <view class="item-left">
+        <image src="{{item.image_id.image_url}}" mode='aspectFill'></image>
+      </view>
+      <view class="item-middle">
+        <view class='name'>{{item.name}}</view>
+        <view class='price'>￥{{item.price}}</view>
+      </view>
+      <view class="item-right">
+        ×{{item.count}}
+      </view>
+    </view>
+  </block>
+</view>

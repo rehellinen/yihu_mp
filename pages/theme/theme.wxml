@@ -1,0 +1,25 @@
+<view class='theme-container'>
+  <view class='theme-left'>
+    <block wx:for="{{category}}" wx:key="">
+    <view class="category {{item.id == categoryID ? 'selected' : ''}}" bindtap='selectCategory' 
+    data-id='{{item.id}}' data-index='{{index}}'>
+      <text>{{item.name}}</text>
+    </view>
+    </block>
+  </view>
+
+  <view class='theme-right'>
+    <image class='category-image' src='{{category[categoryIndex].image_id.image_url}}'></image>
+    <view class='text-container'>
+      <text>{{category[categoryIndex].name}}</text>
+    </view>
+    <view class='goods-container'>
+      <block wx:for="{{goods}}" wx:key="">
+        <view class='single-goods'>
+          <image class='goods-image' src='{{item.image_id.image_url}}'></image>
+          <text class='goods-text'>{{item.name}}</text>
+        </view>
+      </block>
+    </view>    
+  </view>
+</view>

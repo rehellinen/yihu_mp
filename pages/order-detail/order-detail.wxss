@@ -1,0 +1,51 @@
+.order-basic-info{
+    border-bottom: 1rpx solid #E9E9E9;
+    display: flex;
+    padding:30rpx 0;
+}
+
+.order-time-no{
+    flex: 1;
+}
+
+.order-time-no view:first-child{
+   margin-bottom:15rpx ;
+}
+
+.order-time-no view .key{
+    color: #999999;
+}
+
+.order-time-no view .val{
+    margin-left: 10rpx;
+    color: #333;
+}
+
+.order-status{
+    display: flex;
+    flex-basis: 110rpx;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.order-no-txt{
+    letter-spacing: 2rpx;
+    color: #999;
+}
+
+/*订单三种状态*/
+.order-status-txt{
+    font-size: 24rpx;
+}
+
+.order-status-txt.unpay{
+    color: #B42F2D;
+}
+
+.order-status-txt.payed{
+    color: #AB956D;
+}
+
+.order-status-txt.done{
+    color: #57AB53;
+}

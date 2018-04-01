@@ -37,5 +37,12 @@ Page({
     wx.navigateTo({
       url: '../detail/detail?id=' + id,
     })
+  },
+
+  toTheme(event){
+    let id = event.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../theme/theme?id=' + id,
+    })
   }
 })

@@ -1,13 +1,6 @@
 /* pages/detail/detail.wxss */
 .container{
-  display: flex;
-  flex-direction: column;
   background-color: #F9F9F9
-}
-
-.detail{
-  background-color: white;
-  padding-bottom: 15px;
 }
 
 .cart-container{
@@ -33,7 +26,7 @@
   background-color: #a9936e;
   border-radius:50px;
   text-align: center;
-  line-height: 18px;
+  line-height: 17px;
   position: fixed;
   top: 15px;
   right: 8px;
@@ -42,6 +35,11 @@
 
 .cart-selected-count{
   font-size: 13px;  
+}
+
+.detail{
+  background-color: white;
+  padding-bottom: 15px;
 }
 
 .head-image{
@@ -58,12 +56,12 @@
 
 .info-up{
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 }
 
 .name-container{
-  width: 60%;
+  display: flex;
+  flex-direction: column;
 }
 
 .name{
@@ -74,15 +72,13 @@
 .subname{
   color: #d99009;
   font-size: 15px;
+  margin-top: 8rpx;
 }
 
-
-
 .picker{
-  width: 40%;
-  line-height: 50px;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .picker.disabled{
@@ -107,27 +103,22 @@
 }
 
 .hr{
-  width: 685rpx;
+  width: 101%;
   margin-left: -3px;
-  height: 1px;
-  background-color: #e3e3e3;
-  margin-top: 8px;
-  margin-bottom: 13px;
+  margin-top: 12px;
+  margin-bottom: 8px; 
 }
 
 .quantity-container{
-  width: 100%;
   display: flex;
   flex-direction: row;
-  height: 30px;
-  line-height: 30px;
   justify-content: space-between;
+  align-items: center;
 }
 
 .price-quantity-container{
-  width: 50%;
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
 }
 
 .price{
@@ -146,6 +137,7 @@
   width: 50%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .cart-text-container.disabled{

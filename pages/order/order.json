@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "buyer-info": "/pages/component/buyer-info/buyer-info"
+    "buyer-info": "/pages/component/buyer-info/buyer-info",
+    "order-goods-list": "/pages/component/order-goods-list/order-goods-list"
   }
 }

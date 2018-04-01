@@ -8,7 +8,9 @@
     "pages/shop-detail/shop-detail",
     "pages/order/order",
     "pages/edit-info/edit-info",
-    "pages/order-more/order-more"
+    "pages/order-more/order-more",
+    "pages/order-detail/order-detail",
+    "pages/theme/theme"
   ],
   "window": {
     "navigationBarTitleText": "跳蚤市场",
