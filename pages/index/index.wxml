@@ -1,16 +1,16 @@
 <!-- 总view -->
 <view class='container'>
 
-  <!-- banner轮播图 -->  
-  <swiper class='banner' indicator-dots='{{false}}' autoplay='{{true}}' interval='5000'>
-    <block wx:for="{{banner}}" wx:key=""> 
-      <swiper-item>
-        <image src="{{item.image_id.image_url}}"></image> 
-      </swiper-item>        
-    </block> 
-  </swiper>  
   <!-- banner轮播图 -->
-  
+  <swiper class='banner' indicator-dots='{{false}}' autoplay='{{true}}' interval='5000'>
+    <block wx:for="{{banner}}" wx:key="">
+      <swiper-item>
+        <image src="{{item.image_id.image_url}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- banner轮播图 -->
+
 
   <!-- 精选主题 -->
   <view class='theme'>
@@ -25,24 +25,20 @@
 
 
   <!-- 发现鲜货 -->
-  <view>
-    <view>
-      <image class='find-image' src='/images/theme/find.png'></image>
-    </view>
 
-    <view class='find-detail-container'>
-      <block wx:for="{{oldGoods}}" wx:key=""> 
-        <view class='find-detail' bindtap='detailTap' data-id='{{item.id}}'>
-          <image class='find-detail-image' src='{{item.image_id.image_url}}' mode='aspectFill'></image>
-          <text class='find-detail-text'>{{item.name}}</text>
-          <view class='price-quantity'>
-            <text class='price'>${{item.price}}</text>
-          </view> 
-        </view> 
-      </block>
-    </view>
+  <view class='find-image-container'>
+    <image class='find-image' src='/images/theme/find.png'></image>
   </view>
 
+  <view class='find-detail-container'>
+    <block wx:for="{{oldGoods}}" wx:key="">
+      <view class='find-detail' bindtap='detailTap' data-id='{{item.id}}'>
+        <image class='find-detail-image' src='{{item.image_id.image_url}}' mode='aspectFill'></image>
+        <text class='find-detail-text'>{{item.name}}</text>
+        <text class='price'>${{item.price}}</text>
+      </view>
+    </block>
+  </view>
 
 </view>
 <!-- 总view -->

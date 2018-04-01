@@ -3,18 +3,20 @@
   <!-- 头图  -->
   <view class='header-image-container'>
     <image class='header-image' src='/images/theme/shop@header.png'></image>
-  </view>  
+  </view>
   <view class='recommend-image-container'>
     <image class='recommend-image' src='/images/theme/recommend.png'></image>
-  </view>  
+  </view>
   <!-- 头图  -->
 
-    <!-- 商店列表  -->
-    <block wx:for="{{shop}}" wx:key="">
+  <!-- 商店列表  -->
+  <block wx:for="{{shop}}" wx:key="">
     <view class='shop-container' bindtap='toShopDetail' data-id='{{item.id}}'>
       <view class='photo-text-container'>
-        <image class='shop-avatar' src='{{item.avatar_image_id.image_url}}'></image>
-        <text class='avatar-text'>{{item.name}}</text>
+        <view>
+          <image class='shop-avatar' src='{{item.avatar_image_id.image_url}}'></image>
+          <text class='avatar-text'>{{item.name}}</text>
+        </view>
         <image class='come-image' src='/images/theme/shop@come.png'></image>
       </view>
 
@@ -26,9 +28,9 @@
           <image class='right1-image' src='/images/theme/shop@right1.jpg'></image>
           <image class='right2-image' src='/images/theme/shop@right2.jpg'></image>
         </view>         -->
-      </view>      
-    </view>    
-    </block>
-    <!-- 商店列表  --> 
+      </view>
+    </view>
+  </block>
+  <!-- 商店列表  -->
 </view>
 <!-- 总view -->

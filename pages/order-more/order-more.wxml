@@ -1,9 +1,9 @@
   <!-- 我的订单 -->
-  <view class='order-container'>
-    <!-- <image class='top-image' src='/images/theme/personal@header.jpg'></image> -->
-    <view class='image-container'>
-      <image class='my-order-image' src='/images/theme/personal@order.png'></image>
-    </view>  
+  <view class='order-container'>  
+    <view class='text-container'>
+      <text>我的订单</text>      
+    </view>
+    <view class='hr'></view>        
     <order-list></order-list>
   </view>
   <!-- 我的订单 -->

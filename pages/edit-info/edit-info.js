@@ -20,23 +20,23 @@ Page({
     let formValue = event.detail.value
     editInfo.updateBuyerInfo(formValue, (res) => {
       if(res.status == 90000){
-        this.showTips('', res.message)
+        this.showTips('', res.message, false)
       }else{        
         this.showTips('成功', '更新个人信息成功', true)
       }
     })    
   },
 
-  showTips(title, content){
+  showTips(title, content, flag){
     let that = this
     wx.showModal({
       title: title,
       content: content,
       showCancel: false,
       success(res){
-        wx.navigateBack({
-
-        })        
+        if(flag){
+          wx.navigateBack({})   
+        }             
       }
     })
   }

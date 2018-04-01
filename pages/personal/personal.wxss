@@ -29,9 +29,12 @@
 
 .order-container .image-container{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   padding: 30rpx 0;
   border-bottom: 1rpx solid #e3e3e3;
+  width: 90%;
+  margin-left: 5%;
+  align-items: center;
 }
 
 .my-order-image{
@@ -40,12 +43,13 @@
 }
 
 .more-container{
-  width: 750rpx;
+  width: 90%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   color:#999999;
   height: 70rpx;
+  margin-left: 6%;
 }
 
 .more-container text{

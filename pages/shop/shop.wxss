@@ -31,20 +31,28 @@
   display: flex;
   flex-direction: column;
   width: 750rpx;
-  margin-bottom: 20rpx;
+  margin-top: 20rpx;
   background-color: white;
-  padding: 20rpx 0 10rpx 0;
+  padding-bottom: 10rpx;
 }
 
 .photo-text-container{
-  height: 70rpx; 
+  height: 100rpx; 
   margin: 0 25rpx; 
+  display: flex;
+  align-items: center;
+   justify-content: space-between; 
+}
+
+.photo-text-container>view{
+  display: flex;
+  align-items: center;
+  height: 100rpx;
 }
 
 .shop-avatar{
   height: 50rpx;
   width: 50rpx;
-  vertical-align: middle
 }
 
 .avatar-text{

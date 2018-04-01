@@ -1,20 +1,28 @@
-.top-image{
-  width: 750rpx;
-  height: 300rpx;
-}
-
 .order-container{  
   display: flex;
   flex-direction: column;
   background-color: white;
   width: 750rpx;
+  justify-content: center;
 }
 
-.order-container .image-container{
+.text-container{
   display: flex;
-  justify-content: space-around;
-  padding: 30rpx 0;
-  border-bottom: 1rpx solid #e3e3e3;
+  justify-content: center;
+  height: 90rpx;
+  align-items: center;
+}
+
+.hr{
+  width: 90%;
+  height: 1rpx;
+  background-color: #e3e3e3;
+  margin: 0 5%;
+}
+
+.text-container text{
+  font-size: 30rpx;
+  color: #989898;  
 }
 
 .my-order-image{
