@@ -14,8 +14,10 @@ Page({
         avatar: res.avatarUrl,
         name: res.nickName
       })
-    })
+    })    
+  },
 
+  onShow(){
     order.getOrder((res) => {
       let data = []
       data.push(res[0])

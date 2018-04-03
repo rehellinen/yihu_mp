@@ -7,7 +7,7 @@ let order = new OrderModel()
 
 Page({
   data: {
-    id: null
+    
   },
 
   // onLoad获取购物车选中的商品及其相关信息
@@ -17,7 +17,6 @@ Page({
     this.setData({
       totalPrice : options.totalPrice,
       goods: goods,
-      orderStatus: 0
     })
   },  
 
@@ -37,14 +36,10 @@ Page({
       this.showTips('提示', '请先完善个人信息哦~')
       return 0
     }
-    if(this.data.orderStatus == 0){
-      this._firstTimePay()
-    }else{
-      this._oneMoreTimePay()
-    }
+    this._pay()       
   },
 
-  _firstTimePay(){
+  _pay(){
     let orderInfo = []
     let goodsInfo = this.data.goods
     
@@ -59,8 +54,6 @@ Page({
     order.placeOrder(orderInfo, (res) => {
       if(res.pass){
         let id = res.order_id
-        this.data.id = id
-        // this.data.fromCartFlag = false;
         this._execPay(id)
       }else{
         this._orderFail(res)
@@ -75,8 +68,8 @@ Page({
       if(statusCode != 0){
         that.deleteGoods()
         let flag = statusCode == 2
-        wx.navigateTo({
-          url: '../pay-result/pay-result?id=' + id + '&flag=' + flag + '&from=order', 
+        wx.redirectTo({
+          url: '../pay-result/pay-result?id=' + id + '&flag=' + flag, 
         })
       }
     })
@@ -101,7 +94,6 @@ Page({
         }
       }
     }
-
     str += nameArr.join('、')
     if(nameArr.length > 2){
       str += '等'

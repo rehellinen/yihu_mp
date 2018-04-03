@@ -53,3 +53,43 @@
 .order-status-txt.done {
   color: #57ab53;
 }
+
+.order-accounts {
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  height: 92rpx;
+  width: 100%;
+  display: flex;
+  border-top: 1rpx solid #ccc;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.order-accounts>view {
+  display: flex;
+  align-items: center;
+}
+
+.total-account {
+  flex: 1;
+  color: #93312e;
+  padding-left: 25rpx;
+  font-size: 28rpx;
+}
+
+.pay {
+  flex-basis: 240rpx;
+  background-color: #ab956d;
+  color: #fff;
+  justify-content: center;
+  font-size: 32rpx;
+}
+
+.pay:active {
+  background: #84704d;
+}
+
+.pay.disabled {
+  background: rgba(171, 149, 109, 0.6);
+  pointer-events: auto;
+}

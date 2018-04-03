@@ -95,6 +95,12 @@
 					"name": "order-detail",
 					"pathName": "pages/order-detail/order-detail",
 					"query": "id=87"
+				},
+				{
+					"id": -1,
+					"name": "order-detail",
+					"pathName": "pages/pay-result/pay-result",
+					"query": "flag=false"
 				}
 			]
 		}

@@ -25,11 +25,11 @@ class OrderModel extends Base{
     this.request(params)
   }
 
-  execPay(orderNumber, cb){
+  execPay(orderID, cb){
     let params = {
       url: 'preOrder',
       type: 'POST',
-      data: {id: orderNumber},
+      data: { id: orderID },
       callBack(res){
         let timeStamp = res.timeStamp
         if(timeStamp){

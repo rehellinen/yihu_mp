@@ -1,12 +1,14 @@
 <view class='order-list-contailer'>
   <block wx:for="{{order}}" wx:key="">
-  <view class='detail-container' bindtap='toOrderMore' data-id='{{item.id}}'>
-    <image class='detail-image' src='{{item.snap_img}}'></image>
-    <view class='two-text'>
-      <text class='name-text'>{{item.snap_name}}</text>
-      <text class='status-text'>商家发货中</text>
+    <view class='detail-container' bindtap='toOrderMore' data-id='{{item.id}}'>
+      <image class='detail-image' src='{{item.snap_img}}'></image>
+      <view class='two-text'>
+        <text class='name-text'>{{item.snap_name}}</text>
+        <text class="status-text" wx:if="{{item.status==1}}">待付款</text>
+        <text class="status-text" wx:if="{{item.status==2}}">已付款</text>
+        <text class="status-text" wx:if="{{item.status==3}}">已发货</text>
+      </view>
+      <text class='price'>￥{{item.total_price}}</text>
     </view>
-    <text class='price'>￥{{item.total_price}}</text>
-  </view>
   </block>
 </view>

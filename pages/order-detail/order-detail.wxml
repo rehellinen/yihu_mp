@@ -18,4 +18,13 @@
   </view>
 
   <order-goods-list goods="{{order.snap_items}}"></order-goods-list>
+
+    <!--结算-->
+  <view class="order-accounts">
+    <view class="total-account">
+      付款合计：￥{{order.total_price}}
+    </view>
+    <view class="pay" bindtap='pay' wx:if='{{order.status!=2}}'>去付款</view>
+  </view>
+  <!--结算-->
 </view>

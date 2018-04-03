@@ -7,8 +7,14 @@ Page({
   onLoad: function (options) {
     this.setData({
       payResult: options.flag,
-      id: options.id,
-      from: options.from
+      id: options.id
+    })
+  },
+
+  viewOrder(event){
+    let id = event.currentTarget.dataset.id
+    wx.redirectTo({
+      url: '/pages/order-detail/order-detail?id=' + id,
     })
   }
 })
