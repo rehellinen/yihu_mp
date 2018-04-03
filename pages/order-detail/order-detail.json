@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "order-goods-list": "../component/order-goods-list/order-goods-list"
+  }
+}

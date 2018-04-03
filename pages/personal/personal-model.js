@@ -16,7 +16,11 @@ class PersonalModel extends Base
             cb && cb(res.userInfo)
           },
           fail(res){
-            cb && cb(res)
+            let defaultInfo = {
+              nickName: 'tuntematon',
+              avatarUrl: '/images/theme/personal@avatar.jpg'
+            }
+            cb && cb(defaultInfo)
           }
         })        
       }

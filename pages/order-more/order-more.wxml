@@ -4,6 +4,6 @@
       <text>我的订单</text>      
     </view>
     <view class='hr'></view>        
-    <order-list></order-list>
+    <order-list order="{{order}}"></order-list>
   </view>
   <!-- 我的订单 -->

@@ -1,5 +1,8 @@
 import { ShopDetailModel } from './shop-detail-model.js'
+import { DetailModel } from '../detail/detail-model.js'
+let detail = new DetailModel()
 let shop = new ShopDetailModel()
+
 Page({
   data: {
   
@@ -13,13 +16,13 @@ Page({
       })
     })
 
-    shop.getGoodsByShopId(id, (data) => {
+    detail.getGoodsByShopId(id, (data) => {
       this.setData({
         goods: data
       })
     })
 
-    shop.getRecentGoodsByShopId(id, (data) => {
+    detail.getRecentGoodsByShopId(id, (data) => {
       this.setData({
         recentGoods: data
       })

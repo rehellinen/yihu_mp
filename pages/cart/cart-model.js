@@ -24,10 +24,12 @@ class CartModel extends Base{
     wx.setStorageSync(this._storageKeyName, cartData)
   }
 
+  // 增加购物车中商品的数量
   plusCount(id){
     this._updateCount(id, 1)
   }
-
+  
+  // 减少购物车中商品的数量
   minusCount(id){
     this._updateCount(id, -1)
   }
@@ -48,6 +50,7 @@ class CartModel extends Base{
   }
 
   // 从缓存中获取所有购物车商品
+  // flag为true时，只获取选中的商品
   getCartDataFromLocal(flag){
     let res = wx.getStorageSync(this._storageKeyName)
     if(!res){

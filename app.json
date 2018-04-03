@@ -10,7 +10,8 @@
     "pages/edit-info/edit-info",
     "pages/order-more/order-more",
     "pages/order-detail/order-detail",
-    "pages/theme/theme"
+    "pages/theme/theme",
+    "pages/pay-result/pay-result"
   ],
   "window": {
     "navigationBarTitleText": "跳蚤市场",

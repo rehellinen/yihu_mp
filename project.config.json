@@ -9,7 +9,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.7.2",
-	"appid": "wx026b7698d91e0904",
+	"appid": "wx1b2ecb8981e28b61",
 	"projectname": "fleamarket",
 	"condition": {
 		"search": {
@@ -89,6 +89,12 @@
 					"name": "theme",
 					"pathName": "pages/theme/theme",
 					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "order-detail",
+					"pathName": "pages/order-detail/order-detail",
+					"query": "id=87"
 				}
 			]
 		}

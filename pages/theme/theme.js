@@ -1,4 +1,6 @@
 import { ThemeModel } from './theme-model.js'
+import { DetailModel } from '../detail/detail-model.js'
+let detail = new DetailModel()
 let theme = new ThemeModel()
 
 Page({
@@ -14,7 +16,7 @@ Page({
         categoryID: res[0].id
       })
 
-      theme.getGoodsByCategoryID(res[0].id, (data) => {
+      detail.getGoodsByCategoryID(res[0].id, (data) => {
         this.setData({
           goods: data
         })
@@ -31,7 +33,7 @@ Page({
       return 0;
     }
 
-    theme.getGoodsByCategoryID(id, (res) => {
+    detail.getGoodsByCategoryID(id, (res) => {
       this.setData({
         goods: res
       })

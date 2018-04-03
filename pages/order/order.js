@@ -7,7 +7,7 @@ let order = new OrderModel()
 
 Page({
   data: {
-    id: -1
+    id: null
   },
 
   // onLoad获取购物车选中的商品及其相关信息
@@ -47,7 +47,7 @@ Page({
   _firstTimePay(){
     let orderInfo = []
     let goodsInfo = this.data.goods
-    let order = new Order()
+    
     // 订单中商品的信息
     for (let i = 0; i < goodsInfo.length; i++){
       orderInfo.push({
@@ -58,7 +58,7 @@ Page({
     let that = this
     order.placeOrder(orderInfo, (res) => {
       if(res.pass){
-        let id = data.order_id
+        let id = res.order_id
         this.data.id = id
         // this.data.fromCartFlag = false;
         this._execPay(id)
@@ -87,7 +87,7 @@ Page({
     let nameArr = []
     let name = ''
     let str = ''
-    let goods = data.goodsArray
+    let goods = data.goodsStatusArray
 
     for(let i = 0; i < goods.length; i++){
       if(!goods[i].haveStock){

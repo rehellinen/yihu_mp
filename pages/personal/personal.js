@@ -1,5 +1,7 @@
 import { PersonalModel } from './personal-model.js'
-let personal = new PersonalModel
+import { OrderModel } from '../order/order-model.js'
+let order = new OrderModel()
+let personal = new PersonalModel()
 
 Page({
   data: {
@@ -11,6 +13,15 @@ Page({
       this.setData({
         avatar: res.avatarUrl,
         name: res.nickName
+      })
+    })
+
+    order.getOrder((res) => {
+      let data = []
+      data.push(res[0])
+      data.push(res[1])
+      this.setData({
+        order: data
       })
     })
   },

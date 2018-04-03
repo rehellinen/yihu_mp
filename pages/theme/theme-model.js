@@ -15,16 +15,6 @@ class ThemeModel extends Base
     }
     this.request(params)
   }
-
-  getGoodsByCategoryID(id, cb){
-    let params = {
-      url: 'oldGoods/category/' + id,
-      callBack(res) {
-        cb && cb(res.data)
-      }
-    }
-    this.request(params)
-  }
 }
 
 export { ThemeModel }

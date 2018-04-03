@@ -7,7 +7,6 @@ class OrderModel extends Base{
   }
 
   placeOrder(goods, cb){
-    let that = this
     let params = {
       url: 'order',
       type: 'POST',
@@ -15,7 +14,7 @@ class OrderModel extends Base{
         goods: goods
       },
       callBack(res){
-        wx.setStorageSync(that._storageKeyName, true)
+        wx.setStorageSync(this._storageKeyName, true)
         cb && cb(res)
       },
       eCallBack(res){
@@ -28,7 +27,7 @@ class OrderModel extends Base{
 
   execPay(orderNumber, cb){
     let params = {
-      url: 'pay/pre_order',
+      url: 'preOrder',
       type: 'POST',
       data: {id: orderNumber},
       callBack(res){
@@ -36,10 +35,10 @@ class OrderModel extends Base{
         if(timeStamp){
           wx.requestPayment({
             timeStamp: timeStamp.toString(),
-            nonceStr: data.nonceStr,
-            package: data.package,
-            signType: data.signType,
-            paySign: data.paySign,
+            nonceStr: res.nonceStr,
+            package: res.package,
+            signType: res.signType,
+            paySign: res.paySign,
             success(){
               cb && cb(2)
             },
@@ -52,6 +51,32 @@ class OrderModel extends Base{
         }
       }
     }
+    this.request(params)
+  }
+
+  // 获取订单
+  getOrder(cb){
+    let params = {
+      url: 'order/user',
+      callBack(res){
+        cb && cb(res)
+      },
+      data: {
+        page: 1
+      }
+    }
+    this.request(params)
+  }
+
+  // 根据订单ID获取详细信息
+  getOrderByID(id, cb){
+    let params = {
+      url: 'order/' + id,
+      callBack(res) {
+        cb && cb(res)
+      }
+    }
+    this.request(params)
   }
 }
 
