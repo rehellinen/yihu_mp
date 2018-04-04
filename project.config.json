@@ -97,10 +97,10 @@
 					"query": "id=87"
 				},
 				{
-					"id": -1,
-					"name": "order-detail",
+					"id": 11,
+					"name": "pay-result",
 					"pathName": "pages/pay-result/pay-result",
-					"query": "flag=false"
+					"query": "flag=true"
 				}
 			]
 		}
