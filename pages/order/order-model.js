@@ -3,10 +3,11 @@ import {Base} from '../../utils/base.js'
 class OrderModel extends Base{
   constructor(){
     super()
-    this._storageKeyName = 'newOrder'
+    this.key = 'newOrder'
   }
 
   placeOrder(goods, cb){
+    let that = this
     let params = {
       url: 'order',
       type: 'POST',
@@ -14,7 +15,7 @@ class OrderModel extends Base{
         goods: goods
       },
       callBack(res){
-        wx.setStorageSync(this._storageKeyName, true)
+        that.setNewOrderStorage(true)
         cb && cb(res)
       },
       eCallBack(res){
@@ -25,6 +26,7 @@ class OrderModel extends Base{
     this.request(params)
   }
 
+  // 0->库存量不足，1->支付失败，2->支付成功
   execPay(orderID, cb){
     let params = {
       url: 'preOrder',
@@ -40,14 +42,14 @@ class OrderModel extends Base{
             signType: res.signType,
             paySign: res.paySign,
             success(){
-              cb && cb(2)
+              cb && cb(2, res)
             },
             fail(){
-              cb && cb(1)
+              cb && cb(1, res)
             }
           })
         }else{
-          cb && cb(0)
+          cb && cb(0, res)
         }
       }
     }
@@ -55,14 +57,17 @@ class OrderModel extends Base{
   }
 
   // 获取订单
-  getOrder(cb){
+  getOrder(page, cb, ecb){
     let params = {
       url: 'order/user',
       callBack(res){
         cb && cb(res)
       },
+      eCallBack(res){
+        ecb && ecb(res)
+      },
       data: {
-        page: 1
+        page: page
       }
     }
     this.request(params)
@@ -77,6 +82,17 @@ class OrderModel extends Base{
       }
     }
     this.request(params)
+  }
+
+  // 判断是否有新订单
+  isHasNewOrder(){
+    let val = wx.getStorageSync(this.key)
+    return val
+  }
+
+  // 设置newOrder的缓存
+  setNewOrderStorage(value){
+    wx.setStorageSync(this.key, value)
   }
 }
 

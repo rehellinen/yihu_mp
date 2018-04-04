@@ -64,13 +64,15 @@ Page({
   // 进行支付
   _execPay(id){
     let that = this
-    order.execPay(id, (statusCode) => {
+    order.execPay(id, (statusCode, data) => {
       if(statusCode != 0){
         that.deleteGoods()
         let flag = statusCode == 2
         wx.redirectTo({
           url: '../pay-result/pay-result?id=' + id + '&flag=' + flag, 
         })
+      }else{
+        this._orderFail(data)
       }
     })
   },
@@ -125,7 +127,6 @@ Page({
 
   // 对showModal方法进行封装
   showTips(title, content) {
-    let that = this
     wx.showModal({
       title: title,
       content: content,

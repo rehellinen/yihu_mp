@@ -14,11 +14,21 @@ Page({
         avatar: res.avatarUrl,
         name: res.nickName
       })
-    })    
+    })
+    this._loadOrder()    
   },
 
   onShow(){
-    order.getOrder((res) => {
+    let res = order.isHasNewOrder()
+    if(res){
+      this._loadOrder()
+      order.setNewOrderStorage(false)
+    }
+  },
+
+  // 加载订单数据
+  _loadOrder(){
+    order.getOrder(1, (res) => {
       let data = []
       data.push(res[0])
       data.push(res[1])
