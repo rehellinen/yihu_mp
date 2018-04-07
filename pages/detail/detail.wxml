@@ -1,5 +1,5 @@
 <view class='container'>
-  <view class="cart-container">
+  <view class="cart-container {{isShake ? 'animate' : ''}}">
     <view class="cart" bindtap='toCartTap'>
       <image class="cart-icon" src="/images/icon/cart.png"></image>
       <view class='cart-count-container'>
@@ -39,6 +39,8 @@
           <text>加入购物车</text>
           <image wx:if="{{product.quantity != 0}}" class='down-cart' src='/images/icon/cart.png'></image>
           <image wx:else class='down-cart' src='/images/icon/cart@grey.png'></image>
+          <image id="small-top-img" class="small-top-img {{isTap?'animate':''}}" src="{{product.image_id.image_url}}" 
+          mode="aspectFill" style="{{translateStyle}}"></image>
         </view>
       </view>
     </view>
