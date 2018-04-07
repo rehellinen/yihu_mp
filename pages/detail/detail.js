@@ -63,8 +63,8 @@ Page({
   _addCartAnimation(event){
     let touches = event.touches[0];
     let relative = {
-      x: '20px',
-      y: 5 - touches.clientY + 'px'
+      x: '10px',
+      y: 15 - touches.clientY + 'px'
     }
     let style = 'display: block;transform:translate(' + relative.x + ',' + relative.y + ') rotate(350deg) scale(0)';
     this.setData({

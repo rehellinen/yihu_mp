@@ -5,7 +5,8 @@ let theme = new ThemeModel()
 
 Page({
   data: {
-    categoryIndex: 0
+    categoryIndex: 0,
+    className: ''
   },
 
   onLoad: function (options) {
@@ -21,9 +22,7 @@ Page({
           goods: data
         })
       })
-    })
-
-    
+    })    
   },
 
   selectCategory(event){
@@ -33,15 +32,17 @@ Page({
       return 0;
     }
 
-    detail.getGoodsByCategoryID(id, (res) => {
-      this.setData({
-        goods: res
-      })
-    })
-
     this.setData({
       categoryID: id,
-      categoryIndex: index
+      categoryIndex: index,
+      className: 'animateOut'
     })
+
+    detail.getGoodsByCategoryID(id, (res) => {
+      this.setData({
+        goods: res,
+        className: 'animateIn'
+      })
+    }) 
   }
 })

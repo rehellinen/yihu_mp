@@ -82,3 +82,22 @@
   font-size: 28rpx;  
   margin-top: 10rpx;
 }
+
+/* 动画效果 */
+@keyframes action_translateY{  
+    0%{transform: translateY(50px);opacity: 0;}  
+    100%{ transform: translateY(0px);opacity: 1;}  
+}  
+
+@keyframes action_translateYOut{  
+    0%{transform: translateY(0px);opacity: 1;}  
+    100%{ transform: translateY(50px);opacity: 0;}  
+} 
+
+.theme-right.animateIn{
+  animation: action_translateY 500ms
+}
+
+.theme-right.animateOut{
+  animation: action_translateYOut 500ms
+}
