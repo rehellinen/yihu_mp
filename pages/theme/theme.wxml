@@ -9,12 +9,12 @@
   </view>
 
   <view class="theme-right {{className}}">
-    <image class='category-image' src='{{category[categoryIndex].image_id.image_url}}'></image>
+    <image class='category-image' src='{{categoryImage}}'></image>
     <view class='text-container'>
       <text>{{category[categoryIndex].name}}</text>
     </view>
     <view class='goods-container'>
-      <block wx:for="{{goods}}" wx:key="">
+      <block wx:for="{{singleGoods}}" wx:key="">
         <view class='single-goods'>
           <image class='goods-image' src='{{item.image_id.image_url}}'></image>
           <text class='goods-text'>{{item.name}}</text>

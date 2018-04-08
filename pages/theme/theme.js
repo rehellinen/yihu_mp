@@ -6,20 +6,23 @@ let theme = new ThemeModel()
 Page({
   data: {
     categoryIndex: 0,
-    className: ''
+    className: '',
+    goods: []
   },
 
   onLoad: function (options) {
     let id = options.id
     theme.getCategory(id, (res) => {
+      let category_id = res[0].id
       this.setData({
         category: res,
-        categoryID: res[0].id
+        categoryID: category_id,
+        categoryImage: res[0].image_id.image_url
       })
 
-      detail.getGoodsByCategoryID(res[0].id, (data) => {
+      detail.getGoodsByCategoryID(category_id, (data) => {
         this.setData({
-          goods: data
+          singleGoods: data
         })
       })
     })    
@@ -31,18 +34,34 @@ Page({
     if (index == this.data.categoryIndex){
       return 0;
     }
-
     this.setData({
       categoryID: id,
       categoryIndex: index,
       className: 'animateOut'
     })
 
-    detail.getGoodsByCategoryID(id, (res) => {
-      this.setData({
-        goods: res,
-        className: 'animateIn'
-      })
-    }) 
+    setTimeout( () => {      
+      if(!this.data.goods[id]) {
+        detail.getGoodsByCategoryID(id, (res) => {
+          this.data.goods[id] = res
+          this.setData({
+            categoryImage: this.data.category[index].image_id.image_url,
+            singleGoods: this.data.goods[id]
+          })         
+        })
+      }else{
+        this.setData({
+          categoryImage: this.data.category[index].image_id.image_url,
+          singleGoods: this.data.goods[id]
+        })         
+      }      
+
+      setTimeout( () => {
+        this.setData({
+          className: 'animateIn'
+        })
+      }, 150)
+
+    }, 190) 
   }
 })

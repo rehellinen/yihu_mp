@@ -49,6 +49,7 @@ class DetailModel extends Base{
     this.request(params)
   }
 
+  // 根据分类获取商品
   getGoodsByCategoryID(id, cb) {
     let params = {
       url: 'oldGoods/category/' + id,

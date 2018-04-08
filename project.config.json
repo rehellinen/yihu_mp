@@ -52,7 +52,7 @@
 					"id": 3,
 					"name": "detail",
 					"pathName": "pages/detail/detail",
-					"query": "id=29"
+					"query": "id=27&kind=goods"
 				},
 				{
 					"id": -1,

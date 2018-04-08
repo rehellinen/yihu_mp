@@ -17,21 +17,31 @@ Page({
     let id = options.id
     let kind = options.kind
     if(kind == 'goods'){
-      detail.getGoodsDetail(id, (data) => {
-        this.setData({
-          product: data,
-          cartSelectedCount: cart.getCartTotalCount()
-        })
-      })
+      this._getGoodsAndShop(id)
     }else{
-      detail.getOldGoodsDetail(id, (data) => {
-        this.setData({
-          product: data,
-          cartSelectedCount: cart.getCartTotalCount()
-        })
-      })
+      this._getGoodsAndSeller(id)
     }
     
+  },
+
+  _getGoodsAndShop(id){
+    detail.getGoodsDetail(id, (data) => {
+      this.setData({
+        product: data,
+        cartSelectedCount: cart.getCartTotalCount(),
+        shop: data.shop
+      })
+    })
+  },
+
+  _getGoodsAndSeller(id){
+    detail.getOldGoodsDetail(id, (data) => {
+      this.setData({
+        product: data,
+        cartSelectedCount: cart.getCartTotalCount(),
+        shop: data.seller
+      })
+    })
   },
 
   onTabsItemTap(event){

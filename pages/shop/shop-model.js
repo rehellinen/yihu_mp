@@ -15,6 +15,23 @@ class ShopModel extends Base{
     }
     this.request(params)
   }
+
+  // 根据ID获取自营商家信息
+  getShopByID(id, cb) {
+    let params = {
+      url: 'shop/' + id,
+      callBack: function (data) {
+        cb && cb(data)
+      }
+    }
+
+    this.request(params)
+  }
+
+  // 根据ID获取二手卖家信息
+  getSellerByID(id, cb) {
+
+  }
 }
 
 export {ShopModel}

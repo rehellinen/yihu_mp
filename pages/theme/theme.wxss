@@ -85,13 +85,13 @@
 
 /* 动画效果 */
 @keyframes action_translateY{  
-    0%{transform: translateY(50px);opacity: 0;}  
+    0%{transform: translateY(-1334rpx);opacity: 0;}  
     100%{ transform: translateY(0px);opacity: 1;}  
 }  
 
 @keyframes action_translateYOut{  
     0%{transform: translateY(0px);opacity: 1;}  
-    100%{ transform: translateY(50px);opacity: 0;}  
+    100%{ transform: translateY(1334rpx);opacity: 0;}  
 } 
 
 .theme-right.animateIn{
@@ -99,5 +99,5 @@
 }
 
 .theme-right.animateOut{
-  animation: action_translateYOut 500ms
+  animation: action_translateYOut 450ms
 }

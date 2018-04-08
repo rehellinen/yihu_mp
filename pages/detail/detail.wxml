@@ -47,9 +47,16 @@
   </view>
 
   <switch-tab tab="{{['商品信息', '商家信息']}}" class="switch-tap-width">
-    <view slot="商品信息" class='goods-info'>{{product.description}}</view>
+    <view slot="商品信息" class='goods-info'>
+      <text>{{product.description}}</text>
+    </view>
     <view slot="商家信息" class='seller-info'>
-      <text>商家信息</text>
+      <text>名称：{{shop.name}}</text>
+      <text>微信：{{shop.weixin}}</text>
+      <text>电话：{{shop.telephone}}</text>
+      <text>邮箱：{{shop.email}}</text>
+      <text wx:if="{{shop.major}}">主营：{{shop.major}}</text>
+      <text>支付宝：{{shop.zhifubao}}</text>
     </view>
   </switch-tab>
 </view>

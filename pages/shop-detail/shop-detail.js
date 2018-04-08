@@ -1,16 +1,16 @@
-import { ShopDetailModel } from './shop-detail-model.js'
+import { ShopModel } from '../shop/shop-model.js'
 import { DetailModel } from '../detail/detail-model.js'
 let detail = new DetailModel()
-let shop = new ShopDetailModel()
+let shop = new ShopModel()
 
-Page({
+Page({  
   data: {
   
   },
 
   onLoad: function (options) {
     let id = options.id
-    shop.getShopInfo(id, (data) => {
+    shop.getShopByID(id, (data) => {
       this.setData({
         shop: data
       })
