@@ -14,7 +14,6 @@ Page({
     cart.updatePrice( () => {
       let cartData = cart.getCartDataFromLocal()
       let cartDetailInfo = this._calTotalCountAndPrice(cartData)
-
       this.setData({
         selectedCount: cartDetailInfo.selectedCount,
         cartData: cartData,

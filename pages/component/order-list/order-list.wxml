@@ -1,7 +1,7 @@
 <view class='order-list-contailer'>
   <block wx:for="{{order}}" wx:key="">
     <view class='detail-container' bindtap='toOrderMore' data-id='{{item.id}}'>
-      <image class='detail-image' src='{{item.snap_img}}'></image>
+      <image class='detail-image' src='{{item.snap_img}}' mode='aspectFill'></image>
       <view class='two-text'>
         <text class='name-text'>{{item.snap_name}}</text>
         <text class="status-text" wx:if="{{item.status==1}}">待付款</text>

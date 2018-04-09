@@ -3,7 +3,8 @@ var index = new Index();
 
 Page({  
   data: {
-    banner : []
+    banner : [],
+    loadingHidden: false
   },
 
   onLoad: function (options) {
@@ -33,7 +34,8 @@ Page({
 
     index.getTheme( (data) => {
       this.setData({
-        theme: data
+        theme: data,
+        loadingHidden: true
       })
     })
   },

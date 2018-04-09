@@ -27,3 +27,12 @@
 .theme-text-color{
   color: #d99009;
 }
+
+/* 加载中样式 */
+.loading-container{
+  width: 750rpx;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

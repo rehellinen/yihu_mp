@@ -32,9 +32,9 @@
 }
 
 .theme-photo-container image{
-  width: 365rpx;
+  width: 370rpx;
   height: 183rpx;
-  margin-top: 10rpx;
+  margin-top: 8rpx;
 }
 /* theme */
 .find-image-container{

@@ -1,5 +1,5 @@
 <!-- 总view -->
-<view class='container'>
+<view class='container' hidden='{{!loadingHidden}}'>
 
   <!-- banner轮播图 -->
   <swiper class='banner' indicator-dots='{{false}}' autoplay='{{true}}' interval='5000'>
@@ -42,3 +42,7 @@
 
 </view>
 <!-- 总view -->
+
+<view class='loading-container' hidden="{{loadingHidden}}">
+  加载中
+</view>
