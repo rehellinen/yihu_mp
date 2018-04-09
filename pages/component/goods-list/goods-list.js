@@ -2,10 +2,6 @@
 Component({  
   properties: {
     goods: Array,
-    kind: {
-      type: String,
-      value: 'goods'
-    }
   },
 
   data: {
@@ -14,17 +10,12 @@ Component({
   
   methods: {
     toGoodsDetail(event){
-      let kind = event.currentTarget.dataset.kind
+      let type = event.currentTarget.dataset.type
+      console.log(type)
       let id = event.currentTarget.dataset.id
-      if(kind === 'goods'){
-        wx.navigateTo({
-          url: '/pages/detail/detail?kind=goods&id='+id,
-        })
-      }else{
-        wx.navigateTo({
-          url: '/pages/detail/detail?kind=oldGoods&id=' + id,
-        })
-      }
+      wx.navigateTo({
+        url: '/pages/detail/detail?type=' + type + '&id=' + id,
+      })
     }
   }
 })

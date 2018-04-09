@@ -6,9 +6,9 @@
     </block>
   </view> -->
 
-  <view class='goods-container' style="margin-top:5rpx;">
+  <view class='goods-container'>
     <block wx:for="{{goods}}" wx:key="">
-      <view class='single-goods' bindtap='toGoodsDetail' data-kind='{{kind}}' data-id='{{item.id}}'>
+      <view class='single-goods' bindtap='toGoodsDetail' data-type='{{item.type}}' data-id='{{item.id}}'>
         <image class='goods-image' src='{{item.image_id.image_url}}' mode='aspectFill'></image>
         <view class='goods-text-container'>
           <text class='name'>{{item.name}}</text>

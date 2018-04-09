@@ -11,10 +11,10 @@
               </image>
             </view>
             <view class='cart-item-img'>
-              <image class='goods-image' src='{{item.image_id.image_url}}' mode='aspectFill'></image>
+              <image class='goods-image' src='{{item.image_id.image_url}}' mode='aspectFill' bindtap='toDetail' data-id='{{item.id}}' data-type='{{item.type}}'></image>
             </view>
             <view class='cart-item-word'>
-              <view class='title-box'>
+              <view class='title-box' bindtap='toDetail' data-id='{{item.id}}' data-type='{{item.type}}'>
                 <text>{{item.name}}</text>
                 <text>￥{{item.price}}</text>
               </view>

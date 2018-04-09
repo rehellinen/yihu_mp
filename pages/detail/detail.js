@@ -15,8 +15,8 @@ Page({
 
   onLoad: function (options) {
     let id = options.id
-    let kind = options.kind
-    if(kind == 'goods'){
+    let type = options.type
+    if (type == 1){
       this._getGoodsAndShop(id)
     }else{
       this._getGoodsAndSeller(id)
@@ -103,7 +103,7 @@ Page({
 
   _addCartStorage(){
     let tempObj = {}
-    let keys = ['id', 'name', 'image_id', 'price']
+    let keys = ['id', 'name', 'image_id', 'price', 'type']
     for (let key in this.data.product) {
       if (keys.indexOf(key) >= 0) {
         tempObj[key] = this.data.product[key]

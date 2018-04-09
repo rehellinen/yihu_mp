@@ -41,7 +41,7 @@ Page({
   detailTap(event){
     let id = event.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../detail/detail?id=' + id,
+      url: '../detail/detail?id=' + id + '&type=' + 2,
     })
   },
 

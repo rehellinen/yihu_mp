@@ -24,6 +24,7 @@
   flex-wrap: wrap;
   justify-content:space-between;
   background-color: #F9F9F9;
+  margin-top:5rpx;
 }
 
 .single-goods{

@@ -15,7 +15,7 @@
     </view>
     <view class='goods-container'>
       <block wx:for="{{singleGoods}}" wx:key="">
-        <view class='single-goods'>
+        <view class='single-goods' bindtap='toDetail' data-id='{{item.id}}' data-type='{{item.type}}'>
           <image class='goods-image' src='{{item.image_id.image_url}}'></image>
           <text class='goods-text'>{{item.name}}</text>
         </view>
