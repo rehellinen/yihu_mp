@@ -20,6 +20,12 @@ Page({
     })
 
     index.getOldGoods( (data) => {
+      for(let index in data){
+        if(data[index].name.length > 10){          
+          data[index].name = data[index].name.substr(0, 10)
+          data[index].name += ' ...'
+        } 
+      }
       this.setData({
         oldGoods: data
       })

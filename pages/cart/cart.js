@@ -6,16 +6,22 @@ Page({
   
   },
 
-  onShow: function () {
-    let cartData = cart.getCartDataFromLocal()
-    let cartDetailInfo = this._calTotalCountAndPrice(cartData)
+  onLoad(){
+       
+  },
 
-    this.setData({
-      selectedCount: cartDetailInfo.selectedCount,
-      cartData: cartData,
-      selectedType: cartDetailInfo.selectedType,
-      totalPrice: cartDetailInfo.totalPrice
-    })
+  onShow: function () {
+    cart.updatePrice( () => {
+      let cartData = cart.getCartDataFromLocal()
+      let cartDetailInfo = this._calTotalCountAndPrice(cartData)
+
+      this.setData({
+        selectedCount: cartDetailInfo.selectedCount,
+        cartData: cartData,
+        selectedType: cartDetailInfo.selectedType,
+        totalPrice: cartDetailInfo.totalPrice
+      })
+    })     
   },  
 
   onHide() {

@@ -82,7 +82,8 @@
 
 .name {
   color: #62502f;
-  font-size: 20px;
+  font-size: 19px;
+  width: 480rpx;
 }
 
 .subname {

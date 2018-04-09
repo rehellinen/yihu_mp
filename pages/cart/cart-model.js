@@ -116,6 +116,45 @@ class CartModel extends Base{
     }
     wx.setStorageSync(this._storageKeyName, cartData)
   }
+
+  // 更新购物车中商品价格
+  
+  
+  
+  updatePrice(cb){
+    let goods = this.getCartDataFromLocal()
+    let ids = []
+    for(let item in goods){
+      ids.push(goods[item].id)
+    }
+    let idsStr = ids.join('|')
+    let that = this
+    let params = {
+      url: 'goods/check',
+      data: {
+        ids: idsStr
+      },
+      callBack(res){
+        that.updateStoragePrice(res, goods)
+        cb && cb()
+      }
+    }
+    this.request(params)
+  }
+
+  updateStoragePrice(res, goods){
+    let data = []
+    for(let i in res){
+      let id = res[i].id
+      let goodsIndexObj = this._isExistedThatOne(id, goods)
+      let index = goodsIndexObj.index
+      let storageGoods = goodsIndexObj.data;    
+      data[index] = res[i]  
+      data[index].count = storageGoods.count 
+      data[index].selected = storageGoods.selected
+    }
+    wx.setStorageSync(this._storageKeyName, data)
+  }
 }
 
 export { CartModel }
