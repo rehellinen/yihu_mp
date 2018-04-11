@@ -6,12 +6,12 @@
   font-size: 28rpx;
 }
 
-.order-time-no {
+.info-container {
   flex: 1;
   margin-left: 30rpx;
 }
 
-.order-time-no view:first-child {
+.info-container view:first-child {
   margin-bottom: 15rpx;
 }
 
@@ -27,6 +27,18 @@
 .order-no-txt {
   letter-spacing: 2rpx;
   color: #999;
+}
+
+.buyer-basic-info {
+  border-bottom: 1rpx solid #e9e9e9;
+  display: flex;
+  padding: 20rpx 30rpx;
+  width: 750rpx;
+  font-size: 28rpx;
+}
+
+.buyer-container{
+  margin-left: 0;
 }
 
 /*订单三种状态*/

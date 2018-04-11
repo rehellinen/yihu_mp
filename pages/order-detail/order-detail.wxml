@@ -1,12 +1,12 @@
 <view class='container'>
   <view class="order-basic-info">
-    <view class="order-time-no">
+    <view class="info-container">
       <view>
-        <text class="key">下单时间:</text>
+        <text class="key">下单时间：</text>
         <text class="val">{{order.create_time}}</text>
       </view>
       <view>
-        <text class="key">订单编号:</text>
+        <text class="key">订单编号：</text>
         <text class="order-no-txt val">{{order.order_no}}</text>
       </view>
     </view>
@@ -17,6 +17,29 @@
     </view>
   </view>
 
+  <view class='buyer-basic-info'>
+    <view class="info-container">
+      <view>
+        <text class="key">卖家:</text>
+        <text class="val">{{order.seller.name}}</text>
+      </view>
+      <view>
+        <text class="key">微信:</text>
+        <text class="val">{{order.seller.weixin}}</text>
+      </view>
+    </view>
+    <view class="info-container buyer-container">
+      <view>
+        <text class="key">电话:</text>
+        <text class="val">{{order.seller.telephone}}</text>
+      </view>
+      <view>
+        <text class="key">支付宝:</text>
+        <text class="val">{{order.seller.zhifubao}}</text>
+      </view>
+    </view>
+  </view>
+
   <order-goods-list goods="{{order.snap_items}}"></order-goods-list>
 
     <!--结算-->
@@ -24,7 +47,8 @@
     <view class="total-account">
       付款合计：￥{{order.total_price}}
     </view>
-    <view class="pay" bindtap='pay' wx:if='{{order.status!=2}}'>去付款</view>
+    <view class="pay" bindtap='pay' wx:if='{{order.status == 1}}'>去付款</view>
+    <view class="pay" bindtap='confirm' wx:if='{{order.status != 1}}'>确认收货</view>
   </view>
   <!--结算-->
 </view>

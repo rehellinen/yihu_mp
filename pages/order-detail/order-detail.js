@@ -8,7 +8,8 @@ Page({
 
   onLoad: function (options) {
     let id = options.id
-    order.getOrderByID(id, (res) =>{
+    let type = options.type
+    order.getOrderByID(id, type, (res) =>{
       this.setData({
         order: res
       })
@@ -59,4 +60,11 @@ Page({
       showCancel: false
     })
   },
+
+  confirm(event){
+    wx.showModal({
+      title: '确认收货',
+      content: '是否确认收货?',
+    })
+  }
 })

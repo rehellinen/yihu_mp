@@ -30,8 +30,13 @@ Page({
   _loadOrder(){
     order.getOrder(1, (res) => {
       let data = []
-      data.push(res[0])
-      data.push(res[1])
+      if(res.length >= 2){        
+        data.push(res[0])
+        data.push(res[1])
+      }else if(res.length = 1){
+        data.push(res[0])
+      }
+      
       this.setData({
         order: data
       })

@@ -1,6 +1,7 @@
 .order-list-contailer{
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 
 .detail-container{

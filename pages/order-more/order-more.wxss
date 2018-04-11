@@ -1,7 +1,7 @@
 .order-container{  
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: #f9f9f9;
   width: 750rpx;
   justify-content: center;
 }
@@ -9,18 +9,12 @@
 .text-container{
   display: flex;
   justify-content: center;
-  height: 90rpx;
+  padding: 25rpx 0;
   align-items: center;
-}
-
-.hr{
-  width: 90%;
-  height: 1rpx;
-  background-color: #e3e3e3;
-  margin: 0 5%;
+  background-color: white;
 }
 
 .text-container text{
-  font-size: 30rpx;
+  font-size: 32rpx;
   color: #989898;  
 }

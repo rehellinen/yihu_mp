@@ -1,6 +1,6 @@
 /* pages/component/switch-tab/switch-tab.wxss */
 .tab-container{
-  margin-top: 20rpx;
+  margin-top: 20rpx; 
   width: 100%;
   height: 90rpx;
   display: flex;

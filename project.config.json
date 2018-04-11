@@ -91,10 +91,10 @@
 					"query": "id=1"
 				},
 				{
-					"id": -1,
+					"id": 10,
 					"name": "order-detail",
 					"pathName": "pages/order-detail/order-detail",
-					"query": "id=87"
+					"query": "id=190&type=2"
 				},
 				{
 					"id": 11,
