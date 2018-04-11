@@ -4,13 +4,13 @@
      <image src="/images/icon/pay@success.png"></image>
      <view class='pay-fail-title'>支付成功</view>
      <view class='pay-fail-text'>感谢~</view>
-     <button size='mini' type="default" bindtap="viewOrder" data-id='{{id}}'> 查看订单 </button>
+     <button size='mini' type="default" bindtap="viewOrder"> 查看订单 </button>
     </block>
    <block wx:else>
     <image src="/images/icon/pay@error.png"></image>
     <view class='pay-fail-title'>抱歉，支付失败</view>
     <view class='pay-fail-text'>如需购买，可在个人中心查看订单</view>
-    <button size='mini' type="default" bindtap="viewOrder" data-id='{{id}}' class='button'> 查看订单 </button>
+    <button size='mini' type="default" bindtap="viewOrder"> 查看订单 </button>
    </block>
   </view>
 </view>

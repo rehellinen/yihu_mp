@@ -24,8 +24,3 @@
   font-size: 30rpx;
   color: #989898;  
 }
-
-.my-order-image{
-  width: 170rpx;
-  height: 50rpx;
-}

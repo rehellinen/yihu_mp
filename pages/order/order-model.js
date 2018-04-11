@@ -27,11 +27,11 @@ class OrderModel extends Base{
   }
 
   // 0->库存量不足，1->支付失败，2->支付成功
-  execPay(orderID, cb){
+  execPay(orderIdentify, cb){
     let params = {
       url: 'preOrder',
       type: 'POST',
-      data: { id: orderID },
+      data: { order_identify: orderIdentify },
       callBack(res){
         let timeStamp = res.timeStamp
         if(timeStamp){

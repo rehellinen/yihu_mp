@@ -21,7 +21,7 @@ Page({
       if (statusCode != 0) {
         let flag = statusCode == 2
         wx.redirectTo({
-          url: '../pay-result/pay-result?id=' + id + '&flag=' + flag,
+          url: '../pay-result/pay-result?flag=' + flag,
         })
       }else{
         this._orderFail(res)

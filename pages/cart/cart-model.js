@@ -118,11 +118,12 @@ class CartModel extends Base{
   }
 
   // 更新购物车中商品价格
-  
-  
-  
   updatePrice(cb){
     let goods = this.getCartDataFromLocal()
+    if (goods.length == 0){      
+      cb && cb()
+      return 0
+    }
     let ids = []
     for(let item in goods){
       ids.push(goods[item].id)

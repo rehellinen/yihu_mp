@@ -1,11 +1,10 @@
-import {Config} from 'config.js';
-import {Token} from './token.js'
+import { Config } from 'config.js'
+import { Token } from './token.js'
 
-class Base
-{
-  constructor(){
-    "use strict";
-    this.baseUrl = Config.restUrl;
+class Base {
+  constructor() {
+    "use strict"
+    this.baseUrl = Config.restUrl
   }
 
   // 对微信的 http 请求进行封装
@@ -14,50 +13,51 @@ class Base
   // 2. type [http请求方式]
   // 3. data [请求时携带的参数]
   // 4. callBack [回调函数]
-  request(params, noReFetch){
-    var that = this;
-    var url = this.baseUrl + params.url;
-    if(!params.type) {
-      params.type = 'GET';
+  // 5. eCallBack [http错误码为4开头的回调函数]
+  request(params, noReFetch) {
+    let that = this
+    let url = this.baseUrl + params.url
+    if (!params.type) {
+      params.type = 'GET'
     }
-    
+
     wx.request({
       url: url,
       data: params.data,
       method: params.type,
       header: {
-        'content-type' : 'application/json',
+        'content-type': 'application/json',
         'token': wx.getStorageSync('token')
       },
-      success: function(res){
-        let code = res.statusCode.toString();
-        let startChar = code.charAt(0);
-        if(startChar == '2') {
-          params.callBack && params.callBack(res.data.data);
-        }else{
-          if(code == '401'){
-            if (!noReFetch){
+      success: function (res) {
+        let code = res.statusCode.toString()
+        let startChar = code.charAt(0)
+        if (startChar == '2') {
+          params.callBack && params.callBack(res.data.data)
+        } else {
+          if (code == '401') {
+            if (!noReFetch) {
               that._reFetch(params)
-            }else{
+            } else {
               params.eCallBack && params.eCallBack(res.data)
-            }                       
-          }else{
+            }
+          } else {
             params.eCallBack && params.eCallBack(res.data)
-          }         
+          }
         }
       },
-      fail: function(err){
+      fail: function (err) {
         params.eCallBack && params.eCallBack(err)
       }
     })
   }
-
-  _reFetch(params){
+  // 重新发送请求
+  _reFetch(params) {
     let token = new Token()
-    token.getTokenFromServer( (token) => {
+    token.getTokenFromServer((token) => {
       this.request(params, true)
     })
   }
-};
+}
 
-export {Base};
+export { Base }

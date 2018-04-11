@@ -29,7 +29,7 @@
 
 .pay-result button {
   margin: 100rpx 20rpx;
-  width: 400rpx;
+  width: 380rpx;
   border: 1rpx solid #8d8d8d;
   border-radius: 13px;
 }

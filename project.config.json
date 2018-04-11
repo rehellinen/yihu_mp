@@ -100,7 +100,7 @@
 					"id": 11,
 					"name": "pay-result",
 					"pathName": "pages/pay-result/pay-result",
-					"query": "flag=true"
+					"query": "flag=false"
 				}
 			]
 		}

@@ -53,8 +53,8 @@ Page({
     let that = this
     order.placeOrder(orderInfo, (res) => {
       if(res.pass){
-        let id = res.order_id
-        this._execPay(id)
+        let order_no = res.order_no
+        this._execPay(order_no)
       }else{
         this._orderFail(res)
       }
@@ -62,14 +62,14 @@ Page({
   },
 
   // 进行支付
-  _execPay(id){
+  _execPay(order_no){
     let that = this
-    order.execPay(id, (statusCode, data) => {
+    order.execPay(order_no, (statusCode, data) => {
       if(statusCode != 0){
         that.deleteGoods()
         let flag = statusCode == 2
         wx.redirectTo({
-          url: '../pay-result/pay-result?id=' + id + '&flag=' + flag, 
+          url: '../pay-result/pay-result?flag=' + flag, 
         })
       }else{
         this._orderFail(data)
