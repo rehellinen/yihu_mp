@@ -7,32 +7,48 @@ Page({
   data: {
     categoryIndex: 0,
     className: '',
-    goods: []
+    goods: [],
+    hasMore: true,
+    page: 1, 
+    singleGoods: []
   },
 
   onLoad: function (options) {
     let id = options.id
     theme.getCategory(id, (res) => {
-      let category_id = res[0].id
       this.setData({
         category: res,
-        categoryID: category_id,
+        categoryID: res[0].id,
         categoryImage: res[0].image_id.image_url
-      })
-
-      detail.getGoodsByCategoryID(category_id, (data) => {
-        this.setData({
-          singleGoods: data
-        })
-      })
+      })      
+      this._loadGoods()
     })    
+    
+  },
+
+  onReachBottom(){
+    if(this.data.hasMore){
+      this.data.page++
+      this._loadGoods()
+    }
+  },
+
+  _loadGoods(){
+    detail.getGoodsByCategoryID(this.data.page, this.data.categoryID, (data) => {
+      this.data.singleGoods.push.apply(this.data.singleGoods, data)
+      this.setData({
+        singleGoods: this.data.singleGoods
+      })
+    }, () => {
+      this.data.hasMore = false
+    })
   },
 
   selectCategory(event){
     let id = event.currentTarget.dataset.id
     let index = event.currentTarget.dataset.index
     if (index == this.data.categoryIndex){
-      return 0;
+      return 0
     }
     this.setData({
       categoryID: id,

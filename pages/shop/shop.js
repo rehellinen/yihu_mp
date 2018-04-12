@@ -7,7 +7,8 @@ Page({
     photoCount: 0,
     loadedPhoto: 0,
     page: 1,
-    shop: []
+    shop: [],
+    hasMore: true
   },
 
   onLoad: function (options) {

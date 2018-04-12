@@ -50,7 +50,7 @@
     </view>
   </view>
 
-  <switch-tab tab="{{['商品信息', '商家信息']}}" class="switch-tap-width">
+  <switch-tab tab="{{['商家信息', '商品信息']}}" class="switch-tap-width">
     <view slot="商品信息" class='goods-info'>
       <text>{{product.description}}</text>
     </view>

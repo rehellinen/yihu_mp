@@ -26,11 +26,17 @@ class DetailModel extends Base{
   }
 
   // 根据商家id获取所有商品
-  getGoodsByShopId(id, cb) {
+  getGoodsByShopId(page, id, cb, ecb) {
     let params = {
       url: 'newGoods/shop/' + id,
+      data: {
+        page: page
+      },
       callBack: function (data) {
         cb && cb(data.data)
+      },
+      eCallBack(data){
+        ecb && ecb(data)
       }
     }
 
@@ -50,11 +56,17 @@ class DetailModel extends Base{
   }
 
   // 根据分类获取商品
-  getGoodsByCategoryID(id, cb) {
+  getGoodsByCategoryID(page, id, cb, ecb) {
     let params = {
       url: 'oldGoods/category/' + id,
-      callBack(res) {
+      data:{
+        page: page
+      },
+      callBack(res){
         cb && cb(res.data)
+      },
+      eCallBack(res){
+        ecb && ecb(res)
       }
     }
     this.request(params)
