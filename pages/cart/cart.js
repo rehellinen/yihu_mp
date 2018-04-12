@@ -1,9 +1,11 @@
 import { CartModel } from './cart-model.js'
 let cart = new CartModel()
+let app = getApp()
 
 Page({
   data: {
-  
+    photoCount: 0,
+    loadedPhoto: 0
   },
 
   onLoad(){
@@ -13,6 +15,13 @@ Page({
   onShow: function () {
     cart.updatePrice( () => {
       let cartData = cart.getCartDataFromLocal()
+      this.data.photoCount += cartData.length
+      if (cartData.length == 0){
+        this.setData({
+          loadingHidden: true
+        })
+      }
+
       let cartDetailInfo = this._calTotalCountAndPrice(cartData)
       this.setData({
         selectedCount: cartDetailInfo.selectedCount,
@@ -121,5 +130,10 @@ Page({
     wx.navigateTo({
       url: '/pages/detail/detail?id=' + id + '&type=' + type,
     })
+  },
+
+  isLoadAll(event) {
+    let that = this
+    app.isLoadAll(that)
   }
 })

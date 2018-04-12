@@ -2,6 +2,7 @@ import {DetailModel} from './detail-model.js'
 import {CartModel} from '../cart/cart-model.js'
 let detail = new DetailModel()
 let cart = new CartModel()
+let app = getApp()
 
 Page({
   data: {
@@ -10,7 +11,9 @@ Page({
     cartSelectedCount: 0,
     currentTabsIndex: 0,
     countArray:[1, 2, 3, 4, 5, 6],
-    isTap: false
+    isTap: false,
+    photoCount: 1,
+    loadedPhoto: 0
   },
 
   onLoad: function (options) {
@@ -116,5 +119,10 @@ Page({
     wx.switchTab({
       url: '../cart/cart',
     })
+  },
+
+  isLoadAll(event) {
+    let that = this
+    app.isLoadAll(that)
   }
 })

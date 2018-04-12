@@ -16,7 +16,7 @@
           <view class="detail">收货地址：{{buyerInfo.dormitory}}</view>
         </view>
         <view class="contact-icon" wx:if="{{orderStatus!=0}}">
-            <image src="/images/icon/arrow@right.png"></image>
+            <image src="/images/icon/arrow@downBlack.png"></image>
         </view>
       </view>
     </block>

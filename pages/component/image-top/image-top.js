@@ -24,6 +24,10 @@ Component({
   },
 
   methods: {
-
+    loaded(event) {
+      var myEventDetail = {}
+      var myEventOption = {}
+      this.triggerEvent('loaded', myEventDetail, myEventOption)
+    }
   }
 })

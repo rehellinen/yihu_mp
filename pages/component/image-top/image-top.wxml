@@ -1,6 +1,6 @@
 <view class='info'>
-  <image class='header-image' src='{{top_image}}'></image>  
-  <image class='avatar' src='{{avatar}}'></image>  
+  <image class='header-image' src='{{top_image}}' bindload='loaded'></image>  
+  <image class='avatar' src='{{avatar}}' bindload='loaded'></image>  
   <text class='avatar-name'>{{name}}</text>  
   <text class='avatar-quote'>{{quote}}</text> 
 </view>

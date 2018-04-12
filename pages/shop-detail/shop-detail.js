@@ -2,10 +2,13 @@ import { ShopModel } from '../shop/shop-model.js'
 import { DetailModel } from '../detail/detail-model.js'
 let detail = new DetailModel()
 let shop = new ShopModel()
+let app = getApp()
 
 Page({  
   data: {
-  
+    loadingHidden: false,
+    photoCount: 0,
+    loadedPhoto: 0
   },
 
   onLoad: function (options) {
@@ -17,6 +20,7 @@ Page({
     })
 
     detail.getGoodsByShopId(id, (data) => {
+      this.data.photoCount += (data.length + 2)
       this.setData({
         goods: data
       })
@@ -27,5 +31,10 @@ Page({
         recentGoods: data
       })
     })
+  },
+
+  isLoadAll(event) {
+    let that = this
+    app.isLoadAll(that)
   }
 })

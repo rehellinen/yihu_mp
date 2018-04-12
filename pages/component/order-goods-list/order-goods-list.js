@@ -1,4 +1,5 @@
-// pages/component/order-goods-list/order-goods-list.js
+let app = getApp()
+
 Component({
   properties: {
     goods: Array
@@ -9,6 +10,10 @@ Component({
   },
 
   methods: {
-
+    loaded(event){
+      var myEventDetail = {} 
+      var myEventOption = {} 
+      this.triggerEvent('loaded', myEventDetail, myEventOption)      
+    }
   }
 })

@@ -1,4 +1,8 @@
-<view class='container'>
+<view class='loading-container' hidden="{{loadingHidden}}">
+  <image src='/images/theme/loading.gif'></image>
+</view>
+
+<view class='container' hidden="{{!loadingHidden}}">
   <view class="order-basic-info">
     <view class="info-container">
       <view>
@@ -40,7 +44,7 @@
     </view>
   </view>
 
-  <order-goods-list goods="{{order.snap_items}}"></order-goods-list>
+  <order-goods-list goods="{{order.snap_items}}" bind:loaded="isLoadAll"></order-goods-list>
 
     <!--结算-->
   <view class="order-accounts">

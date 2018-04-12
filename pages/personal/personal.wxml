@@ -1,6 +1,10 @@
-<view class='container personal-container'>
+<view class='loading-container' hidden="{{loadingHidden}}">
+  <image src='/images/theme/loading.gif'></image>
+</view>
+
+<view class='container personal-container' hidden="{{!loadingHidden}}">
   <!-- 个人信息栏 -->
-  <image-top avatar="{{avatar}}" name="{{name}}"></image-top>
+  <image-top avatar="{{avatar}}" name="{{name}}" bind:loaded="isLoadAll"></image-top>
   <view class='icon-container' bindtap='toEdit'>
     <image class='icon' src='/images/icon/edit.png'></image>
   </view>
@@ -15,10 +19,10 @@
     <view class='image-container'>
       <image class='my-order-image' src='/images/theme/personal@order.png'></image>
     </view>  
-    <order-list order="{{order}}"></order-list>
+    <order-list order="{{order}}" bind:loaded="isLoadAll"></order-list>
     <view class='more-container' bindtap="toOrderMore">
       <text class='more-text'>查看更多</text>
-      <image src="/images/icon/arrow@right.png"></image>
+      <image src="/images/icon/arrow@downBlack.png"></image>
     </view>
   </view>
   <!-- 我的订单 -->

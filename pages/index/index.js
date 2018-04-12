@@ -1,10 +1,14 @@
-import {Index} from 'index-model.js';
-var index = new Index();
+import {Index} from 'index-model.js'
+let index = new Index()
+let app = getApp()
+
 
 Page({  
   data: {
     banner : [],
-    loadingHidden: false
+    loadingHidden: false,
+    photoCount: 0,
+    loadedPhoto: 0
   },
 
   onLoad: function (options) {
@@ -15,12 +19,14 @@ Page({
   _loadData : function(callBack) {
     // 获取Banner
     index.getBanners( (data) => {
+      this.data.photoCount += data.length
       this.setData({
         banner : data
       })
     })
 
     index.getOldGoods( (data) => {
+      this.data.photoCount += data.length
       for(let index in data){
         if(data[index].name.length > 10){          
           data[index].name = data[index].name.substr(0, 10)
@@ -33,9 +39,9 @@ Page({
     })
 
     index.getTheme( (data) => {
+      this.data.photoCount += data.length
       this.setData({
         theme: data,
-        loadingHidden: true
       })
     })
   },
@@ -52,5 +58,10 @@ Page({
     wx.navigateTo({
       url: '../theme/theme?id=' + id,
     })
+  },
+
+  isLoadAll(event){
+    let that = this
+    app.isLoadAll(that)
   }
 })

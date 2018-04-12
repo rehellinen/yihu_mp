@@ -1,5 +1,9 @@
+<view class='loading-container' hidden="{{loadingHidden}}">
+  <image src='/images/theme/loading.gif'></image>
+</view>
+
 <!-- 总view -->
-<view class='container foot-container'>
+<view class='container foot-container' hidden="{{!loadingHidden}}">
   <!-- 头图  -->
   <view class='header-image-container'>
     <image class='header-image' src='/images/theme/shop@header.png'></image>
@@ -14,7 +18,7 @@
     <view class='shop-container' bindtap='toShopDetail' data-id='{{item.id}}'>
       <view class='photo-text-container'>
         <view>
-          <image class='shop-avatar' src='{{item.avatar_image_id.image_url}}'></image>
+          <image class='shop-avatar' src='{{item.avatar_image_id.image_url}}' bindload="isLoadAll"></image>
           <text class='avatar-text'>{{item.name}}</text>
         </view>
         <image class='come-image' src='/images/theme/shop@come.png'></image>
@@ -22,11 +26,11 @@
 
       <view class='shop-photos'>
         <view class='left'>
-          <image class='left-image' src='{{item.main_image_id[0].image_id.image_url}}' mode='aspectFill'></image>
+          <image class='left-image' src='{{item.main_image_id[0].image_id.image_url}}' mode='aspectFill' bindload="isLoadAll"></image>
         </view>
          <view class='right'>
-          <image class='right1-image' src='{{item.main_image_id[1].image_id.image_url}}' mode='aspectFill'></image>
-          <image class='right2-image' src='{{item.main_image_id[2].image_id.image_url}}' mode='aspectFill'></image>
+          <image class='right1-image' src='{{item.main_image_id[1].image_id.image_url}}' mode='aspectFill' bindload="isLoadAll"></image>
+          <image class='right2-image' src='{{item.main_image_id[2].image_id.image_url}}' mode='aspectFill' bindload="isLoadAll"></image>
         </view>         
       </view>
     </view>

@@ -2,20 +2,23 @@ import { PersonalModel } from './personal-model.js'
 import { OrderModel } from '../order/order-model.js'
 let order = new OrderModel()
 let personal = new PersonalModel()
+let app = getApp()
 
 Page({
   data: {
-  
+    loadingHidden: false,
+    photoCount: 0,
+    loadedPhoto: 0
   },
 
   onLoad: function (options) {
-    personal.getUserInfo( (res) => {
+    personal.getUserInfo( (res) => {         
       this.setData({
         avatar: res.avatarUrl,
         name: res.nickName
       })
     })
-    this._loadOrder()    
+    this._loadOrder()     
   },
 
   onShow(){
@@ -30,10 +33,12 @@ Page({
   _loadOrder(){
     order.getOrder(1, (res) => {
       let data = []
-      if(res.length >= 2){        
+      if(res.length >= 2){
+        this.data.photoCount += 4       
         data.push(res[0])
         data.push(res[1])
       }else if(res.length = 1){
+        this.data.photoCount += 3
         data.push(res[0])
       }
       
@@ -53,5 +58,10 @@ Page({
     wx.navigateTo({
       url: '../order-more/order-more',
     })
+  },
+
+  isLoadAll(event) {
+    let that = this
+    app.isLoadAll(that)
   }
 })

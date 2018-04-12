@@ -2,7 +2,7 @@
   <block wx:for="{{goods}}" wx:key="">
     <view class="product-item">
       <view class="item-left">
-        <image src="{{item.image_id.image_url}}" mode='aspectFill'></image>
+        <image src="{{item.image_id.image_url}}" mode='aspectFill' bindload='loaded'></image>
       </view>
       <view class="item-middle">
         <view class='name'>{{item.name}}</view>

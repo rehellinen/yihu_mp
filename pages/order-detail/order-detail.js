@@ -1,15 +1,22 @@
- import { OrderModel } from '../order/order-model.js'
+import { OrderModel } from '../order/order-model.js'
 let order = new OrderModel()
+let app = getApp()
 
 Page({
   data: {
-  
+    loadingHidden: false,
+    photoCount: 0,
+    loadedPhoto: 0
   },
 
   onLoad: function (options) {
     let id = options.id
     let type = options.type
     order.getOrderByID(id, type, (res) =>{
+      this.data.photoCount += res.snap_items.length
+      if(type == 1){
+        res.seller = res.shop
+      }
       this.setData({
         order: res
       })
@@ -66,5 +73,11 @@ Page({
       title: '确认收货',
       content: '是否确认收货?',
     })
+  },
+
+  isLoadAll(event) {
+    console.log('test')
+    let that = this
+    app.isLoadAll(that)
   }
 })

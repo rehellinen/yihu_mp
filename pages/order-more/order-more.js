@@ -1,5 +1,6 @@
 import { OrderModel } from '../order/order-model.js'
 let order = new OrderModel()
+let app = getApp()
 
 Page({
   data: {
@@ -8,7 +9,10 @@ Page({
     unpaid: [],
     paid: [],
     delivered: [],
-    hasMore:true
+    hasMore:true,
+    loadingHidden: false,
+    photoCount: 0,
+    loadedPhoto: 0
   },
 
   onLoad: function (options) {
@@ -24,6 +28,7 @@ Page({
 
   _loadOrder(){
     order.getOrder(this.data.page, (res) => {
+      this.data.photoCount += res.length
       for(let i in res){        
         // 待付款
         if (res[i].status == 1){
@@ -46,5 +51,10 @@ Page({
     }, (res) => {
       this.data.hasMore = false
     })
+  },
+
+  isLoadAll(event) {
+    let that = this
+    app.isLoadAll(that)
   }
 })

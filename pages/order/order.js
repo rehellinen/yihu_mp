@@ -4,15 +4,19 @@ import { OrderModel } from './order-model.js'
 let cart = new CartModel()
 let edit = new EditInfoModel()
 let order = new OrderModel()
+let app = getApp()
 
 Page({
   data: {
-    
+    loadingHidden: false,
+    photoCount: 0,
+    loadedPhoto: 0
   },
 
   // onLoad获取购物车选中的商品及其相关信息
   onLoad: function (options) {
     let goods = cart.getCartDataFromLocal(true)
+    this.data.photoCount += goods.length
 
     this.setData({
       totalPrice : options.totalPrice,
@@ -20,6 +24,11 @@ Page({
     })
   },  
 
+  isLoadAll(event) {
+    let that = this
+    app.isLoadAll(that)
+  },
+  
   onShow(){
     edit.getBuyerInfo((res) => {
       let isCompleted = this.isBuyerInfoCompleted(res)
@@ -135,5 +144,5 @@ Page({
         
       }
     })
-  }  
+  }
 })

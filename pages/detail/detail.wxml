@@ -1,4 +1,8 @@
-<view class='container'>
+<view class='loading-container' hidden="{{loadingHidden}}">
+  <image src='/images/theme/loading.gif'></image>
+</view>
+
+<view class='container' hidden="{{!loadingHidden}}">
   <view class="cart-container {{isShake ? 'animate' : ''}}">
     <view class="cart" bindtap='toCartTap'>
       <image class="cart-icon" src="/images/icon/cart.png"></image>
@@ -8,7 +12,7 @@
     </view>
   </view>
   <view class='detail'>
-    <image src='{{product.image_id.image_url}}' class='head-image' mode='aspectFill'></image>
+    <image src='{{product.image_id.image_url}}' class='head-image' mode='aspectFill' bindload="isLoadAll"></image>
     <view class='info'>
 
       <view class='info-up'>

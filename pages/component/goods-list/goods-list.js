@@ -16,6 +16,12 @@ Component({
       wx.navigateTo({
         url: '/pages/detail/detail?type=' + type + '&id=' + id,
       })
+    },
+
+    loaded(event) {
+      var myEventDetail = {}
+      var myEventOption = {}
+      this.triggerEvent('loaded', myEventDetail, myEventOption)
     }
   }
 })

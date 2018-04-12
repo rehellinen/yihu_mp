@@ -1,4 +1,4 @@
-<view class="container cart-container">
+<view class="container cart-container" hidden="{{!loadingHidden}}">
   <block wx:if="{{cartData.length > 0}}">
     <view class='cart-box'>
       <block wx:for="{{cartData}}" wx:key="">
@@ -11,7 +11,7 @@
               </image>
             </view>
             <view class='cart-item-img'>
-              <image class='goods-image' src='{{item.image_id.image_url}}' mode='aspectFill' bindtap='toDetail' data-id='{{item.id}}' data-type='{{item.type}}'></image>
+              <image class='goods-image' src='{{item.image_id.image_url}}' mode='aspectFill' bindtap='toDetail' data-id='{{item.id}}' data-type='{{item.type}}' bindload="isLoadAll"></image>
             </view>
             <view class='cart-item-word'>
               <view class='title-box' bindtap='toDetail' data-id='{{item.id}}' data-type='{{item.type}}'>
@@ -42,11 +42,15 @@
         <view class="accounts-btn">下单</view>
         <view class="price-text">￥{{totalPrice}}</view>
         <view class="arrow-icon">
-          <image wx:if="{{totalPrice == 0}}" src="/images/icon/arrow@grey.png"></image>
-          <image wx:else src="/images/icon/arrow@white.png"></image>
+          <image wx:if="{{totalPrice == 0}}" src="/images/icon/arrow@rightGrey.png"></image>
+          <image wx:else src="/images/icon/arrow@rightWhite.png"></image>
         </view>
       </view>
     </view>
   </block>
   <view wx:else class='no-data'>您还没有添加任何商品</view>
+</view>
+
+<view class='loading-container' hidden="{{loadingHidden}}">
+  <image src='/images/theme/loading.gif'></image>
 </view>

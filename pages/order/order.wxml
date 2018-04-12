@@ -1,12 +1,16 @@
+<view class='loading-container' hidden="{{loadingHidden}}">
+  <image src='/images/theme/loading.gif'></image>
+</view>
+
 <!-- 订单详情 -->
-<view class="container order-container">
+<view class="container order-container" hidden="{{!loadingHidden}}">
 
   <!-- 买家信息 -->
   <buyer-info isCompleted="{{isCompleted}}" buyerInfo="{{buyerInfo}}"></buyer-info>
   <!-- 买家信息 -->
 
   <!--列表-->
-  <order-goods-list goods="{{goods}}"></order-goods-list>
+  <order-goods-list goods="{{goods}}" bind:loaded="isLoadAll"></order-goods-list>
   <!--列表-->
 
   <!--结算-->

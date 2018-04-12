@@ -6,11 +6,17 @@ class ShopModel extends Base{
   }
 
   // 获取自营商家信息
-  getShop(cb){
+  getShop(page, cb, ecb){
     let params = {
       url: 'shop',
+      data: {
+        page: page
+      },
       callBack(data){
         cb && cb(data.data)
+      },
+      eCallBack(data){
+        ecb && ecb(data)
       }
     }
     this.request(params)
