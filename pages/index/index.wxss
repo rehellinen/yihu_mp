@@ -49,6 +49,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content:space-around;
+  margin-bottom: 30rpx;
 }
 
 .theme-photo-container image{
@@ -61,54 +62,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 140rpx;
+  height: 63rpx;
+  margin-bottom: 40rpx;
+  margin-top: 10rpx;
 }
 
 .find-image
 {
   width: 300rpx;
   height: 63rpx;
-}
-
-.find-detail-container
-{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 750rpx;
-}
-
-.find-detail
-{
-  display: flex;
-  flex-direction: column;
-  width: 350rpx;
-  height: 365rpx;  
-  margin-left: 17rpx;
-  margin-bottom: 30rpx;
-  box-shadow:0 0 6px #ebebeb;
-  border-radius: 8px
-}
-
-.find-detail-image
-{
-  width: 350rpx;
-  height: 250rpx;
-  border-radius: 8px 8px 0 0;
-}
-
-.find-detail-text
-{
-  color: #757575;
-  font-size: 14px;
-  margin-top: 9px;
-  margin-left: 25rpx;
-}
-
-.price
-{
-  color: #fa3e3d;
-  font-size: 16px;
-  margin: 6rpx 0 0 25rpx;
-  width: 50%;
 }

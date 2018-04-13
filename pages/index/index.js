@@ -35,9 +35,21 @@ Page({
           data[index].name = data[index].name.substr(0, 10)
           data[index].name += ' ...'
         }
-
         this.setData({
           oldGoods: data
+        })
+      }
+    })
+
+    detail.getIndexNewGoods((data) => {
+      this.data.photoCount += data.length
+      for (let index in data) {
+        if (data[index].name.length > 10) {
+          data[index].name = data[index].name.substr(0, 10)
+          data[index].name += ' ...'
+        }
+        this.setData({
+          newGoods: data
         })
       }
     })

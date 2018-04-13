@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "goods-list-index": "../component/goods-list-index/goods-list-index"
+  }
+}
