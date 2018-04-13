@@ -7,11 +7,9 @@ Page({
   },
 
   onLoad: function (options) {
-    let navFrom = options.from
     editInfo.getBuyerInfo( (res) => {
       this.setData({
         info: res,
-        navFrom: navFrom
       })
     })
   },

@@ -58,12 +58,14 @@ Page({
 
     setTimeout( () => {      
       if(!this.data.goods[id]) {
-        detail.getGoodsByCategoryID(id, (res) => {
+        detail.getGoodsByCategoryID(this.data.page, id, (res) => {
           this.data.goods[id] = res
           this.setData({
             categoryImage: this.data.category[index].image_id.image_url,
             singleGoods: this.data.goods[id]
           })         
+        }, (res) => {
+          this.data.hasMore = false
         })
       }else{
         this.setData({

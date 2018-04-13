@@ -1,0 +1,20 @@
+<view class='buyer-basic-info'>
+  <view class="buyer-info-container">
+    <view class='icon-info'>
+      <image class="icon" src='/images/icon/wechat.png'></image>
+      <text class="info">微信 : {{wechat}}</text>
+    </view>
+    <view class='icon-info'>
+      <image class="icon" src='/images/icon/phone.png'></image>
+      <text class="info">电话 : {{phone}}</text>
+    </view>
+    <view class='icon-info'>
+      <image class="icon" src='/images/icon/zhifubao.png'></image>
+      <text class="info">支付宝 : {{zhifubao}}</text>
+    </view>
+  </view>
+  <view class='avatar-container'>
+    <image src='{{image}}' wx:if="{{image}}"></image>
+    <text class="info">{{name}}</text>
+  </view>
+</view>

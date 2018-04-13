@@ -7,7 +7,7 @@
   <view class='text-container'>
     <text>我 的 订 单</text>
   </view>
-  <switch-tab tab="{{['全部', '待付款', '待发货', '待收货']}}" class="switch-tab">
+  <switch-tab tab="{{['全部', '待付款', '待发货', '待收货', '已完成']}}" class="switch-tab">
     <view slot="全部">
       <order-list order="{{order}}" bind:loaded="isLoadAll"></order-list>
     </view>
@@ -19,6 +19,9 @@
     </view>
     <view slot="待收货">
       <order-list order="{{delivered}}"></order-list>
+    </view>
+    <view slot="已完成">
+      <order-list order="{{completed}}"></order-list>
     </view>
   </switch-tab>
 

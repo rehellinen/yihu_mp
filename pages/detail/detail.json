@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "switch-tab": "/pages/component/switch-tab/switch-tab"
+    "switch-tab": "/pages/component/switch-tab/switch-tab",
+    "seller-info": "/pages/component/seller-info/seller-info"
   }
 }

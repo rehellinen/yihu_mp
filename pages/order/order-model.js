@@ -59,7 +59,7 @@ class OrderModel extends Base{
   // 获取订单
   getOrder(page, cb, ecb){
     let params = {
-      url: 'order/user',
+      url: 'order',
       callBack(res){
         cb && cb(res)
       },
@@ -93,6 +93,18 @@ class OrderModel extends Base{
   // 设置newOrder的缓存
   setNewOrderStorage(value){
     wx.setStorageSync(this.key, value)
+  }
+
+  // 收货
+  comfirm(id, cb){
+    let params = {
+      url: 'order/confirm/' + id,
+      type: "POST",
+      callBack(res) {
+        cb && cb(res)
+      }
+    }
+    this.request(params)
   }
 }
 

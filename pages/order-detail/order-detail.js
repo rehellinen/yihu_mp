@@ -69,14 +69,29 @@ Page({
   },
 
   confirm(event){
+    let id = event.currentTarget.dataset.id
+    let that = this
     wx.showModal({
       title: '确认收货',
       content: '是否确认收货?',
+      success(){
+        order.comfirm(id, (res) => {
+          that.data.order.status = 5
+          that.setData({
+            order: that.data.order
+          })
+          wx.setStorageSync('newOrder', true)
+          wx.showModal({
+            title: '成功',
+            content: '确认收货成功',
+            showCancel: false
+          })
+        })
+      }
     })
   },
 
   isLoadAll(event) {
-    console.log('test')
     let that = this
     app.isLoadAll(that)
   }

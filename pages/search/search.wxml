@@ -1,0 +1,4 @@
+<view class="search-container">
+  <input name="search" auto-focus placeholder='Search' placeholder-class="placeholder"></input>
+  <image src='/images/icon/search.png' bindtap='toSearch'></image>
+</view>

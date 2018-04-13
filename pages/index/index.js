@@ -1,4 +1,6 @@
 import {Index} from 'index-model.js'
+import {DetailModel} from '../detail/detail-model.js'
+let detail = new DetailModel()
 let index = new Index()
 let app = getApp()
 
@@ -25,17 +27,19 @@ Page({
       })
     })
 
-    index.getOldGoods( (data) => {
+    // 旧物漂流
+    detail.getIndexOldGoods( (data) => {
       this.data.photoCount += data.length
-      for(let index in data){
-        if(data[index].name.length > 10){          
+      for (let index in data) {
+        if (data[index].name.length > 10) {
           data[index].name = data[index].name.substr(0, 10)
           data[index].name += ' ...'
-        } 
+        }
+
+        this.setData({
+          oldGoods: data
+        })
       }
-      this.setData({
-        oldGoods: data
-      })
     })
 
     index.getTheme( (data) => {
@@ -63,5 +67,11 @@ Page({
   isLoadAll(event){
     let that = this
     app.isLoadAll(that)
+  },
+
+  toSearch(event){
+    wx.navigateTo({
+      url: '/pages/search/search',
+    })
   }
 })

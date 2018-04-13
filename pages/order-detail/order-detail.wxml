@@ -3,43 +3,11 @@
 </view>
 
 <view class='container' hidden="{{!loadingHidden}}">
-  <view class="order-basic-info">
-    <view class="info-container">
-      <view>
-        <text class="key">下单时间：</text>
-        <text class="val">{{order.create_time}}</text>
-      </view>
-      <view>
-        <text class="key">订单编号：</text>
-        <text class="order-no-txt val">{{order.order_no}}</text>
-      </view>
-    </view>
-    <view class="order-status">
-      <text class="order-status-txt unpay" wx:if="{{order.status==1}}">待付款</text>
-      <text class="order-status-txt payed" wx:if="{{order.status==2}}">已付款</text>
-      <text class="order-status-txt done" wx:if="{{order.status==3}}">已发货</text>
-    </view>
-  </view>
+  <order-info time="{{order.create_time}}" order_no="{{order.order_no}}" status="{{order.status}}"></order-info>
 
-  <view class='buyer-basic-info'>    
-    <view class="buyer-info-container">
-      <view class='icon-info'>
-        <image class="icon" src='/images/icon/wechat.png'></image>
-        <text class="info">微信 : {{order.seller.weixin}}</text>
-      </view>
-      <view class='icon-info'>
-        <image class="icon" src='/images/icon/phone.png'></image>
-        <text class="info">电话 : {{order.seller.telephone}}</text>
-      </view>
-      <view class='icon-info'>
-        <image class="icon" src='/images/icon/zhifubao.png'></image>
-        <text class="info">支付宝 : {{order.seller.zhifubao}}</text>
-      </view>
-    </view>
-    <view class='avatar-container'>
-      <text>{{order.seller.name}}</text>
-    </view>
-  </view>
+  <seller-info wechat="{{order.seller.weixin}}" phone="{{order.seller.telephone}}" 
+  zhifubao="{{order.seller.zhifubao}}" name="{{order.seller.name}}">
+  </seller-info>
 
   <order-goods-list goods="{{order.snap_items}}" bind:loaded="isLoadAll"></order-goods-list>
 
@@ -49,7 +17,7 @@
       付款合计：￥{{order.total_price}}
     </view>
     <view class="pay" bindtap='pay' wx:if='{{order.status == 1}}'>去付款</view>
-    <view class="pay" bindtap='confirm' wx:if='{{order.status != 1}}'>确认收货</view>
+    <view class="pay" bindtap='confirm' wx:if='{{order.status == 3}}' data-id='{{order.id}}'>确认收货</view>
   </view>
   <!--结算-->
 </view>

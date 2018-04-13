@@ -9,6 +9,7 @@ Page({
     unpaid: [],
     paid: [],
     delivered: [],
+    completed: [],
     hasMore:true,
     loadingHidden: false,
     photoCount: 0,
@@ -17,6 +18,13 @@ Page({
 
   onLoad: function (options) {
     this._loadOrder()
+  },
+
+  onShow(){
+    if(wx.getStorageSync('newOrder')){
+      this._loadOrder()
+      wx.setStorageSync('newOrder', false)
+    }
   },
 
   onReachBottom(){
@@ -39,6 +47,9 @@ Page({
         }// 待收货
         else if (res[i].status == 3) {
           this.data.delivered.push(res[i])
+        }// 已完成 
+        else if (res[i].status == 5) {
+          this.data.completed.push(res[i])
         }
       }
       this.data.order.push.apply(this.data.order, res)

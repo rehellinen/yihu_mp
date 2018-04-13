@@ -206,9 +206,4 @@
   display: flex;
   font-size: 32rpx;
   flex-direction: column;
-  padding: 0 3%;
-}
-
-.seller-info text{
-  padding: 10rpx 0;
 }

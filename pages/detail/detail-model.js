@@ -43,7 +43,7 @@ class DetailModel extends Base{
     this.request(params)
   }
 
-  // 获取最近新品
+  // 获取自营商店最近新品
   getRecentGoodsByShopId(id, cb) {
     let params = {
       url: 'newGoods/recent/shop/' + id,
@@ -68,6 +68,28 @@ class DetailModel extends Base{
       eCallBack(res){
         ecb && ecb(res)
       }
+    }
+    this.request(params)
+  }
+
+  // 获取首页旧物漂流
+  getIndexOldGoods(cb){
+    let params = {
+      url: 'oldGoods/index',
+      callBack(res) {
+        cb && cb(res)
+      },
+    }
+    this.request(params)
+  }
+
+  // 获取首页发现鲜货
+  getIndexNewGoods(cb) {
+    let params = {
+      url: 'newGoods/index',
+      callBack(res) {
+        cb && cb(res)
+      },
     }
     this.request(params)
   }

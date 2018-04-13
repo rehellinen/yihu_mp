@@ -1,30 +1,35 @@
 <!--地址管理-->
-<view class="address">
+<view>
   <form bindsubmit="formSubmit">
     <view class="section">
-      <input name="name" auto-focus placeholder="姓名" value='{{info.name}}'/>
+      <text>姓名：</text>
+      <input name="name" auto-focus value='{{info.name}}' />
     </view>
 
     <view class="section">
-      <input type="number" name="telephone" placeholder="手机号码" value='{{info.telephone}}'/>
+      <text>学号：</text>
+      <input type="number" name="number" value='{{info.number}}' />
     </view>
 
     <view class="section">
-      <input type="number" name="number" placeholder="学号" value='{{info.number}}'/>
+      <text>手机：</text>
+      <input type="number" name="telephone" value='{{info.telephone}}' />
     </view>
 
     <view class="section">
-      <input type="number" name="dormitory" placeholder="宿舍" value='{{info.dormitory}}'/>
-    </view>
-    
-    <view class="section">
-      <input name="email" placeholder="邮箱" value='{{info.email}}'/>
+      <text>微信：</text>
+      <input name="weixin" value='{{info.weixin}}' />
     </view>
 
     <view class="section">
-      <input name="weixin" placeholder="微信号" value='{{info.weixin}}'/>
+      <text>宿舍：</text>
+      <input type="number" name="dormitory" value='{{info.dormitory}}' />
     </view>
-    
+
+    <view class="section">
+      <text>邮箱：</text>
+      <input name="email" value='{{info.email}}' />
+    </view>
     <button class="submit-btn" formType="submit">保存</button>
   </form>
 </view>
