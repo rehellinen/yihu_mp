@@ -4,6 +4,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 750rpx;
+  background-color: white;
 }
 
 .find-detail
@@ -13,7 +14,7 @@
   width: 350rpx;
   height: 365rpx;  
   margin-left: 17rpx;
-  margin-bottom: 30rpx;
+  margin-top: 30rpx;
   box-shadow:0 0 6px #ebebeb;
   border-radius: 8px
 }

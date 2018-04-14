@@ -37,13 +37,20 @@
   <view class='find-image-container'>
     <image class='find-image' src='/images/theme/find.png'></image>
   </view>
-  
-  <goods-list-index goods="{{oldGoods}}" bind:loaded="isLoadAll"></goods-list-index>
+  <goods-list-index goods="{{newGoods}}" bind:loaded="isLoadAll"></goods-list-index>
+  <view class='more-container' bindtap="toGoodsMore" data-type='1'>
+    <text class='more-text'>查看更多</text>
+    <image src="/images/icon/arrow@downBlack.png"></image>
+  </view>
+
 
   <view class='find-image-container'>
     <image class='find-image' src='/images/theme/find.png'></image>
   </view>
-  
-  <goods-list-index goods="{{newGoods}}" bind:loaded="isLoadAll"></goods-list-index>
+  <goods-list-index goods="{{oldGoods}}" bind:loaded="isLoadAll"></goods-list-index>
+  <view class='more-container' bindtap="toGoodsMore" data-type='2'> 
+    <text class='more-text'>查看更多</text>
+    <image src="/images/icon/arrow@downBlack.png"></image>
+  </view>
 </view>
 <!-- 总view -->

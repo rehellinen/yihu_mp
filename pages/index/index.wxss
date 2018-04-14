@@ -48,14 +48,14 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content:space-around;
-  margin-bottom: 30rpx;
+  margin-bottom: 40rpx;
 }
 
 .theme-photo-container image{
-  width: 370rpx;
+  width: 48.5vw;
   height: 183rpx;
-  margin-top: 8rpx;
+  margin-top: 10rpx;
+  margin-left: 1vw;
 }
 /* theme */
 .find-image-container{
@@ -63,8 +63,7 @@
   align-items: center;
   justify-content: center;
   height: 63rpx;
-  margin-bottom: 40rpx;
-  margin-top: 10rpx;
+  margin-bottom: 20rpx;
 }
 
 .find-image

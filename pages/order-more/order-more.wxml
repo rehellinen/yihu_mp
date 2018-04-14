@@ -3,8 +3,8 @@
 </view>
 
 <!-- 我的订单 -->
-<view class='order-container' hidden="{{!loadingHidden}}">
-  <view class='text-container'>
+<view class='top-title-container' hidden="{{!loadingHidden}}">
+  <view class='title-container'>
     <text>我 的 订 单</text>
   </view>
   <switch-tab tab="{{['全部', '待付款', '待发货', '待收货', '已完成']}}" class="switch-tab">

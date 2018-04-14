@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "theme-goods": "../component/theme-goods/theme-goods"
+  }
+}

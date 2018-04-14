@@ -6,11 +6,11 @@ let theme = new ThemeModel()
 Page({
   data: {
     categoryIndex: 0,
-    className: '',
+    className: 'animation1',
     goods: [],
     hasMore: true,
     page: 1, 
-    singleGoods: []
+    goods: []
   },
 
   onLoad: function (options) {
@@ -19,7 +19,6 @@ Page({
       this.setData({
         category: res,
         categoryID: res[0].id,
-        categoryImage: res[0].image_id.image_url
       })      
       this._loadGoods()
     })    
@@ -35,9 +34,12 @@ Page({
 
   _loadGoods(){
     detail.getGoodsByCategoryID(this.data.page, this.data.categoryID, (data) => {
-      this.data.singleGoods.push.apply(this.data.singleGoods, data)
-      this.setData({
-        singleGoods: this.data.singleGoods
+      this.data.goods[this.data.categoryID] = []
+      this.data.goods[this.data.categoryID].push
+          .apply(this.data.goods[this.data.categoryID], data)      
+      
+      this.setData({        
+        goods: this.data.goods
       })
     }, () => {
       this.data.hasMore = false
@@ -45,42 +47,22 @@ Page({
   },
 
   selectCategory(event){
+    // 切换后的ID和Index
     let id = event.currentTarget.dataset.id
     let index = event.currentTarget.dataset.index
-    if (index == this.data.categoryIndex){
+    // 点击当前的选项卡不做操作
+    if (index == this.data.categoryIndex) {
       return 0
     }
+    this.data.page = 1    
     this.setData({
+      className: 'animation' + (index + 1),
       categoryID: id,
-      categoryIndex: index,
-      className: 'animateOut'
+      categoryIndex: index 
     })
-
-    setTimeout( () => {      
-      if(!this.data.goods[id]) {
-        detail.getGoodsByCategoryID(this.data.page, id, (res) => {
-          this.data.goods[id] = res
-          this.setData({
-            categoryImage: this.data.category[index].image_id.image_url,
-            singleGoods: this.data.goods[id]
-          })         
-        }, (res) => {
-          this.data.hasMore = false
-        })
-      }else{
-        this.setData({
-          categoryImage: this.data.category[index].image_id.image_url,
-          singleGoods: this.data.goods[id]
-        })         
-      }      
-
-      setTimeout( () => {
-        this.setData({
-          className: 'animateIn'
-        })
-      }, 150)
-
-    }, 190) 
+    if (!this.data.goods[id]) {
+      this._loadGoods()
+    } 
   },
 
   toDetail(event) {

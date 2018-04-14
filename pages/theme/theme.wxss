@@ -28,6 +28,10 @@
   flex-direction: column;
 }
 
+.single-goods-container{
+  min-height: 100vh;
+}
+
 .category-image {
   width: 550rpx;
   height: 300rpx;
@@ -55,49 +59,49 @@
   background-color: #979797;
 }
 
-.goods-container {
-  width: 600rpx;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 15rpx;
-}
-
-.single-goods {
-  width: 30%;
-  margin-left: 2.5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 30rpx;
-}
-
-.goods-image {
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 120rpx;
-}
-
-.goods-text {  
-  font-size: 28rpx;  
-  margin-top: 10rpx;
-}
-
 /* 动画效果 */
-@keyframes action_translateY{  
-    0%{transform: translateY(-1334rpx);opacity: 0;}  
-    100%{ transform: translateY(0px);opacity: 1;}  
-}  
-
-@keyframes action_translateYOut{  
-    0%{transform: translateY(0px);opacity: 1;}  
-    100%{ transform: translateY(1334rpx);opacity: 0;}  
+.animation1{
+  transform: translate(0,0)
+}
+.animation2{
+  transform: translate(0,-100vh)
 } 
-
-.theme-right.animateIn{
-  animation: action_translateY 500ms
+.animation3{
+  transform: translate(0,-200vh)
 }
-
-.theme-right.animateOut{
-  animation: action_translateYOut 450ms
+.animation4{
+  transform: translate(0,-300vh)
+} 
+.animation5{
+  transform: translate(0,-400vh)
 }
+.animation6{
+  transform: translate(0,-500vh)
+} 
+.animation7{
+  transform: translate(0,-600vh)
+}
+.animation8{
+  transform: translate(0,-700vh)
+}
+.animation9{
+  transform: translate(0,-800vh)
+}
+.animation10{
+  transform: translate(0,-900vh)
+} 
+.animation11{
+  transform: translate(0,-1000vh)
+} 
+.animation12{
+  transform: translate(0,-1100vh)
+} 
+.animation13{
+  transform: translate(0,-1200vh)
+} 
+.animation14{
+  transform: translate(0,-1300vh)
+} 
+.animation15{
+  transform: translate(0,-1400vh)
+} 

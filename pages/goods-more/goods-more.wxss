@@ -1,0 +1,5 @@
+.goods-container{
+  margin-top: 20rpx;
+  padding-bottom: 30rpx;
+  background-color: white;
+}

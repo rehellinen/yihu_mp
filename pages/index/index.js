@@ -21,7 +21,7 @@ Page({
   _loadData : function(callBack) {
     // 获取Banner
     index.getBanners( (data) => {
-      this.data.photoCount += data.length
+      this.data.photoCount += (data.length + 4 + 12)
       this.setData({
         banner : data
       })
@@ -29,43 +29,34 @@ Page({
 
     // 旧物漂流
     detail.getIndexOldGoods( (data) => {
-      this.data.photoCount += data.length
       for (let index in data) {
         if (data[index].name.length > 10) {
           data[index].name = data[index].name.substr(0, 10)
           data[index].name += ' ...'
-        }
-        this.setData({
-          oldGoods: data
-        })
+        }        
       }
+      this.setData({
+        oldGoods: data
+      })
     })
 
+    // 获取发现鲜货
     detail.getIndexNewGoods((data) => {
-      this.data.photoCount += data.length
       for (let index in data) {
         if (data[index].name.length > 10) {
           data[index].name = data[index].name.substr(0, 10)
           data[index].name += ' ...'
-        }
-        this.setData({
-          newGoods: data
-        })
+        }        
       }
+      this.setData({
+        newGoods: data
+      })
     })
 
     index.getTheme( (data) => {
-      this.data.photoCount += data.length
       this.setData({
         theme: data,
       })
-    })
-  },
-
-  detailTap(event){
-    let id = event.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '../detail/detail?id=' + id + '&type=' + 2,
     })
   },
 
@@ -76,7 +67,7 @@ Page({
     })
   },
 
-  isLoadAll(event){
+  isLoadAll(event){ 
     let that = this
     app.isLoadAll(that)
   },
@@ -84,6 +75,13 @@ Page({
   toSearch(event){
     wx.navigateTo({
       url: '/pages/search/search',
+    })
+  },
+
+  toGoodsMore(event){
+    let type = event.currentTarget.dataset.type
+    wx.navigateTo({
+      url: '/pages/goods-more/goods-more?type=' + type,
     })
   }
 })

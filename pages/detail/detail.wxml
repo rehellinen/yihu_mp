@@ -52,6 +52,7 @@
 
   <switch-tab tab="{{['商品信息', '商家信息']}}" class="switch-tap-width">
     <view slot="商品信息" class='goods-info'>
+      <image src='/images/theme/detail@goodsHeader.png' class='goods-header-image'></image>
       <text>{{product.description}}</text>
     </view>
     <view slot="商家信息" class='seller-info'>

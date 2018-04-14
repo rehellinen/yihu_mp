@@ -12,7 +12,8 @@
     "pages/order-detail/order-detail",
     "pages/theme/theme",
     "pages/pay-result/pay-result",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/goods-more/goods-more"
   ],
   "window": {
     "navigationBarTitleText": "跳蚤市场",

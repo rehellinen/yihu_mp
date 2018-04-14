@@ -9,22 +9,23 @@
 input{
   border: 1px solid #bdac8e;
   width: 500rpx;
-  height: 90rpx;
+  height: 80rpx;
   border-radius: 100px;
   padding-left: 40rpx;
   position: fixed;
-  top: 100rpx;
+  top: 80rpx;
+  font-size: 32rpx;
 }
 
 .placeholder{
   color: #c6bba5;
-  font-size: 34rpx;
+  font-size: 32rpx;
 }
 
 image{
   height: 40rpx;
   width: 40rpx;
   position: fixed;
-  top: 128rpx;
+  top: 105rpx;
   right: 140rpx;
 }

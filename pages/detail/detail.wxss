@@ -1,5 +1,3 @@
-/* pages/detail/detail.wxss */
-
 .container {
   background-color: #f9f9f9;
 }
@@ -193,7 +191,6 @@
 .goods-info {
   background-color: white;
   width: 100%;
-  padding: 0 3%;
 }
 
 .goods-info text {
@@ -206,4 +203,10 @@
   display: flex;
   font-size: 32rpx;
   flex-direction: column;
+}
+
+.goods-header-image{
+  width: 750rpx;
+  height: 50rpx;
+  margin-top: 15rpx;
 }

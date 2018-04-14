@@ -5,6 +5,46 @@ class DetailModel extends Base{
     super()
   }
 
+  // 获取首页旧物漂流
+  getIndexOldGoods(cb) {
+    let params = {
+      url: 'oldGoods/index',
+      callBack(res) {
+        cb && cb(res)
+      },
+    }
+    this.request(params)
+  }
+
+  // 获取首页发现鲜货
+  getIndexNewGoods(cb) {
+    let params = {
+      url: 'newGoods/index',
+      callBack(res) {
+        cb && cb(res)
+      },
+    }
+    this.request(params)
+  }
+
+  // 获取所有二手 / 自营商品
+  getGoods(url, page, cb, ecb){
+    let params = {
+      url: url,
+      data: {
+        page: page
+      },
+      callBack(res) {
+        cb && cb(res.data)
+      },
+      eCallBack(res){
+        ecb && ecb(res)
+      }
+    }
+    this.request(params)
+  }
+
+  // 获取自营商品详情
   getGoodsDetail(id, cb){
     let params = {
       url: 'newGoods/' + id,
@@ -15,6 +55,7 @@ class DetailModel extends Base{
     this.request(params)
   }
 
+  // 获取二手商品详情
   getOldGoodsDetail(id, cb) {
     let params = {
       url: 'oldGoods/' + id,
@@ -68,28 +109,6 @@ class DetailModel extends Base{
       eCallBack(res){
         ecb && ecb(res)
       }
-    }
-    this.request(params)
-  }
-
-  // 获取首页旧物漂流
-  getIndexOldGoods(cb){
-    let params = {
-      url: 'oldGoods/index',
-      callBack(res) {
-        cb && cb(res)
-      },
-    }
-    this.request(params)
-  }
-
-  // 获取首页发现鲜货
-  getIndexNewGoods(cb) {
-    let params = {
-      url: 'newGoods/index',
-      callBack(res) {
-        cb && cb(res)
-      },
     }
     this.request(params)
   }

@@ -1,0 +1,27 @@
+.goods-container {
+  width: 600rpx;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15rpx;
+}
+
+.single-goods {
+  width: 30%;
+  margin-left: 2.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.goods-image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 120rpx;
+}
+
+.goods-text {  
+  font-size: 28rpx;  
+  margin-top: 10rpx;
+}
