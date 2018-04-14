@@ -1,5 +1,5 @@
 .scroll-container{
-  height: 67vh;
+  height: 69vh;
 }
 
 .goods-container {

@@ -1,4 +1,4 @@
-<view class='theme-container' style=''>
+<view class='theme-container'>
   <view class='theme-left'>
     <block wx:for="{{category}}" wx:key="">
     <view class="category {{item.id == categoryID ? 'selected' : ''}}" bindtap='selectCategory' 
