@@ -1,4 +1,4 @@
-<view class='theme-container'>
+<view class='theme-container' style=''>
   <view class='theme-left'>
     <block wx:for="{{category}}" wx:key="">
     <view class="category {{item.id == categoryID ? 'selected' : ''}}" bindtap='selectCategory' 
@@ -8,10 +8,13 @@
     </block>
   </view>
 
-  <view class="theme-right {{className}}" >
+  <view class="theme-right {{className}}">
     <block wx:for="{{category}}" wx:key="">
       <view class='single-goods-container'>
-        <image class='category-image' src='{{item.image_id.image_url}}'></image>
+        <view class='category-image-container'>
+          <image class='category-image' src='{{item.image_id.image_url}}'></image>
+        </view>
+        
 
         <view class='text-container'>
           <text>{{item.name}}</text>

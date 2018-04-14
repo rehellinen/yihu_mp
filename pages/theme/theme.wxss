@@ -1,6 +1,7 @@
 .theme-container {
   display: flex;
-  min-height: 100vh;
+  overflow:hidden;
+  height:100vh
 }
 
 .theme-left {
@@ -26,17 +27,24 @@
 .theme-right {
   display: flex;
   flex-direction: column;
+  transition: all 500ms ease-in-out;
 }
 
 .single-goods-container{
   min-height: 100vh;
 }
 
+.category-image-container{
+  width: 100%;
+  height: 27vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .category-image {
   width: 550rpx;
-  height: 300rpx;
-  margin-left: 25rpx;
-  margin-top: 25rpx;
+  height: 280rpx;
 }
 
 .text-container {
@@ -45,7 +53,7 @@
   justify-content: center;
   align-items: center;
   font-size: 28rpx;
-  height: 80rpx;
+  height: 6vh;
 }
 
 .text-container text::before, .text-container text::after {

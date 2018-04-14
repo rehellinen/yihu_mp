@@ -1,3 +1,7 @@
+.scroll-container{
+  height: 67vh;
+}
+
 .goods-container {
   width: 600rpx;
   display: flex;
