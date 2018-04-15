@@ -9,7 +9,11 @@ Page({
   },
 
   onLoad(){
-       
+    setTimeout(() => {
+      this.setData({
+        loadingHidden: true
+      })
+    }, 5000)
   },
 
   onShow: function () {

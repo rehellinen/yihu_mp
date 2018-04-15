@@ -18,7 +18,12 @@ Page({
         name: res.nickName
       })
     })
-    this._loadOrder()     
+    this._loadOrder()  
+    setTimeout(() => {
+      this.setData({
+        loadingHidden: true
+      })
+    }, 5000)  
   },
 
   onShow(){
@@ -31,7 +36,7 @@ Page({
 
   // 加载订单数据
   _loadOrder(){
-    order.getOrder(1, (res) => {
+    order.getOrder(0, 1, (res) => {
       let data = []
       if(res.length >= 2){
         this.data.photoCount += 4       

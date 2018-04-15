@@ -21,6 +21,12 @@ Page({
         order: res
       })
     })
+
+    setTimeout(() => {
+      this.setData({
+        loadingHidden: true
+      })
+    }, 5000)
   },
 
   pay(event){
@@ -76,7 +82,7 @@ Page({
       content: '是否确认收货?',
       success(){
         order.comfirm(id, (res) => {
-          that.data.order.status = 5
+          that.data.order.status = 4
           that.setData({
             order: that.data.order
           })

@@ -13,7 +13,7 @@
     <text class="order-status-txt unpay" wx:if="{{status==1}}">待付款</text>
     <text class="order-status-txt payed" wx:if="{{status==2}}">已付款</text>
     <text class="order-status-txt done" wx:if="{{status==3}}">已发货</text>
-    <text class="order-status-txt done" wx:if="{{status==4}}">付款成功但库存量不足</text>
-    <text class="order-status-txt done" wx:if="{{status==5}}">已完成</text>
+    <text class="order-status-txt done" wx:if="{{status==5}}">付款成功但库存量不足</text>
+    <text class="order-status-txt done" wx:if="{{status==4}}">已完成</text>
   </view>
 </view>

@@ -6,7 +6,7 @@
   <order-info time="{{order.create_time}}" order_no="{{order.order_no}}" status="{{order.status}}"></order-info>
 
   <seller-info wechat="{{order.seller.weixin}}" phone="{{order.seller.telephone}}" 
-  zhifubao="{{order.seller.zhifubao}}" name="{{order.seller.name}}">
+  zhifubao="{{order.seller.zhifubao}}" name="{{order.seller.name}}" type="{{order.type}}" shopID="{{order.foreign_id}}">
   </seller-info>
 
   <order-goods-list goods="{{order.snap_items}}" bind:loaded="isLoadAll"></order-goods-list>

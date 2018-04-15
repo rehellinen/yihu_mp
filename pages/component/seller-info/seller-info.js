@@ -5,10 +5,8 @@ Component({
     phone: String,
     zhifubao: String,
     name: String,
-    image: {
-      type: String,
-      value: null
-    },
+    type: Number,
+    shopID: Number
   },
 
   data: {
@@ -16,6 +14,12 @@ Component({
   },
 
   methods: {
-
+    toShopDetail(event){
+      if (this.properties.type == 1){
+        wx.navigateTo({
+          url: '/pages/shop-detail/shop-detail?id=' + this.properties.shopID,
+        })
+      }
+    }
   }
 })

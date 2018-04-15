@@ -35,7 +35,7 @@
 
 .goods-image{
   width: 370rpx;
-  height: 400rpx;
+  height: 370rpx;
 }
 
 .goods-text-container{
@@ -52,4 +52,8 @@
   color: #cbcfd2;
   font-size: 13px;
   margin-left: 20rpx;
+}
+
+.name{
+  font-size: 32rpx;
 }

@@ -54,6 +54,7 @@
   align-items: center;
   font-size: 28rpx;
   height: 6vh;
+  color: #333333;
 }
 
 .text-container text::before, .text-container text::after {
@@ -64,7 +65,11 @@
   width: 70rpx;
   height: 2rpx;
   margin: 0 25rpx;
-  background-color: #979797;
+  background-color: #333333;
+}
+
+.small{
+  font-size: 27rpx;
 }
 
 /* 动画效果 */

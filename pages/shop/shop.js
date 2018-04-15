@@ -13,6 +13,11 @@ Page({
 
   onLoad: function (options) {
     this._loadShop()
+    setTimeout(() => {
+      this.setData({
+        loadingHidden: true
+      })
+    }, 5000)
   },
 
   onReachBottom(){

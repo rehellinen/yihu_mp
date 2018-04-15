@@ -5,9 +5,9 @@
 <!-- 总view -->
 <view class='container' hidden="{{!loadingHidden}}">
 
-  <view class='search-container' bindtap='toSearch'>
+  <!-- <view class='search-container' bindtap='toSearch'>
     <image src='/images/icon/search.png' class="icon"></image>
-  </view>
+  </view> -->
 
   <!-- banner轮播图 -->
   <swiper class='banner' indicator-dots='{{false}}' autoplay='{{true}}' interval='5000'>
@@ -45,7 +45,7 @@
 
 
   <view class='find-image-container'>
-    <image class='find-image' src='/images/theme/find.png'></image>
+    <image class='find-image' src='/images/theme/old.png'></image>
   </view>
   <goods-list-index goods="{{oldGoods}}" bind:loaded="isLoadAll"></goods-list-index>
   <view class='more-container' bindtap="toGoodsMore" data-type='2'> 

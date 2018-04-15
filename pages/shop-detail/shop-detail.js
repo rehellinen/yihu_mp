@@ -29,6 +29,12 @@ Page({
         recentGoods: data
       })
     })
+
+    setTimeout(() => {
+      this.setData({
+        loadingHidden: true
+      })
+    }, 5000)
   },
 
   isLoadAll(event) {

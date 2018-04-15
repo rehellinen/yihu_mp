@@ -15,6 +15,11 @@ Page({
 
   onLoad: function (options) {
     this._loadData();
+    setTimeout( () => {
+      this.setData({
+        loadingHidden: true
+      })
+    }, 5000)
   },  
 
   // 加载所有数据

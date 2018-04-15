@@ -9,7 +9,7 @@
 .header-image
 {
   width: 750rpx;
-  height: 300rpx;
+  height: 325rpx;
 }
 
 .avatar
@@ -17,7 +17,7 @@
   width: 150rpx;
   height: 150rpx;
   position: absolute;
-  top: 225rpx;  
+  top: 250rpx;  
   border-radius:50%;
   display: block;
 }

@@ -1,4 +1,4 @@
-<view class='buyer-basic-info'>
+<view class='buyer-basic-info' bindtap='toShopDetail'>
   <view class="buyer-info-container">
     <view class='icon-info'>
       <image class="icon" src='/images/icon/wechat.png'></image>
@@ -14,7 +14,7 @@
     </view>
   </view>
   <view class='avatar-container'>
-    <image src='{{image}}' wx:if="{{image}}"></image>
+    <image class="icon" src='/images/icon/shop.png'></image>
     <text class="info">{{name}}</text>
   </view>
 </view>

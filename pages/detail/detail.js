@@ -24,7 +24,11 @@ Page({
     }else{
       this._getGoodsAndSeller(id)
     }
-    
+    setTimeout(() => {
+      this.setData({
+        loadingHidden: true
+      })
+    }, 5000)
   },
 
   _getGoodsAndShop(id){

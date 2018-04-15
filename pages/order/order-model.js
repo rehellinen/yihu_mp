@@ -57,9 +57,9 @@ class OrderModel extends Base{
   }
 
   // 获取订单
-  getOrder(page, cb, ecb){
+  getOrder(status, page, cb, ecb){
     let params = {
-      url: 'order',
+      url: 'order/' + status,
       callBack(res){
         cb && cb(res)
       },
@@ -100,6 +100,18 @@ class OrderModel extends Base{
     let params = {
       url: 'order/confirm/' + id,
       type: "POST",
+      callBack(res) {
+        cb && cb(res)
+      }
+    }
+    this.request(params)
+  }
+
+  // 删除订单
+  delete(id, cb){
+    let params = {
+      url: 'order/' + id,
+      type: "DELETE",
       callBack(res) {
         cb && cb(res)
       }

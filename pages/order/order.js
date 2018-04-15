@@ -22,6 +22,12 @@ Page({
       totalPrice : options.totalPrice,
       goods: goods,
     })
+    
+    setTimeout(() => {
+      this.setData({
+        loadingHidden: true
+      })
+    }, 5000)
   },  
 
   isLoadAll(event) {

@@ -2,20 +2,33 @@ import { ThemeModel } from './theme-model.js'
 import { DetailModel } from '../detail/detail-model.js'
 let detail = new DetailModel()
 let theme = new ThemeModel()
+let app = getApp()
 
 Page({
   data: {
     categoryIndex: 0,
+    loadingHidden: false,
     className: 'animation1',
     goods: [],
     hasMore: true,
     page: 1, 
-    goods: []
+    goods: [],
+    photoCount: 0,
+    loadedPhoto: 0
   },
 
   onLoad: function (options) {
     let id = options.id
     theme.getCategory(id, (res) => {
+      for(let i in res){
+        let id = res[i].id
+        if (res[i].name.length > 3){
+          res[i].fontClass = 'small'
+        }else{
+          res[i].fontClass = 'big'
+        }
+        this.data.goods[id] = []
+      }
       this.setData({
         category: res,
         categoryID: res[0].id,
@@ -25,24 +38,19 @@ Page({
     
   },
 
-  onReachBottom(){
-    if(this.data.hasMore){
-      this.data.page++
-      this._loadGoods()
-    }
-  },
-
   _loadGoods(){
-    detail.getGoodsByCategoryID(this.data.page, this.data.categoryID, (data) => {
-      this.data.goods[this.data.categoryID] = []
-      this.data.goods[this.data.categoryID].push
-          .apply(this.data.goods[this.data.categoryID], data)      
+    detail.getGoodsByCategoryID(this.data.page, this.data.categoryID, (data) => {  
+      this.data.photoCount += (data.length)    
+      this.data.goods[this.data.categoryID].push.apply(this.data.goods[this.data.categoryID], data)      
       
       this.setData({        
         goods: this.data.goods
       })
     }, () => {
       this.data.hasMore = false
+      this.setData({
+        loadingHidden: true
+      })
     })
   },
 
@@ -65,11 +73,15 @@ Page({
     } 
   },
 
-  toDetail(event) {
-    let id = event.currentTarget.dataset.id
-    let type = event.currentTarget.dataset.type
-    wx.navigateTo({
-      url: '/pages/detail/detail?id=' + id + '&type=' + type,
-    })
-  }
+  toLoadMore(event){
+    if(this.data.hasMore){
+      this.data.page++
+      this._loadGoods()
+    } 
+  },
+
+  isLoadAll(event) {
+    let that = this
+    app.isLoadAll(that)
+  },
 })

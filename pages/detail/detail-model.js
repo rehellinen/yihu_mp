@@ -112,6 +112,17 @@ class DetailModel extends Base{
     }
     this.request(params)
   }
+
+  // 获取商店页面三个商品图片
+  getRecommend(id, cb){
+    let params = {
+      url: 'newGoods/recommend/shop/' + id,
+      callBack(res){
+        cb && cb(res)
+      }
+    }
+    this.request(params)
+  }
 }
 
 export { DetailModel }

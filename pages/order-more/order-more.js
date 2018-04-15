@@ -3,69 +3,77 @@ let order = new OrderModel()
 let app = getApp()
 
 Page({
-  data: {
-    page: 1,
-    order: [],
-    unpaid: [],
-    paid: [],
-    delivered: [],
-    completed: [],
-    hasMore:true,
+  data: {    
+    order: [
+      [], [], [], [], []
+    ],
+    hasMore: [true, true, true, true, true],
     loadingHidden: false,
     photoCount: 0,
-    loadedPhoto: 0
+    loadedPhoto: 0,
+    tabIndex: 0,
+    page: [1, 1, 1, 1, 1]
   },
 
   onLoad: function (options) {
     this._loadOrder()
+    setTimeout(() => {
+      this.setData({
+        loadingHidden: true
+      })
+    }, 5000)
   },
 
-  onShow(){
-    if(wx.getStorageSync('newOrder')){
-      this._loadOrder()
+  onShow() {
+    if (wx.getStorageSync('newOrder')) {
+      this._loadOrder(true)
       wx.setStorageSync('newOrder', false)
     }
   },
 
-  onReachBottom(){
-    if(this.data.hasMore){
-      this.data.page++
+  onReachBottom() {
+    let index = this.data.tabIndex
+    if (this.data.hasMore[index]) {
+      this.data.page[index]++
       this._loadOrder()
     }
   },
 
-  _loadOrder(){
-    order.getOrder(this.data.page, (res) => {
-      this.data.photoCount += res.length
-      for(let i in res){        
-        // 待付款
-        if (res[i].status == 1){
-          this.data.unpaid.push(res[i])
-        }// 待发货
-        else if (res[i].status == 2) {
-          this.data.paid.push(res[i])
-        }// 待收货
-        else if (res[i].status == 3) {
-          this.data.delivered.push(res[i])
-        }// 已完成 
-        else if (res[i].status == 5) {
-          this.data.completed.push(res[i])
-        }
-      }
-      this.data.order.push.apply(this.data.order, res)
+  reload() {
+    this.data.page[this.data.tabIndex] = 1 
+    this._loadOrder(true)
+  },
+
+  _loadOrder(flag) {
+    let index = this.data.tabIndex
+    order.getOrder(index, this.data.page[index], (res) => {
+      this.data.photoCount += res.length    
+      if(flag){
+        this.data.order[index] = res
+      }else{
+        this.data.order[index].push.apply(this.data.order[index], res)
+      }      
       this.setData({
         order: this.data.order,
-        unpaid: this.data.unpaid,
-        paid: this.data.paid,
-        delivered: this.data.delivered
       })
     }, (res) => {
-      this.data.hasMore = false
+      this.data.hasMore[index] = false
+      this.setData({
+        loadingHidden: true
+      })
     })
   },
 
   isLoadAll(event) {
     let that = this
     app.isLoadAll(that)
+  },
+
+  switchTab(event){
+    let index = event.detail.index
+    this.data.tabIndex = index
+    if(this.data.order[index].length == 0){
+      this._loadOrder()
+    }    
   }
 })

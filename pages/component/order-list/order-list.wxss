@@ -35,6 +35,18 @@
   margin-top: 30rpx;
 }
 
+.price-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .price{
   font-size: 28rpx;
+}
+
+.delete{
+    font-size: 32rpx;
+    margin-top: 20rpx;
+    margin-right: 5rpx;
 }

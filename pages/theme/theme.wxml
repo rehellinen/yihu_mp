@@ -1,9 +1,13 @@
-<view class='theme-container'>
+<view class='loading-container' hidden="{{loadingHidden}}">
+  <image src='/images/theme/loading.gif'></image>
+</view>
+
+<view class='theme-container' hidden="{{!loadingHidden}}">
   <view class='theme-left'>
     <block wx:for="{{category}}" wx:key="">
     <view class="category {{item.id == categoryID ? 'selected' : ''}}" bindtap='selectCategory' 
     data-id='{{item.id}}' data-index='{{index}}'>
-      <text>{{item.name}}</text>
+      <text class='{{item.fontClass}}'>{{item.name}}</text>
     </view>
     </block>
   </view>
@@ -13,14 +17,13 @@
       <view class='single-goods-container'>
         <view class='category-image-container'>
           <image class='category-image' src='{{item.image_id.image_url}}'></image>
-        </view>
-        
+        </view>        
 
         <view class='text-container'>
           <text>{{item.name}}</text>
         </view>
 
-        <theme-goods goods="{{goods[item.id]}}"></theme-goods>
+        <theme-goods goods="{{goods[item.id]}}" bind:toLoadMore="toLoadMore" bind:loaded="isLoadAll"></theme-goods>
       </view>
     </block>
   </view>

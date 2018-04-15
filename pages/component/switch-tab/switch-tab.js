@@ -21,6 +21,7 @@ Component({
       this.setData({
         currentTabsIndex: index
       })
+      this.triggerEvent('switchTab', {index})
     }
   },
 
