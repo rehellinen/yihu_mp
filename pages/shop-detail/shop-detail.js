@@ -37,6 +37,25 @@ Page({
     }, 5000)
   },
 
+  onShareAppMessage(res) {
+    return {
+      title: this.data.shop.name,
+      path: '/pages/shop-detail/shop-detail?id=' + this.data.shop.id,
+      success(res) {
+        wx.showToast({
+          title: '分享成功',
+          image: '/images/icon/pay@success.png'
+        })
+      },
+      fail(res) {
+        wx.showToast({
+          title: '分享失败',
+          image: '/images/icon/pay@error.png'
+        })
+      }
+    }
+  },
+
   isLoadAll(event) {
     let that = this
     app.isLoadAll(that)

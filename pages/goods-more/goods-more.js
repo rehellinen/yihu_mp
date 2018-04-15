@@ -35,6 +35,18 @@ Page({
 
   _loadGoods(url){
     detail.getGoods(url, this.data.page, (res) => {
+
+      for (let index in res) {
+        if (res[index].name.length > 8) {
+          if (res[index].type == 1){
+            res[index].name = res[index].name.substr(0, 10)
+          }else{
+            res[index].name = res[index].name.substr(0, 8)
+          }          
+          res[index].name += ' ...'
+        }
+      }
+
       this.data.goods.push.apply(this.data.goods, res)
       this.setData({
         goods: this.data.goods

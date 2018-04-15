@@ -1,35 +1,40 @@
 <!--地址管理-->
-<view>
-  <form bindsubmit="formSubmit">
-    <view class="section">
-      <text>姓名：</text>
-      <input name="name" auto-focus value='{{info.name}}' />
-    </view>
+<view class='top-title-container'>
+  <view class='title-container'>
+    <text>修 改 信 息</text>
+  </view>
+  <view class='form-container'>
+    <form bindsubmit="formSubmit">
+      <view class="section">
+        <text>姓名：</text>
+        <input name="name" auto-focus value='{{info.name}}' />
+      </view>
 
-    <view class="section">
-      <text>学号：</text>
-      <input type="number" name="number" value='{{info.number}}' />
-    </view>
+      <view class="section">
+        <text>学号：</text>
+        <input type="number" name="number" value='{{info.number}}' />
+      </view>
 
-    <view class="section">
-      <text>手机：</text>
-      <input type="number" name="telephone" value='{{info.telephone}}' />
-    </view>
+      <view class="section">
+        <text>手机：</text>
+        <input type="number" name="telephone" value='{{info.telephone}}' />
+      </view>
 
-    <view class="section">
-      <text>微信：</text>
-      <input name="weixin" value='{{info.weixin}}' />
-    </view>
+      <view class="section">
+        <text>微信：</text>
+        <input name="weixin" value='{{info.weixin}}' />
+      </view>
 
-    <view class="section">
-      <text>宿舍：</text>
-      <input type="number" name="dormitory" value='{{info.dormitory}}' />
-    </view>
+      <view class="section">
+        <text>宿舍：</text>
+        <input type="number" name="dormitory" value='{{info.dormitory}}' />
+      </view>
 
-    <view class="section">
-      <text>邮箱：</text>
-      <input name="email" value='{{info.email}}' />
-    </view>
-    <button class="submit-btn" formType="submit">保存</button>
-  </form>
+      <view class="section">
+        <text>邮箱：</text>
+        <input name="email" value='{{info.email}}' />
+      </view>
+      <button class="submit-btn" formType="submit">保存</button>
+    </form>
+  </view>
 </view>

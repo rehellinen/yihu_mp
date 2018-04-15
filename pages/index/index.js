@@ -22,21 +22,47 @@ Page({
     }, 5000)
   },  
 
+  onShareAppMessage(res){
+    return {
+      title: '校园易乎',
+      path: '/pages/index/index',
+      success(res){
+        wx.showToast({
+          title: '分享成功',
+          image: '/images/icon/pay@success.png'
+        })
+      },
+      fail(res){
+        wx.showToast({
+          title: '分享失败',
+          image: '/images/icon/pay@error.png'
+        })
+      }
+    }
+  },
+
   // 加载所有数据
   _loadData : function(callBack) {
     // 获取Banner
     index.getBanners( (data) => {
-      this.data.photoCount += (data.length + 4 + 12)
+      this.data.photoCount += (data.length + 14)
       this.setData({
         banner : data
+      })
+    })
+
+    // 获取主题
+    index.getTheme( (data) => {
+      this.setData({
+        theme: data,
       })
     })
 
     // 旧物漂流
     detail.getIndexOldGoods( (data) => {
       for (let index in data) {
-        if (data[index].name.length > 10) {
-          data[index].name = data[index].name.substr(0, 10)
+        if (data[index].name.length > 8) {
+          data[index].name = data[index].name.substr(0, 8)
           data[index].name += ' ...'
         }        
       }
@@ -56,13 +82,7 @@ Page({
       this.setData({
         newGoods: data
       })
-    })
-
-    index.getTheme( (data) => {
-      this.setData({
-        theme: data,
-      })
-    })
+    })    
   },
 
   toTheme(event){

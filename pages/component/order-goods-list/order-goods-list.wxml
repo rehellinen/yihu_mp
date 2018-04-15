@@ -1,6 +1,6 @@
 <view class="order-main">
   <block wx:for="{{goods}}" wx:key="">
-    <view class="product-item">
+    <view class="product-item" bindtap='toDetail' data-id='{{item.goods_id}}' data-type='{{type}}'>
       <view class="item-left">
         <image src="{{item.image_id.image_url}}" mode='aspectFill' bindload='loaded'></image>
       </view>

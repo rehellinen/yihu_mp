@@ -18,7 +18,7 @@ Page({
 
   onLoad: function (options) {
     let id = options.id
-    let type = options.type
+    let type = options.type 
     if (type == 1){
       this._getGoodsAndShop(id)
     }else{
@@ -29,6 +29,26 @@ Page({
         loadingHidden: true
       })
     }, 5000)
+  },
+
+  onShareAppMessage(res) {
+    return {
+      title: this.data.product.name,
+      path: '/pages/detail/detail?id=' + this.data.product.id 
+            + '&type=' + this.data.product.type,
+      success(res) {
+        wx.showToast({
+          title: '分享成功',
+          image: '/images/icon/pay@success.png'
+        })
+      },
+      fail(res) {
+        wx.showToast({
+          title: '分享失败',
+          image: '/images/icon/pay@error.png'
+        })
+      }
+    }
   },
 
   _getGoodsAndShop(id){
@@ -80,7 +100,7 @@ Page({
   _addCartAnimation(event){
     let touches = event.touches[0];
     let relative = {
-      x: '10px',
+      x: '25px',
       y: 15 - touches.clientY + 'px'
     }
     let style = 'display: block;transform:translate(' + relative.x + ',' + relative.y + ') rotate(350deg) scale(0)';

@@ -17,7 +17,10 @@
 
       <view class='info-up'>
         <view class='name-container'>
-          <text class='name'>{{product.name}}</text>
+          <view>
+            <text class='two-handed' wx:if="{{product.type == 2}}">二手</text>
+            <text class='name'>{{product.name}}</text>
+          </view>
           <text class='subname'>{{product.subtitle}}</text>
         </view>
 
@@ -43,7 +46,7 @@
           <text>加入购物车</text>
           <image wx:if="{{product.quantity != 0}}" class='down-cart' src='/images/icon/cart.png'></image>
           <image wx:else class='down-cart' src='/images/icon/cart@grey.png'></image>
-          <image id="small-top-img" class="small-top-img {{isTap?'animate':''}}" src="{{product.image_id.image_url}}" mode="aspectFill" style="{{translateStyle}}"></image>
+          <image class="small-top-img {{isTap?'animate':''}}" src="{{product.image_id.image_url}}" mode="aspectFill" style="{{translateStyle}}"></image>
         </view>
       </view>
     </view>
@@ -56,11 +59,10 @@
       </view>
       <text class='detail-text'>{{product.description}}</text>
     </view>
-    <view slot="商家信息" class='seller-info'>    
-      
-      <seller-info name="{{shop.name}}" wechat="{{shop.weixin}}" phone="{{shop.telephone}}" 
-      zhifubao="{{shop.zhifubao}}" type="{{product.type}}" shopID="{{shop.id}}">
-      </seller-info>      
+    <view slot="商家信息" class='seller-info'>
+
+      <seller-info name="{{shop.name}}" wechat="{{shop.weixin}}" phone="{{shop.telephone}}" zhifubao="{{shop.zhifubao}}" type="{{product.type}}" shopID="{{shop.id}}">
+      </seller-info>
 
     </view>
   </switch-tab>

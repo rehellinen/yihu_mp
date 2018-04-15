@@ -21,10 +21,12 @@ form{
     color:#7C7C7C;
     padding: 20rpx 0;
 }
+
 .submit-btn{
     margin: 30rpx;
 }
-.counts-icon{
-  height: 20rpx;
-  width: 20rpx;
+
+.form-container{
+  background-color: white;
+  margin-top: 20rpx;
 }

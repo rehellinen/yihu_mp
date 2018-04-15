@@ -2,7 +2,10 @@
   <block wx:for="{{goods}}" wx:key="">
     <view class='find-detail' bindtap='detailTap' data-id='{{item.id}}' data-type="{{item.type}}">
       <image class='find-detail-image' src='{{item.image_id.image_url}}' mode='aspectFill' bindload="loaded"></image>
-      <text class='find-detail-text'>{{item.name}}</text>
+      <view class="text-container">
+        <text class='two-handed' wx:if="{{item.type == 2}}">二手</text>
+        <text>{{item.name}}</text>
+      </view>
       <text class='price'>￥{{item.price}}</text>
     </view>
   </block>

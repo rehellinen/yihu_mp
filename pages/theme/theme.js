@@ -40,6 +40,13 @@ Page({
 
   _loadGoods(){
     detail.getGoodsByCategoryID(this.data.page, this.data.categoryID, (data) => {  
+      for(let i in data){
+        if(data[i].name.length > 5){
+          data[i].name = data[i].name.substr(0, 5)
+          data[i].name += ' ...'
+        }
+      }
+
       this.data.photoCount += (data.length)    
       this.data.goods[this.data.categoryID].push.apply(this.data.goods[this.data.categoryID], data)      
       

@@ -176,9 +176,9 @@
 }
 
 .small-top-img {
-  height: 160rpx;
-  width: 160rpx;
-  right: 6rpx;
+  height: 200rpx;
+  width: 200rpx;
+  right: 20rpx;
   position: absolute;
   opacity: 0;
   border-radius: 50px;
@@ -218,4 +218,10 @@
   font-size: 32rpx;
   flex-direction: column;
   align-items: flex-end
+}
+
+.two-handed{
+  font-size: 13px;
+  color: #757575;
+  margin-right: 8rpx;
 }
