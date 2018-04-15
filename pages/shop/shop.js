@@ -29,7 +29,7 @@ Page({
 
   _loadShop(){
     shop.getShop(this.data.page, (data) => {
-      this.data.photoCount += (data.length * 4)
+      this.data.photoCount += data.length
       this.data.shop.push.apply(this.data.shop, data)
       this.setData({
         shop: this.data.shop

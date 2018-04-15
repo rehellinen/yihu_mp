@@ -57,6 +57,7 @@ Page({
         goods: this.data.goods       
       })
     }, (data) => {
+      this.data.photoCount += 2
       this.data.hasMore = false
     })
   }
