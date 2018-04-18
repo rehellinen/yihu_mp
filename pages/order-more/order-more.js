@@ -58,7 +58,11 @@ Page({
       })
     }, (res) => {
       this.data.hasMore[index] = false
+      if (flag) {
+        this.data.order[index] = []
+      }
       this.setData({
+        order: this.data.order,
         loadingHidden: true
       })
     })

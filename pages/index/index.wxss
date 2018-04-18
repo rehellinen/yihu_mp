@@ -1,3 +1,7 @@
+.index-container{
+  background-color: #f9f9f9;
+}
+
 .search-container{
   position: fixed;
   width: 80rpx;
@@ -36,6 +40,7 @@
   display: flex;
   flex-direction: column;
   color: #6D6D6D;
+  background-color: white;
 }
 
 .theme-text{
@@ -48,7 +53,6 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-bottom: 40rpx;
 }
 
 .theme-photo-container image{
@@ -59,11 +63,13 @@
 }
 /* theme */
 .find-image-container{
+  padding: 40rpx 0 20rpx 0;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 63rpx;
-  margin-bottom: 20rpx;
+  background-color: white;
+  width: 750rpx;
 }
 
 .find-image
@@ -72,23 +78,30 @@
   height: 63rpx;
 }
 
+.margin-top-image
+{
+  margin-top: 2rpx;
+}
+
 /* 查看更多样式 */
 .more-container {
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   color: #999;
-  height: 70rpx;
-  margin-left: 6%;
+  height: 80rpx;
+  margin-right: 2%;
+  background-color: white;
 }
 
 .more-container text {
-  font-size: 26rpx;
+  font-size: 28rpx;
 }
 
 .more-container image {
   transform: rotate(270deg);
   height: 40rpx;
   width: 40rpx;
+  margin-top: 2rpx;
 }

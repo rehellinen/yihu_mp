@@ -8,7 +8,8 @@ Page({
   data: {
     loadingHidden: false,
     photoCount: 0,
-    loadedPhoto: 0
+    loadedPhoto: 0,
+    order: []
   },
 
   onLoad: function (options) {
@@ -29,7 +30,7 @@ Page({
   onShow(){
     let res = order.isHasNewOrder()
     if(res){
-      this._loadOrder()
+      this.reload()
       order.setNewOrderStorage(false)
     }
   },
@@ -37,19 +38,19 @@ Page({
   // 加载订单数据
   _loadOrder(){
     order.getOrder(0, 1, (res) => {
-      let data = []
       if(res.length >= 2){
         this.data.photoCount += 4       
-        data.push(res[0])
-        data.push(res[1])
+        this.data.order.push(res[0])
+        this.data.order.push(res[1])
       }else if(res.length = 1){
         this.data.photoCount += 3
-        data.push(res[0])
+        this.data.order.push(res[0])
       }
-      
       this.setData({
-        order: data
+        order: this.data.order
       })
+    }, (res) => {
+      this.data.photoCount += 2
     })
   },
 
@@ -68,5 +69,10 @@ Page({
   isLoadAll(event) {
     let that = this
     app.isLoadAll(that)
+  },
+
+  reload(){
+    this.data.order = []
+    this._loadOrder()
   }
 })

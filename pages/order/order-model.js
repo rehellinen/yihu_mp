@@ -67,7 +67,8 @@ class OrderModel extends Base{
         ecb && ecb(res)
       },
       data: {
-        page: page
+        page: page,
+        size: 12
       }
     }
     this.request(params)

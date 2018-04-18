@@ -34,7 +34,7 @@
         <text>邮箱：</text>
         <input name="email" value='{{info.email}}' />
       </view>
-      <button class="submit-btn" formType="submit">保存</button>
+      <button class="submit-btn" formType="submit"><text>保存</text></button>
     </form>
   </view>
 </view>

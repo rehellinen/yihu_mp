@@ -10,7 +10,7 @@ Page({
     selectedCount: 1,
     cartSelectedCount: 0,
     currentTabsIndex: 0,
-    countArray:[1, 2, 3, 4, 5, 6],
+    countArray:[],
     isTap: false,
     photoCount: 1,
     loadedPhoto: 0
@@ -53,10 +53,16 @@ Page({
 
   _getGoodsAndShop(id){
     detail.getGoodsDetail(id, (data) => {
+      let count = data.quantity
+      for (let i = 1; i <= count; i++){
+        this.data.countArray.push(i)
+      }
+      
       this.setData({
         product: data,
         cartSelectedCount: cart.getCartTotalCount(),
-        shop: data.shop
+        shop: data.shop,
+        countArray: this.data.countArray
       })
     })
   },

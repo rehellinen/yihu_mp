@@ -80,19 +80,21 @@ Page({
     wx.showModal({
       title: '确认收货',
       content: '是否确认收货?',
-      success(){
-        order.comfirm(id, (res) => {
-          that.data.order.status = 4
-          that.setData({
-            order: that.data.order
+      success(res){
+        if(res.confirm){
+          order.comfirm(id, (res) => {
+            that.data.order.status = 4
+            that.setData({
+              order: that.data.order
+            })
+            wx.setStorageSync('newOrder', true)
+            wx.showModal({
+              title: '成功',
+              content: '确认收货成功',
+              showCancel: false
+            })
           })
-          wx.setStorageSync('newOrder', true)
-          wx.showModal({
-            title: '成功',
-            content: '确认收货成功',
-            showCancel: false
-          })
-        })
+        }        
       }
     })
   },

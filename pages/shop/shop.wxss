@@ -53,6 +53,7 @@
 .shop-avatar{
   height: 50rpx;
   width: 50rpx;
+  border-radius: 4px; 
 }
 
 .avatar-text{

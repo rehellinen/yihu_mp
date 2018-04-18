@@ -1,10 +1,14 @@
 import {DetailModel} from '../detail/detail-model.js'
 let detail = new DetailModel()
+let app = getApp()
 
 Page({
   data: {
     page: 1,
     hasMore: true,
+    loadingHidden: false,
+    photoCount: 0,
+    loadedPhoto: 0,
     goods: []
   },
 
@@ -34,19 +38,8 @@ Page({
   },
 
   _loadGoods(url){
-    detail.getGoods(url, this.data.page, (res) => {
-
-      for (let index in res) {
-        if (res[index].name.length > 8) {
-          if (res[index].type == 1){
-            res[index].name = res[index].name.substr(0, 10)
-          }else{
-            res[index].name = res[index].name.substr(0, 8)
-          }          
-          res[index].name += ' ...'
-        }
-      }
-
+    detail.getGoods(url, this.data.page, (res) => { 
+      this.data.photoCount += (res.length)
       this.data.goods.push.apply(this.data.goods, res)
       this.setData({
         goods: this.data.goods
@@ -54,5 +47,32 @@ Page({
     }, (res) => {
       this.data.hasMore = false
     })
-  }
+  },
+
+  // 处理商品名字太长换行的情况
+  // res -> 商品结果集
+  // count -> 截取多少位（按中文算）
+  processString(res, count) {
+    console.log(1)
+    for (let index in res) {
+      let length = 0
+      for (let i = 0; i < res[index].name.length; i++) {
+        if (res[index].name.charCodeAt(i) > 127) {
+          length += 2;
+        } else {
+          length++;
+        }
+        if (length >= count * 2) {
+          res[index].name = res[index].name.substr(0, i)
+          res[index].name += ' ...'
+        }
+      }
+    }
+    return res
+  },
+
+  isLoadAll(event) {
+    let that = this
+    app.isLoadAll(that)
+  },
 })

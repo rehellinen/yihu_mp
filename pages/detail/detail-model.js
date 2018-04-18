@@ -32,10 +32,11 @@ class DetailModel extends Base{
     let params = {
       url: url,
       data: {
-        page: page
+        page: page,
+        size: 14
       },
       callBack(res) {
-        cb && cb(res.data)
+        cb && cb(res)
       },
       eCallBack(res){
         ecb && ecb(res)
@@ -71,10 +72,11 @@ class DetailModel extends Base{
     let params = {
       url: 'newGoods/shop/' + id,
       data: {
-        page: page
+        page: page,
+        size: 10
       },
       callBack: function (data) {
-        cb && cb(data.data)
+        cb && cb(data)
       },
       eCallBack(data){
         ecb && ecb(data)
@@ -99,12 +101,13 @@ class DetailModel extends Base{
   // 根据分类获取商品
   getGoodsByCategoryID(page, id, cb, ecb) {
     let params = {
-      url: 'oldGoods/category/' + id,
+      url: 'goods/category/' + id,
       data:{
-        page: page
+        page: page,
+        size: 12
       },
       callBack(res){
-        cb && cb(res.data)
+        cb && cb(res)
       },
       eCallBack(res){
         ecb && ecb(res)

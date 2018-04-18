@@ -1,8 +1,12 @@
+<view class='loading-container' hidden="{{loadingHidden}}">
+  <image src='/images/theme/loading.gif'></image>
+</view>
+
 <view class='top-title-container'>
   <view class='title-container'>
     <text>{{title}}</text>
   </view>
   <view class='goods-container'>
-    <goods-list-index goods="{{goods}}"></goods-list-index>
+    <goods-list-index goods="{{goods}}" bind:loaded="isLoadAll"></goods-list-index>
   </view>
 </view>

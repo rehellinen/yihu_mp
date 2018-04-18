@@ -3,7 +3,7 @@
 </view>
 
 <!-- 总view -->
-<view class='container' hidden="{{!loadingHidden}}">
+<view class='container index-container' hidden="{{!loadingHidden}}">
 
   <!-- <view class='search-container' bindtap='toSearch'>
     <image src='/images/icon/search.png' class="icon"></image>
@@ -44,7 +44,7 @@
   </view>
 
 
-  <view class='find-image-container'>
+  <view class='find-image-container margin-top-image'>
     <image class='find-image' src='/images/theme/old.png'></image>
   </view>
   <goods-list-index goods="{{oldGoods}}" bind:loaded="isLoadAll"></goods-list-index>
