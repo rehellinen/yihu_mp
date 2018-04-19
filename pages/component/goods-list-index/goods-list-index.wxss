@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   width: 750rpx;
   background-color: white;
+  padding-bottom: 5rpx;
 }
 
 .find-detail

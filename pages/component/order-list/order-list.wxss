@@ -46,7 +46,17 @@
 }
 
 .delete{
-    font-size: 32rpx;
+    font-size: 40rpx;
     margin-top: 20rpx;
     margin-right: 5rpx;
+    height: 90rpx;
+}
+
+.no-order-text {
+  display: flex;
+  height: 80rpx;
+  font-size: 30rpx;
+  color: #ccc;
+  align-items: center;
+  justify-content: center;
 }

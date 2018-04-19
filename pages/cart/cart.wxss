@@ -119,6 +119,10 @@
   color: #d5d5db;
 }
 
+.cart-item-count .plus-btn.disabled {
+  color: #d5d5db;
+}
+
 .delete {
   font-size: 40rpx;
   padding: 0 10rpx;

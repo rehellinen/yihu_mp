@@ -27,7 +27,7 @@ Page({
     }    
   },
 
-  _loadShop(){
+  _loadShop(cb){
     shop.getShop(this.data.page, (data) => {
       this.data.photoCount += data.length
       this.data.shop.push.apply(this.data.shop, data)
@@ -37,6 +37,8 @@ Page({
     }, (data) => {
       this.data.hasMore = false
     })
+
+    cb && cb()
   },
 
   toShopDetail(event){
@@ -49,5 +51,14 @@ Page({
   isLoadAll(event) {
     let that = this
     app.isLoadAll(that)
+  },
+
+  onPullDownRefresh() {
+    this.data.shop = []
+    this.data.page = 1
+    this.data.hasMore = true
+    this._loadShop(() => {
+      wx.stopPullDownRefresh()
+    })
   }
 })

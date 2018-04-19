@@ -91,7 +91,7 @@
   align-items: center;
   color: #999;
   height: 80rpx;
-  margin-right: 2%;
+  padding-right: 2%;
   background-color: white;
 }
 

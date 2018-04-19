@@ -1,4 +1,7 @@
 <view class='order-list-contailer'>
+  <block wx:if="{{order.length == 0}}">
+    <text class='no-order-text'>没 有 相 关 订 单</text>
+  </block>
   <block wx:for="{{order}}" wx:key="">
     <view class='detail-container' bindtap='toOrderMore' data-id='{{item.id}}' data-type='{{item.type}}'>
       <image class='detail-image' src='{{item.snap_img}}' mode='aspectFill' bindload='loaded'></image>

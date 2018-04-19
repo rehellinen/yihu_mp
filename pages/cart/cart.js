@@ -106,7 +106,7 @@ Page({
     let multiple = 100
     for (let i = 0; i < cartData.length; i++) {
       if (cartData[i].selected) {
-        totalPrice += (cartData[i].count * multiple) * (cartData[i].price * multiple)
+        totalPrice += (cartData[i].count) * (cartData[i].price * multiple)
         selectedCount += cartData[i].count
         selectedType++
       }
@@ -115,7 +115,7 @@ Page({
     return {
       selectedCount: selectedCount,
       selectedType: selectedType,
-      totalPrice: totalPrice / (multiple * multiple)
+      totalPrice: totalPrice / (multiple)
     }
   },
 

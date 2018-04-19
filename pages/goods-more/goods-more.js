@@ -29,15 +29,15 @@ Page({
     }
   },
 
-  _loadData(){
+  _loadData(cb){
     if (this.data.type == 1){
-      this._loadGoods('newGoods')
+      this._loadGoods('newGoods', cb)
     }else{
-      this._loadGoods('oldGoods')
+      this._loadGoods('oldGoods', cb)
     }    
   },
 
-  _loadGoods(url){
+  _loadGoods(url, cb){
     detail.getGoods(url, this.data.page, (res) => { 
       this.data.photoCount += (res.length)
       this.data.goods.push.apply(this.data.goods, res)
@@ -47,6 +47,7 @@ Page({
     }, (res) => {
       this.data.hasMore = false
     })
+    cb && cb()
   },
 
   // 处理商品名字太长换行的情况
@@ -75,4 +76,13 @@ Page({
     let that = this
     app.isLoadAll(that)
   },
+
+  onPullDownRefresh() {
+    this.data.page = 1,
+    this.data.hasMore = true,
+    this.data.goods = []
+    this._loadData(() => {
+      wx.stopPullDownRefresh()
+    })
+  }
 })

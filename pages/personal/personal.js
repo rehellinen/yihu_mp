@@ -51,6 +51,9 @@ Page({
       })
     }, (res) => {
       this.data.photoCount += 2
+      this.setData({
+        order: this.data.order
+      })
     })
   },
 

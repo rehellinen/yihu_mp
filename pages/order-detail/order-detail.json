@@ -3,5 +3,6 @@
     "order-goods-list": "../component/order-goods-list/order-goods-list",
     "seller-info": "../component/seller-info/seller-info",
     "order-info": "../component/order-info/order-info"
-  }
+  },
+  "enablePullDownRefresh": false
 }

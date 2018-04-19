@@ -42,7 +42,7 @@ Page({
   },
 
   // 加载所有数据
-  _loadData : function(callBack) {
+  _loadData : function(cb) {
     // 获取Banner
     index.getBanners( (data) => {
       this.data.photoCount += (data.length + 14)
@@ -58,6 +58,19 @@ Page({
       })
     })
 
+    // 获取发现鲜货
+    detail.getIndexNewGoods((data) => {
+      for (let index in data) {
+        if (data[index].name.length > 10) {
+          data[index].name = data[index].name.substr(0, 10)
+          data[index].name += ' ...'
+        }
+      }
+      this.setData({
+        newGoods: data
+      })
+    }) 
+
     // 旧物漂流
     detail.getIndexOldGoods( (data) => {
       for (let index in data) {
@@ -69,20 +82,9 @@ Page({
       this.setData({
         oldGoods: data
       })
-    })
 
-    // 获取发现鲜货
-    detail.getIndexNewGoods((data) => {
-      for (let index in data) {
-        if (data[index].name.length > 10) {
-          data[index].name = data[index].name.substr(0, 10)
-          data[index].name += ' ...'
-        }        
-      }
-      this.setData({
-        newGoods: data
-      })
-    })    
+      cb && cb()
+    })       
   },
 
   toTheme(event){
@@ -107,6 +109,12 @@ Page({
     let type = event.currentTarget.dataset.type
     wx.navigateTo({
       url: '/pages/goods-more/goods-more?type=' + type,
+    })
+  },
+
+  onPullDownRefresh(){
+    this._loadData( () => {
+      wx.stopPullDownRefresh()
     })
   }
 })

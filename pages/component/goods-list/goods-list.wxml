@@ -5,7 +5,6 @@
       <view class='single-choose'>{{item}}</view>
     </block>
   </view> -->
-
   <view class='goods-container'>
     <block wx:for="{{goods}}" wx:key="">
       <view class='single-goods' bindtap='toGoodsDetail' data-type='{{item.type}}' data-id='{{item.id}}'>

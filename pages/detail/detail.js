@@ -17,18 +17,22 @@ Page({
   },
 
   onLoad: function (options) {
-    let id = options.id
-    let type = options.type 
-    if (type == 1){
-      this._getGoodsAndShop(id)
-    }else{
-      this._getGoodsAndSeller(id)
-    }
+    this.data.id = options.id
+    this.data.type = options.type 
+    this._loadData()
     setTimeout(() => {
       this.setData({
         loadingHidden: true
       })
     }, 5000)
+  },
+
+  _loadData(cb){
+    if (this.data.type == 1) {
+      this._getGoodsAndShop(cb)
+    } else {
+      this._getGoodsAndSeller(cb)
+    }
   },
 
   onShareAppMessage(res) {
@@ -51,8 +55,8 @@ Page({
     }
   },
 
-  _getGoodsAndShop(id){
-    detail.getGoodsDetail(id, (data) => {
+  _getGoodsAndShop(cb){
+    detail.getGoodsDetail(this.data.id, (data) => {
       let count = data.quantity
       for (let i = 1; i <= count; i++){
         this.data.countArray.push(i)
@@ -64,16 +68,18 @@ Page({
         shop: data.shop,
         countArray: this.data.countArray
       })
+      cb && cb()
     })
   },
 
-  _getGoodsAndSeller(id){
-    detail.getOldGoodsDetail(id, (data) => {
+  _getGoodsAndSeller(cb){
+    detail.getOldGoodsDetail(this.data.id, (data) => {
       this.setData({
         product: data,
         cartSelectedCount: cart.getCartTotalCount(),
         shop: data.seller
       })
+      cb && cb()
     })
   },
 
@@ -136,7 +142,7 @@ Page({
 
   _addCartStorage(){
     let tempObj = {}
-    let keys = ['id', 'name', 'image_id', 'price', 'type']
+    let keys = ['id', 'name', 'image_id', 'price', 'type', 'quantity']
     for (let key in this.data.product) {
       if (keys.indexOf(key) >= 0) {
         tempObj[key] = this.data.product[key]
@@ -154,5 +160,11 @@ Page({
   isLoadAll(event) {
     let that = this
     app.isLoadAll(that)
+  },
+
+  onPullDownRefresh() {
+    this._loadData(() => {
+      wx.stopPullDownRefresh()
+    })
   }
 })
