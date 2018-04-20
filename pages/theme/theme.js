@@ -10,9 +10,8 @@ Page({
     loadingHidden: false,
     className: 'animation1',
     goods: [],
-    hasMore: true,
-    page: 1, 
-    goods: [],
+    hasMore: [],
+    page: [], 
     photoCount: 0,
     loadedPhoto: 0
   },
@@ -28,6 +27,8 @@ Page({
           res[i].fontClass = 'big'
         }
         this.data.goods[id] = []
+        this.data.hasMore[id] = true
+        this.data.page[id] = 1
       }
       this.setData({
         category: res,
@@ -39,7 +40,7 @@ Page({
   },
 
   _loadGoods(){
-    detail.getGoodsByCategoryID(this.data.page, this.data.categoryID, (data) => {  
+    detail.getGoodsByCategoryID(this.data.page[this.data.categoryID], this.data.categoryID, (data) => {  
       for(let i in data){
         if(data[i].name.length > 5){
           data[i].name = data[i].name.substr(0, 5)
@@ -54,7 +55,7 @@ Page({
         goods: this.data.goods
       })
     }, () => {
-      this.data.hasMore = false
+      this.data.hasMore[this.data.categoryID] = false
       this.setData({
         loadingHidden: true
       })
@@ -69,20 +70,20 @@ Page({
     if (index == this.data.categoryIndex) {
       return 0
     }
-    this.data.page = 1    
+    this.data.page[id] = 1    
     this.setData({
       className: 'animation' + (index + 1),
       categoryID: id,
       categoryIndex: index 
     })
-    if (!this.data.goods[id]) {
+    if (this.data.goods[id].length == 0) {
       this._loadGoods()
     } 
   },
 
   toLoadMore(event){
-    if(this.data.hasMore){
-      this.data.page++
+    if (this.data.hasMore[this.data.categoryID]){
+      this.data.page[this.data.categoryID]++
       this._loadGoods()
     } 
   },
@@ -91,4 +92,12 @@ Page({
     let that = this
     app.isLoadAll(that)
   },
+
+  onPullDownRefresh() {
+    this._loadGoods(() => {
+      wx.stopPullDownRefresh()
+    })
+  },
+
+  
 })
