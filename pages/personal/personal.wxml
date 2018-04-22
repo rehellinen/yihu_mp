@@ -21,10 +21,6 @@
     </view>  
     <order-list order="{{order}}" bind:loaded="isLoadAll" bind:reload="reload"></order-list>
 
-    <view wx:if="{{order.length == 0}}">
-      <text class='no-order-text'>没 有 相 关 订 单</text>
-    </view>
-
     <view wx:if="{{order.length != 0}}" class='more-container' bindtap="toOrderMore">
       <text class='more-text'>查看更多</text>
       <image src="/images/icon/arrow@downBlack.png"></image>
