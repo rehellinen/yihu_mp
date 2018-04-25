@@ -35,4 +35,5 @@
   color: #d0d0d0;
   font-size: 22rpx;
   margin-bottom: 20rpx;
+  margin: 10rpx 20rpx 20rpx 20rpx;
 }

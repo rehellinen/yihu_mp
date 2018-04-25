@@ -99,7 +99,7 @@
 
 .cart-item-count .minus-btn {
   color: #454553;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .cart-item-count .count {
@@ -112,7 +112,6 @@
 .cart-item-count .plus-btn {
   color: #454553;
   font-size: 25px;
-  padding-top: 4.5rpx;
 }
 
 .cart-item-count .minus-btn.disabled {

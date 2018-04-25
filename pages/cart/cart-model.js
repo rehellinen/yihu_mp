@@ -9,7 +9,7 @@ class CartModel extends Base{
   // 添加到购物车的方法
   // 没有该商品时，新增商品；有该商品时，增加数量
   // goods->商品；count->数量
-  add(goods, count){
+  add(goods, count, cb){
     let cartData = this.getCartDataFromLocal()
     let isExisted = this._isExistedThatOne(goods.id, cartData)
 
@@ -18,7 +18,11 @@ class CartModel extends Base{
       goods.selected = true
       cartData.push(goods)
     }else{
-      cartData[isExisted.index].count += count
+      if ((cartData[isExisted.index].count + count) <= cartData[isExisted.index].quantity){
+        cartData[isExisted.index].count += count
+      }else{
+        cb && cb()
+      }      
     }
 
     wx.setStorageSync(this._storageKeyName, cartData)

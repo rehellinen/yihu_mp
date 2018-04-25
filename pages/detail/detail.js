@@ -103,10 +103,12 @@ Page({
       return 0;
     }
     // 处理加入购物车的数据逻辑
-    this._addCartStorage()
+    let flag = this._addCartStorage()
 
     // 处理加入购物车的动画
-    this._addCartAnimation(event)
+    if(flag){
+      this._addCartAnimation(event)
+    }    
   },
 
   _addCartAnimation(event){
@@ -141,6 +143,8 @@ Page({
   },
 
   _addCartStorage(){
+    // 是否成功添加商品
+    let flag = true
     let tempObj = {}
     let keys = ['id', 'name', 'image_id', 'price', 'type', 'quantity']
     for (let key in this.data.product) {
@@ -148,7 +152,14 @@ Page({
         tempObj[key] = this.data.product[key]
       }
     }
-    cart.add(tempObj, this.data.selectedCount)    
+    cart.add(tempObj, this.data.selectedCount, () => {
+      wx.showToast({
+        title: '商品库存不足',
+        image: '/images/icon/pay@error.png'
+      })
+      flag = false
+    })    
+    return flag
   },
 
   toCartTap(){
