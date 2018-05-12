@@ -46,6 +46,10 @@
   /* box-sizing: border-box; */
 }
 
+text{
+  font-family: MicroSoft Yahei;
+}
+
 .disabled {
   pointer-events: none;
 }

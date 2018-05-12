@@ -4,12 +4,23 @@
       <view class="item-left">
         <image src="{{item.image_id.image_url}}" mode='aspectFill' bindload='loaded'></image>
       </view>
-      <view class="item-middle">
-        <view class='name'>{{item.name}}</view>
-        <view class='price'>￥{{item.price}}</view>
-      </view>
-      <view class="item-right">
-        ×{{item.count}}
+      <view class='item-middle-right'>
+        <view class='item-up'>
+          <view class="item-middle">
+            <view class='name'>{{item.name}}</view>
+            <view class='price'>￥{{item.price}}</view>
+          </view>
+          <view class="item-right">
+            ×{{item.count}}
+          </view>
+        </view>
+
+        <view class='item-down'>
+          <view class="section">
+            <input name="name" placeholder='备注'/>
+          </view>
+        </view>
+
       </view>
     </view>
   </block>

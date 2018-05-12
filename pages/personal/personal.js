@@ -19,7 +19,10 @@ Page({
         name: res.nickName
       })
     })
-    this._loadOrder()  
+    let res = order.isHasNewOrder()
+    if(!res){
+      this._loadOrder()  
+    }    
     setTimeout(() => {
       this.setData({
         loadingHidden: true
@@ -36,7 +39,7 @@ Page({
   },
 
   // 加载订单数据
-  _loadOrder(){
+  _loadOrder(cb){
     order.getOrder(0, 1, (res) => {
       if(res.length >= 2){
         this.data.photoCount += 4       
@@ -55,6 +58,7 @@ Page({
         order: this.data.order
       })
     })
+    cb && cb()
   },
 
   toEdit(event){
@@ -77,5 +81,12 @@ Page({
   reload(){
     this.data.order = []
     this._loadOrder()
+  },
+
+  onPullDownRefresh() {
+    this.data.order = []
+    this._loadOrder(() => {
+      wx.stopPullDownRefresh()
+    })
   }
 })

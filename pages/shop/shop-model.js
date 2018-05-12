@@ -13,7 +13,7 @@ class ShopModel extends Base{
         page: page
       },
       callBack(data){
-        cb && cb(data.data)
+        cb && cb(data)
       },
       eCallBack(data){
         ecb && ecb(data)

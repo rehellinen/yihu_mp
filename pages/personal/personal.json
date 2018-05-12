@@ -3,6 +3,5 @@
     "image-top": "/pages/component/image-top/image-top",
     "electricity": "/pages/component/electricity/electricity",
     "order-list": "/pages/component/order-list/order-list"
-  },
-  "enablePullDownRefresh": false
+  }
 }
