@@ -10,7 +10,7 @@
   <!-- 买家信息 -->
 
   <!--列表-->
-  <order-goods-list goods="{{goods}}" bind:loaded="isLoadAll"></order-goods-list>
+  <order-goods-list goods="{{goods}}" bind:loaded="isLoadAll" bind:remark="remark"></order-goods-list>
   <!--列表-->
 
   <!--结算-->

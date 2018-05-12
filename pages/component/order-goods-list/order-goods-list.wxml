@@ -17,7 +17,7 @@
 
         <view class='item-down'>
           <view class="section">
-            <input name="name" placeholder='备注'/>
+            <input data-id='{{item.id}}' bindblur="remark" name="name" placeholder='备注' disabled='{{!type ? false : true}}'/>
           </view>
         </view>
 

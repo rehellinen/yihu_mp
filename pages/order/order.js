@@ -62,9 +62,11 @@ Page({
     for (let i = 0; i < goodsInfo.length; i++){
       orderInfo.push({
         goods_id: goodsInfo[i].id,
-        count: goodsInfo[i].count
+        count: goodsInfo[i].count,
+        remark: goodsInfo[i].remark
       })
     }
+    console.log(orderInfo)
     let that = this
     order.placeOrder(orderInfo, (res) => {
       if(res.pass){
@@ -150,5 +152,17 @@ Page({
         
       }
     })
+  },
+
+  remark(event){    
+    let id = event.detail.id
+    let remark = event.detail.remark
+
+    for (let i = 0; i < this.data.goods.length; i++){
+      if (this.data.goods[i].id === id){
+        this.data.goods[i].remark = remark
+      }
+    }
+    
   }
 })
