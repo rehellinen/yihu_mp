@@ -1,64 +1,61 @@
-import { ShopModel } from '../../model/ShopModel.js'
+import {ShopModel} from '../../model/ShopModel.js'
+import {Image} from "../../utils/image"
+
 let shop = new ShopModel()
-let app = getApp()
 
 Page({
-  data: {
-    photoCount: 0,
-    loadedPhoto: 0,
-    page: 1,
-    shop: [],
-    hasMore: true
-  },
+    data: {
+        page: 1,
+        shop: [],
+        hasMore: true,
+        loadingHidden: false
+    },
 
-  onLoad: function (options) {
-    this._loadShop()
-    setTimeout(() => {
-      this.setData({
-        loadingHidden: true
-      })
-    }, 5000)
-  },
+    onLoad: function (options) {
+        this.image = new Image(this)
+        this.image.setLoadingHidden()
 
-  onReachBottom(){
-    if (this.data.hasMore) {
-      this.data.page++
-      this._loadShop()
-    }    
-  },
+        this._loadShop()
+    },
 
-  _loadShop(cb){
-    shop.getShop(this.data.page, (data) => {
-      this.data.photoCount += data.length
-      this.data.shop.push.apply(this.data.shop, data)
-      this.setData({
-        shop: this.data.shop
-      })
-    }, (data) => {
-      this.data.hasMore = false
-    })
+    onReachBottom() {
+        if (this.data.hasMore) {
+            this.data.page++
+            this._loadShop()
+        }
+    },
 
-    cb && cb()
-  },
+    _loadShop(cb) {
+        shop.getShop(this.data.page, (data) => {
+            this.image.addPhotosCount(data.length)
+            this.data.shop.push.apply(this.data.shop, data)
+            this.setData({
+                shop: this.data.shop
+            })
+        }, (data) => {
+            this.data.hasMore = false
+        })
 
-  toShopDetail(event){
-    let id = event.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/pages/shop-detail/shop-detail?id=' + id,
-    })
-  },
+        cb && cb()
+    },
 
-  isLoadAll(event) {
-    let that = this
-    app.isLoadAll(that)
-  },
+    toShopDetail(event) {
+        let id = event.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '/pages/shop-detail/shop-detail?id=' + id,
+        })
+    },
 
-  onPullDownRefresh() {
-    this.data.shop = []
-    this.data.page = 1
-    this.data.hasMore = true
-    this._loadShop(() => {
-      wx.stopPullDownRefresh()
-    })
-  }
+    isLoadedAll(event) {
+        this.image.isLoadedAll()
+    },
+
+    onPullDownRefresh() {
+        this.data.shop = []
+        this.data.page = 1
+        this.data.hasMore = true
+        this._loadShop(() => {
+            wx.stopPullDownRefresh()
+        })
+    }
 })

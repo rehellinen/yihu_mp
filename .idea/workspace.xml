@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fe448c7-f403-44e1-9c4c-f6d980ffd7f2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/model/OrderModel.js" afterPath="$PROJECT_DIR$/model/OrderModel.js" />
-      <change beforePath="$PROJECT_DIR$/pages/pay-result/pay-result.js" afterPath="$PROJECT_DIR$/pages/pay-result/pay-result.js" />
-      <change beforePath="$PROJECT_DIR$/pages/personal/personal.js" afterPath="$PROJECT_DIR$/pages/personal/personal.js" />
-      <change beforePath="$PROJECT_DIR$/pages/personal/personal.wxml" afterPath="$PROJECT_DIR$/pages/personal/personal.wxml" />
+      <change beforePath="$PROJECT_DIR$/pages/shop/shop.js" afterPath="$PROJECT_DIR$/pages/shop/shop.js" />
+      <change beforePath="$PROJECT_DIR$/pages/shop/shop.wxml" afterPath="$PROJECT_DIR$/pages/shop/shop.wxml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,7 +16,30 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="shop.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/shop/shop.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shop.wxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/shop/shop.wxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -88,6 +109,8 @@
         <option value="$PROJECT_DIR$/pages/personal/personal.js" />
         <option value="$PROJECT_DIR$/pages/index/index.wxml" />
         <option value="$PROJECT_DIR$/pages/personal/personal.wxml" />
+        <option value="$PROJECT_DIR$/pages/shop/shop.wxml" />
+        <option value="$PROJECT_DIR$/pages/shop/shop.js" />
       </list>
     </option>
   </component>
@@ -147,13 +170,7 @@
               <item name="fleamarket_mini_programs" type="b2602c69:ProjectViewProjectNode" />
               <item name="fleamarket_mini_programs" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fleamarket_mini_programs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fleamarket_mini_programs" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="personal" type="462c0819:PsiDirectoryNode" />
+              <item name="shop-detail" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fleamarket_mini_programs" type="b2602c69:ProjectViewProjectNode" />
@@ -215,12 +232,12 @@
       <option name="presentableId" value="Default" />
       <updated>1526616758214</updated>
       <workItem from="1526616759941" duration="8975000" />
-      <workItem from="1526628699892" duration="6791000" />
+      <workItem from="1526628699892" duration="7001000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15766000" />
+    <option name="totallyTimeSpent" value="15976000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -578,6 +595,24 @@
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="37" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/shop/shop.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/shop/shop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
