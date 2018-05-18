@@ -1,16 +1,15 @@
-import { CartModel } from '../../model/CartModel.js'
-import { EditInfoModel } from '../../model/UserModel.js'
-import { OrderModel } from '../../model/OrderModel.js'
+import { CartModel } from '../../model/CartModel'
+import { UserModel } from '../../model/UserModel'
+import { OrderModel } from '../../model/OrderModel'
+import {Image} from "../../utils/image"
+
 let cart = new CartModel()
-let edit = new EditInfoModel()
+let user = new UserModel()
 let order = new OrderModel()
-let app = getApp()
 
 Page({
   data: {
     loadingHidden: false,
-    photoCount: 0,
-    loadedPhoto: 0
   },
 
   // onLoad获取购物车选中的商品及其相关信息
@@ -36,7 +35,7 @@ Page({
   },
   
   onShow(){
-    edit.getBuyerInfo((res) => {
+    user.getBuyerInfo((res) => {
       let isCompleted = this.isBuyerInfoCompleted(res)
       this.setData({
         buyerInfo: res,

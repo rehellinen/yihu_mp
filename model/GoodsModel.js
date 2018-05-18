@@ -1,4 +1,6 @@
 import {BaseModel} from './BaseModel.js'
+import {CartModel} from "./CartModel"
+let cart = new CartModel()
 
 export class GoodsModel extends BaseModel {
     constructor() {
@@ -7,7 +9,7 @@ export class GoodsModel extends BaseModel {
 
     // 更新购物车中商品信息
     updateGoods(cb) {
-        let goods = this.getCartDataFromLocal()
+        let goods = cart.getCartDataFromLocal()
         let ids = []
         let idsStr = ''
 
@@ -27,7 +29,7 @@ export class GoodsModel extends BaseModel {
                 ids: idsStr
             },
             callBack: (res) => {
-                this._updateStorageGoods(res, goods)
+                cart._updateStorageGoods(res, goods)
                 cb && cb()
             },
             eCallBack: (res) => {
