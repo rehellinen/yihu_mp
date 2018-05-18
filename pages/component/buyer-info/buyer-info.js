@@ -1,6 +1,3 @@
-import { EditInfoModel } from '../../../model/UserModel.js'
-let edit = new EditInfoModel()
-
 Component({
   properties: {
     buyerInfo: {

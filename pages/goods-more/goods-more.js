@@ -72,7 +72,7 @@ Page({
         return res
     },
 
-    isLoadAll(event) {
+    isLoadedAll(event) {
         this.image.isLoadedAll()
     },
 

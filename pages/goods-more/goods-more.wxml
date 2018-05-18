@@ -7,6 +7,6 @@
     <text>{{title}}</text>
   </view>
   <view class='goods-container'>
-    <goods-list-index goods="{{goods}}" bind:loaded="isLoadAll"></goods-list-index>
+    <goods-list-index goods="{{goods}}" bind:loaded="isLoadedAll"></goods-list-index>
   </view>
 </view>
