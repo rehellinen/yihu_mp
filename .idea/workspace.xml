@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fe448c7-f403-44e1-9c4c-f6d980ffd7f2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/pages/order-detail/order-detail.js" afterPath="$PROJECT_DIR$/pages/order-detail/order-detail.js" />
-      <change beforePath="$PROJECT_DIR$/pages/order-detail/order-detail.wxml" afterPath="$PROJECT_DIR$/pages/order-detail/order-detail.wxml" />
+      <change beforePath="$PROJECT_DIR$/pages/order-more/order-more.js" afterPath="$PROJECT_DIR$/pages/order-more/order-more.js" />
+      <change beforePath="$PROJECT_DIR$/pages/order-more/order-more.wxml" afterPath="$PROJECT_DIR$/pages/order-more/order-more.wxml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,8 +20,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/index/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <state relative-caret-position="375">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="37" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -29,11 +29,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order-more.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="order-more.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/order-more/order-more.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="340">
+              <caret line="64" column="15" lean-forward="false" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="15" />
+              <folding>
+                <element signature="e#0#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order-more.wxml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/order-more/order-more.wxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="11" column="63" lean-forward="false" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -103,6 +115,8 @@
         <option value="$PROJECT_DIR$/pages/order-detail/order-detail.js" />
         <option value="$PROJECT_DIR$/pages/index/index.wxml" />
         <option value="$PROJECT_DIR$/pages/order-detail/order-detail.wxml" />
+        <option value="$PROJECT_DIR$/pages/order-more/order-more.js" />
+        <option value="$PROJECT_DIR$/pages/order-more/order-more.wxml" />
       </list>
     </option>
   </component>
@@ -224,12 +238,12 @@
       <option name="presentableId" value="Default" />
       <updated>1526616758214</updated>
       <workItem from="1526616759941" duration="8975000" />
-      <workItem from="1526628699892" duration="6057000" />
+      <workItem from="1526628699892" duration="6163000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15032000" />
+    <option name="totallyTimeSpent" value="15138000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -540,8 +554,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/index/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        <state relative-caret-position="375">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="37" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
@@ -550,8 +564,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/order-more/order-more.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="340">
+          <caret line="64" column="15" lean-forward="false" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/order-more/order-more.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="63" lean-forward="false" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
           <folding />
         </state>
       </provider>
