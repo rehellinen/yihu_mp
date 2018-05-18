@@ -4,10 +4,10 @@
 
 <!--pages/shop-detail/shop-detail.wxml--> 
 <view class='container shop-detail-container' hidden="{{!loadingHidden}}">
-  <image-top top_image="{{shop.top_image_id.image_url}}" name="{{shop.name}}" quote="{{shop.major}}" avatar="{{shop.avatar_image_id.image_url}}" bind:loaded="isLoadAll"></image-top>
+  <image-top top_image="{{shop.top_image_id.image_url}}" name="{{shop.name}}" quote="{{shop.major}}" avatar="{{shop.avatar_image_id.image_url}}" bind:loaded="isLoadedAll"></image-top>
   <switch-tab tab="{{['全部商品', '新品上架']}}">
     <view slot="全部商品" class='all'>
-      <goods-list goods="{{goods}}" kind="goods" bind:loaded="isLoadAll"></goods-list>
+      <goods-list goods="{{goods}}" kind="goods" bind:loaded="isLoadedAll"></goods-list>
     </view>
 
     <!-- <view slot="店铺首页" class='home'>      

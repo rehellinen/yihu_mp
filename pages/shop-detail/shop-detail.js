@@ -1,83 +1,81 @@
-import { ShopModel } from '../../model/ShopModel.js'
-import { DetailModel } from '../../model/GoodsModel.js'
-let detail = new DetailModel()
+import {ShopModel} from '../../model/ShopModel'
+import {GoodsModel} from "../../model/GoodsModel"
+import {UserModel} from '../../model/UserModel'
+import {Image} from "../../utils/image"
+
+let user = new UserModel()
+let goods = new GoodsModel()
 let shop = new ShopModel()
-let app = getApp()
 
-Page({  
-  data: {
-    loadingHidden: false,
-    photoCount: 0,
-    loadedPhoto: 0,
-    hasMore: true,
-    page: 1,
-    goods: []
-  },
+Page({
+    data: {
+        loadingHidden: false,
+        hasMore: true,
+        page: 1,
+        goods: []
+    },
 
-  onLoad: function (options) {
-    this.data.id = options.id
-    shop.getShopByID(this.data.id, (data) => {
-      this.setData({
-        shop: data        
-      })
-    })
-    
-    this._loadGoods()
+    onLoad: function (options) {
+        this.image = new Image(this)
+        this.image.setLoadingHidden()
 
-    detail.getRecentGoodsByShopId(this.data.id, (data) => {
-      this.setData({
-        recentGoods: data
-      })
-    })
+        this.data.id = options.id
 
-    setTimeout(() => {
-      this.setData({
-        loadingHidden: true
-      })
-    }, 5000)
-  },
+        this._loadGoods()
+    },
 
-  onShareAppMessage(res) {
-    return {
-      title: this.data.shop.name,
-      path: '/pages/shop-detail/shop-detail?id=' + this.data.shop.id,
-      success(res) {
-        wx.showToast({
-          title: '分享成功',
-          image: '/images/icon/pay@success.png'
+    onShareAppMessage(res) {
+        return {
+            title: this.data.shop.name,
+            path: '/pages/shop-detail/shop-detail?id=' + this.data.shop.id,
+            success(res) {
+                wx.showToast({
+                    title: '分享成功',
+                    image: '/images/icon/share@success.png'
+                })
+            },
+            fail(res) {
+                wx.showToast({
+                    title: '分享失败',
+                    image: '/images/icon/share@error.png'
+                })
+            }
+        }
+    },
+
+    isLoadedAll(event) {
+        this.image.isLoadedAll()
+    },
+
+    onReachBottom() {
+        if (this.data.hasMore) {
+            this.data.page++
+            this._loadGoods()
+        }
+    },
+
+    _loadGoods() {
+        shop.getShopByID(this.data.id, (data) => {
+            this.setData({
+                shop: data
+            })
         })
-      },
-      fail(res) {
-        wx.showToast({
-          title: '分享失败',
-          image: '/images/icon/pay@error.png'
+
+        goods.getGoodsByShopId(this.data.page, this.data.id, (data) => {
+            this.image.addPhotosCount(data.length + 2)
+            this.data.goods.push.apply(this.data.goods, data)
+            this.setData({
+                goods: this.data.goods
+            })
+        }, (data) => {
+            this.image.addPhotosCount(2)
+            this.data.hasMore = false
         })
-      }
+
+        goods.getRecentGoodsByShopId(this.data.id, (data) => {
+            this.setData({
+                recentGoods: data
+            })
+        })
     }
-  },
-
-  isLoadAll(event) {
-    let that = this
-    app.isLoadAll(that)
-  },
-
-  onReachBottom(){
-    if (this.data.hasMore){
-      this.data.page++
-      this._loadGoods()      
-    }
-  },
-
-  _loadGoods(){
-    detail.getGoodsByShopId(this.data.page, this.data.id, (data) => {
-      this.data.photoCount += (data.length + 2)
-      this.data.goods.push.apply(this.data.goods, data)
-      this.setData({
-        goods: this.data.goods       
-      })
-    }, (data) => {
-      this.data.photoCount += 2
-      this.data.hasMore = false
-    })
-  }
 })
