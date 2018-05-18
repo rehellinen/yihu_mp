@@ -1,5 +1,5 @@
-import {DetailModel} from './detail-model.js'
-import {CartModel} from '../cart/cart-model.js'
+import {DetailModel} from '../../model/detail-model.js'
+import {CartModel} from '../../model/cart-model.js'
 let detail = new DetailModel()
 let cart = new CartModel()
 let app = getApp()

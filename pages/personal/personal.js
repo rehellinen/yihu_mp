@@ -1,5 +1,5 @@
-import { PersonalModel } from './personal-model.js'
-import { OrderModel } from '../order/order-model.js'
+import { PersonalModel } from '../../model/personal-model.js'
+import { OrderModel } from '../../model/order-model.js'
 let order = new OrderModel()
 let personal = new PersonalModel()
 let app = getApp()

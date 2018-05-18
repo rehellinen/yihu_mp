@@ -1,4 +1,4 @@
-import {DetailModel} from '../detail/detail-model.js'
+import {DetailModel} from '../../model/detail-model.js'
 let detail = new DetailModel()
 let app = getApp()
 

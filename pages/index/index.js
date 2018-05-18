@@ -1,5 +1,5 @@
-import {Index} from 'index-model.js'
-import {DetailModel} from '../detail/detail-model.js'
+import {Index} from '../../model/index-model'
+import {DetailModel} from '../../model/detail-model.js'
 import {Image} from '../../utils/image.js'
 let detail = new DetailModel()
 let index = new Index()
@@ -18,12 +18,10 @@ Page({
     this._loadData();
   },    
 
-  _loadData : function() {
-    let totalCount = 3 + 4 + 6 + 6
-    this.image.addPhotosCount(totalCount)
-
+  _loadData : function() { 
     // 获取Banner
-    index.getBanners( (data) => {      
+    index.getBanners( (data) => { 
+      this.image.addPhotosCount(data.length + 16)     
       this.setData({
         banner : data
       })
@@ -59,10 +57,10 @@ Page({
       }
       this.setData({
         oldGoods: data
-      })
+      })      
+    })
 
-      wx.stopPullDownRefresh()
-    })       
+    wx.stopPullDownRefresh()       
   },
 
   isLoadedAll(event) {

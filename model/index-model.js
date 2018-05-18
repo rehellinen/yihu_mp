@@ -1,4 +1,4 @@
-import {Base} from '../../utils/base.js';
+import {Base} from './base.js';
 
 class Index extends Base
 {

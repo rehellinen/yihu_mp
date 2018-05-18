@@ -1,5 +1,5 @@
-import { ShopModel } from '../shop/shop-model.js'
-import { DetailModel } from '../detail/detail-model.js'
+import { ShopModel } from '../../model/shop-model.js'
+import { DetailModel } from '../../model/detail-model.js'
 let detail = new DetailModel()
 let shop = new ShopModel()
 let app = getApp()
