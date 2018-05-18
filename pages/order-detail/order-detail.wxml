@@ -9,7 +9,7 @@
   zhifubao="{{order.seller.zhifubao}}" name="{{order.seller.name}}" type="{{order.type}}" shopID="{{order.foreign_id}}">
   </seller-info>
 
-  <order-goods-list goods="{{order.snap_items}}" type="{{order.type}}" bind:loaded="isLoadAll"></order-goods-list>
+  <order-goods-list goods="{{order.snap_items}}" type="{{order.type}}" bind:loaded="isLoadedAll"></order-goods-list>
 
   <!--结算-->
   <view class="order-accounts">
