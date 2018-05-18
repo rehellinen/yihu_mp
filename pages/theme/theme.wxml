@@ -23,7 +23,7 @@
           <text>{{item.name}}</text>
         </view>
 
-        <theme-goods goods="{{goods[item.id]}}" bind:toLoadMore="toLoadMore" bind:loaded="isLoadAll"></theme-goods>
+        <theme-goods goods="{{goods[item.id]}}" bind:toLoadMore="toLoadMore" bind:loaded="isLoadedAll"></theme-goods>
       </view>
     </block>
   </view>
