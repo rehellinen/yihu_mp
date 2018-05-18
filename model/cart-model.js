@@ -6,6 +6,32 @@ class CartModel extends Base {
         this._storageKeyName = 'cart'
     }
 
+    // 更新购物车中商品信息
+    updateGoods(cb) {
+        let goods = this.getCartDataFromLocal()
+        if (goods.length === 0) {
+            cb && cb()
+            return
+        }
+        let ids = []
+        for (let index in goods) {
+            ids.push(goods[index].id)
+        }
+        let idsStr = ids.join('|')
+        let that = this
+        let params = {
+            url: 'goods/check',
+            data: {
+                ids: idsStr
+            },
+            callBack: (res) => {
+                this._updateStorageGoods(res, goods)
+                cb && cb()
+            }
+        }
+        this.request(params)
+    }
+
     // 添加商品到购物车
     // 1. goods [商品]
     // 2. count [数量]
@@ -51,31 +77,9 @@ class CartModel extends Base {
         return res
     }
 
-    // 根据商品id判断此商品是否存在于缓存中
-    // 1. id [商品]
-    // 2. cartData [缓存中购物车商品]
-    _isExistedThatOne(id, cartData) {
-        let result = {index: -1}
-        for (let i = 0; i < cartData.length; i++) {
-            if (cartData[i].id === id) {
-                result = {
-                    data: cartData[i],
-                    index: i
-                }
-                break
-            }
-        }
-        return result
-    }
-
-    // 增加购物车中商品的数量
-    plusCount(id) {
-        this._updateCount(id, 1)
-    }
-
-    // 减少购物车中商品的数量
-    minusCount(id) {
-        this._updateCount(id, -1)
+    // 更新缓存数据
+    setCartStorage(data){
+        wx.setStorageSync(this._storageKeyName, data);
     }
 
     // 删除购物车中的商品
@@ -125,34 +129,25 @@ class CartModel extends Base {
         wx.setStorageSync(this._storageKeyName, cartData)
     }
 
-    // 更新购物车中商品信息
-    updateGoods(cb) {
-        let goods = this.getCartDataFromLocal()
-        if (goods.length === 0) {
-            cb && cb()
-            return
-        }
-        let ids = []
-        for (let index in goods) {
-            ids.push(goods[index].id)
-        }
-        let idsStr = ids.join('|')
-        let that = this
-        let params = {
-            url: 'goods/check',
-            data: {
-                ids: idsStr
-            },
-            callBack: (res) => {
-                this.updateStoragePrice(res, goods)
-                cb && cb()
+    // 根据商品id判断此商品是否存在于缓存中
+    // 1. id [商品]
+    // 2. cartData [缓存中购物车商品]
+    _isExistedThatOne(id, cartData) {
+        let result = {index: -1}
+        for (let i = 0; i < cartData.length; i++) {
+            if (cartData[i].id === id) {
+                result = {
+                    data: cartData[i],
+                    index: i
+                }
+                break
             }
         }
-        this.request(params)
+        return result
     }
 
-    // 更新购物车中商品信息
-    updateStoragePrice(res, goods) {
+    // 更新缓存中商品信息
+    _updateStorageGoods(res, goods) {
         let data = []
         for (let i in res) {
             let id = res[i].id

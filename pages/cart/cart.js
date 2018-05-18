@@ -5,8 +5,7 @@ let cart = new CartModel()
 
 Page({
     data: {
-        photoCount: 0,
-        loadedPhoto: 0
+        loadingHidden: false
     },
 
     onLoad() {
@@ -16,26 +15,21 @@ Page({
 
     onShow: function () {
         cart.updateGoods(() => {
-            let cartData = cart.getCartDataFromLocal()
-            let cartDetailInfo = this._calTotalCountAndPrice(cartData)
-            this.image.addPhotosCount(cartData.length)
+            this.data.cartData = cart.getCartDataFromLocal()
 
-            if (cartData.length === 0) {
+            this.image.addPhotosCount(this.data.cartData.length)
+            if (this.data.cartData.length === 0) {
                 this.setData({
                     loadingHidden: true
                 })
             }
-            this.setData({
-                selectedCount: cartDetailInfo.selectedCount,
-                cartData: cartData,
-                selectedType: cartDetailInfo.selectedType,
-                totalPrice: cartDetailInfo.totalPrice
-            })
+
+            this._updateCartData()
         })
     },
 
     onHide() {
-        wx.setStorageSync(cart._storageKeyName, this.data.cartData)
+        cart.setCartStorage(this.data.cartData)
     },
 
     selectTap(event) {
@@ -62,11 +56,8 @@ Page({
         let index = this._getIndexByID(id)
         let count = 1
 
-        if (type === 'plus') {
-            cart.plusCount(id)
-        } else {
+        if (type === 'minus') {
             count = -1
-            cart.minusCount(id)
         }
 
         this.data.cartData[index].count += count
