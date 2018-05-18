@@ -66,7 +66,6 @@ Page({
         remark: goodsInfo[i].remark
       })
     }
-    console.log(orderInfo)
     let that = this
     order.placeOrder(orderInfo, (res) => {
       if(res.pass){

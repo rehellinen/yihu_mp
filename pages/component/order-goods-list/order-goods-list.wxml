@@ -17,7 +17,8 @@
 
         <view class='item-down'>
           <view class="section">
-            <input data-id='{{item.id}}' bindblur="remark" name="name" placeholder='备注' disabled='{{!type ? false : true}}'/>
+            <input data-id='{{item.id}}' bindblur="remark" name="name" placeholder='备注' wx:if='{{!type}}'/>
+            <text class='remark-text' wx:else>{{item.remark}}</text>
           </view>
         </view>
 
