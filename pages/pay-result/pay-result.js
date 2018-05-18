@@ -1,18 +1,16 @@
 // pages/pay-result/pay-result.js
 Page({
-  data: {
-  
-  },
+    data: {},
 
-  onLoad: function (options) {
-    this.setData({
-      payResult: options.flag,
-    })
-  },
+    onLoad: function (options) {
+        this.setData({
+            payResult: options.flag,
+        })
+    },
 
-  viewOrder(event){
-    wx.switchTab({
-      url: '/pages/personal/personal',
-    })
-  }
+    viewOrder(event) {
+        wx.switchTab({
+            url: '/pages/personal/personal',
+        })
+    }
 })

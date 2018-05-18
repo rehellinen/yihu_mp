@@ -1,92 +1,85 @@
-import { PersonalModel } from '../../model/personal-model.js'
-import { OrderModel } from '../../model/OrderModel.js'
+import {UserModel} from "../../model/UserModel"
+import {OrderModel} from '../../model/OrderModel.js'
+import {Image} from "../../utils/image"
+
 let order = new OrderModel()
-let personal = new PersonalModel()
-let app = getApp()
+let user = new UserModel()
 
 Page({
-  data: {
-    loadingHidden: false,
-    photoCount: 0,
-    loadedPhoto: 0,
-    order: []
-  },
+    data: {
+        loadingHidden: false,
+        order: []
+    },
 
-  onLoad: function (options) {
-    personal.getUserInfo( (res) => {         
-      this.setData({
-        avatar: res.avatarUrl,
-        name: res.nickName
-      })
-    })
-    let res = order.isHasNewOrder()
-    if(!res){
-      this._loadOrder()  
-    }    
-    setTimeout(() => {
-      this.setData({
-        loadingHidden: true
-      })
-    }, 5000)  
-  },
+    onLoad: function (options) {
+        this.image = new Image(this)
+        this.image.setLoadingHidden()
 
-  onShow(){
-    let res = order.isHasNewOrder()
-    if(res){
-      this.reload()
-      order.setNewOrderStorage(false)
+        let res = order.isHasNewOrder()
+        if (!res) {
+            this._loadOrder()
+        }
+        user.getUserInfo((res) => {
+            this.setData({
+                avatar: res.avatarUrl,
+                name: res.nickName
+            })
+        })
+    },
+
+    onShow() {
+        let res = order.isHasNewOrder()
+        if (res) {
+            this.reload()
+            order.setNewOrderStorage(false)
+        }
+    },
+
+    // 加载订单数据
+    _loadOrder() {
+        order.getOrder(0, 1, (res) => {
+            if (res.length >= 2) {
+                this.image.addPhotosCount(4)
+                this.data.order.push(res[0])
+                this.data.order.push(res[1])
+            } else if (res.length = 1) {
+                this.image.addPhotosCount(3)
+                this.data.order.push(res[0])
+            }
+            this.setData({
+                order: this.data.order
+            })
+        }, (res) => {
+            this.image.addPhotosCount(2)
+            this.setData({
+                order: this.data.order
+            })
+        })
+        wx.stopPullDownRefresh()
+    },
+
+    toEdit(event) {
+        wx.navigateTo({
+            url: '../edit-info/edit-info?from=personal',
+        })
+    },
+
+    toOrderMore(event) {
+        wx.navigateTo({
+            url: '../order-more/order-more',
+        })
+    },
+
+    isLoadedAll(event) {
+        this.image.isLoadedAll()
+    },
+
+    reload() {
+        this.data.order = []
+        this._loadOrder()
+    },
+
+    onPullDownRefresh() {
+        this.reload()
     }
-  },
-
-  // 加载订单数据
-  _loadOrder(cb){
-    order.getOrder(0, 1, (res) => {
-      if(res.length >= 2){
-        this.data.photoCount += 4       
-        this.data.order.push(res[0])
-        this.data.order.push(res[1])
-      }else if(res.length = 1){
-        this.data.photoCount += 3
-        this.data.order.push(res[0])
-      }
-      this.setData({
-        order: this.data.order
-      })
-    }, (res) => {
-      this.data.photoCount += 2
-      this.setData({
-        order: this.data.order
-      })
-    })
-    cb && cb()
-  },
-
-  toEdit(event){
-    wx.navigateTo({
-      url: '../edit-info/edit-info?from=personal',
-    })
-  },
-
-  toOrderMore(event){
-    wx.navigateTo({
-      url: '../order-more/order-more',
-    })
-  },
-
-  isLoadAll(event) {
-    let that = this
-    app.isLoadAll(that)
-  },
-
-  reload(){
-    this.data.order = []
-    this._loadOrder()
-  },
-
-  onPullDownRefresh() {
-    this.data.order = []
-    this._loadOrder(() => {
-      wx.stopPullDownRefresh()
-    })
-  }
 })
