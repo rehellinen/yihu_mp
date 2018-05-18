@@ -1,4 +1,4 @@
-import { CartModel } from '../../model/cart-model.js'
+import { CartModel } from '../../model/CartModel.js'
 import { EditInfoModel } from '../../model/edit-info-model.js'
 import { OrderModel } from '../../model/order-model.js'
 let cart = new CartModel()

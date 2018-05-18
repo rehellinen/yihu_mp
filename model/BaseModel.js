@@ -1,7 +1,7 @@
 import {Config} from '../utils/config'
 import {Token} from '../utils/token'
 
-export class Base {
+export class BaseModel {
     constructor() {
         this.baseUrl = Config.restUrl
     }

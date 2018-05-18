@@ -1,5 +1,5 @@
 import { ThemeModel } from '../../model/theme-model.js'
-import { DetailModel } from '../../model/detail-model.js'
+import { DetailModel } from '../../model/GoodsModel.js'
 let detail = new DetailModel()
 let theme = new ThemeModel()
 let app = getApp()

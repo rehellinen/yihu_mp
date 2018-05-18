@@ -1,4 +1,4 @@
-import {Base} from './base.js'
+import {Base} from './BaseModel.js'
 
 class ShopModel extends Base{
   constructor(){

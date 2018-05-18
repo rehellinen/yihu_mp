@@ -1,38 +1,9 @@
-import {Base} from './base.js'
+import {BaseModel} from './BaseModel.js'
 
-class CartModel extends Base {
+export class CartModel extends BaseModel {
     constructor() {
         super()
         this._storageKeyName = 'cart'
-    }
-
-    // 更新购物车中商品信息
-    updateGoods(cb) {
-        let goods = this.getCartDataFromLocal()
-        let ids = []
-        let idsStr = ''
-
-        if (goods.length === 0) {
-            cb && cb()
-            return
-        }
-
-        for (let item of goods) {
-            ids.push(item.id)
-        }
-        idsStr = ids.join('|')
-
-        let params = {
-            url: 'goods/check',
-            data: {
-                ids: idsStr
-            },
-            callBack: (res) => {
-                this._updateStorageGoods(res, goods)
-                cb && cb()
-            }
-        }
-        this.request(params)
     }
 
     // 添加商品到购物车
@@ -169,5 +140,3 @@ class CartModel extends Base {
         this.setCartStorage(data)
     }
 }
-
-export {CartModel}

@@ -1,7 +1,9 @@
-import {CartModel} from '../../model/cart-model.js'
+import {CartModel} from '../../model/CartModel'
+import {GoodsModel} from "../../model/GoodsModel"
 import {Image} from "../../utils/image"
 
 let cart = new CartModel()
+let goods = new GoodsModel()
 
 Page({
     data: {
@@ -14,7 +16,7 @@ Page({
     },
 
     onShow: function () {
-        cart.updateGoods(() => {
+        goods.updateGoods(() => {
             this.data.cartData = cart.getCartDataFromLocal()
 
             this.image.addPhotosCount(this.data.cartData.length)
