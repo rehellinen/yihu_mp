@@ -78,21 +78,10 @@ export class GoodsModel extends BaseModel {
         this.request(params)
     }
 
-    // 获取自营商品详情
-    getGoodsDetail(id, cb) {
+    // 获取自营 / 二手商品详情
+    getGoodsDetail(url, cb) {
         let params = {
-            url: 'newGoods/' + id,
-            callBack: function (data) {
-                cb && cb(data)
-            }
-        }
-        this.request(params)
-    }
-
-    // 获取二手商品详情
-    getOldGoodsDetail(id, cb) {
-        let params = {
-            url: 'oldGoods/' + id,
+            url: url,
             callBack: function (data) {
                 cb && cb(data)
             }

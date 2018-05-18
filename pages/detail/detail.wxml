@@ -12,7 +12,7 @@
     </view>
   </view>
   <view class='detail'>
-    <image src='{{product.image_id.image_url}}' class='head-image' mode='aspectFill' bindload="isLoadAll"></image>
+    <image src='{{product.image_id.image_url}}' class='head-image' mode='aspectFill' bindload="isLoadedAll"></image>
     <view class='info'>
 
       <view class='info-up'>
@@ -25,7 +25,7 @@
         </view>
 
         <view class="picker {{product.quantity == 0 ? 'disabled' : 'normal'}}">
-          <picker range="{{countArray}}" bindchange='pickerchange' disabled='{{product.quantity == 0 ? true : false}}'>
+          <picker range="{{countArray}}" bindchange='pickerChange' disabled='{{product.quantity == 0 ? true : false}}'>
             <text>数量</text>
             <text class='selected-count'>{{selectedCount}}</text>
             <image wx:if="{{product.quantity != 0}}" class='picker-arrow' src='/images/icon/arrow@downOrange.png'></image>
