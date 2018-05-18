@@ -14,7 +14,7 @@ export class Base {
      *  2. type [http请求方式]
      *  3. data [请求时携带的参数]
      *  4. callBack [回调函数]
-     *  5. eCallBack [http错误码为4开头的回调函数]
+     *  5. eCallBack [发送错误的处理函数]
      * @param noReFetch 是否重新发送请求
      */
     request(params, noReFetch) {

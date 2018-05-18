@@ -1,143 +1,140 @@
-import { CartModel } from '../../model/cart-model.js'
+import {CartModel} from '../../model/cart-model.js'
+import {Image} from "../../utils/image"
+
 let cart = new CartModel()
-let app = getApp()
 
 Page({
-  data: {
-    photoCount: 0,
-    loadedPhoto: 0
-  },
+    data: {
+        photoCount: 0,
+        loadedPhoto: 0
+    },
 
-  onLoad(){
-    setTimeout(() => {
-      this.setData({
-        loadingHidden: true
-      })
-    }, 5000)
-  },
+    onLoad() {
+        this.image = new Image(this)
+        this.image.setLoadingHidden()
+    },
 
-  onShow: function () {
-    cart.updatePrice( () => {
-      let cartData = cart.getCartDataFromLocal()
-      this.data.photoCount += cartData.length
-      if (cartData.length == 0){
-        this.setData({
-          loadingHidden: true
+    onShow: function () {
+        cart.updateGoods(() => {
+            let cartData = cart.getCartDataFromLocal()
+            let cartDetailInfo = this._calTotalCountAndPrice(cartData)
+            this.image.addPhotosCount(cartData.length)
+
+            if (cartData.length === 0) {
+                this.setData({
+                    loadingHidden: true
+                })
+            }
+            this.setData({
+                selectedCount: cartDetailInfo.selectedCount,
+                cartData: cartData,
+                selectedType: cartDetailInfo.selectedType,
+                totalPrice: cartDetailInfo.totalPrice
+            })
         })
-      }
+    },
 
-      let cartDetailInfo = this._calTotalCountAndPrice(cartData)
-      this.setData({
-        selectedCount: cartDetailInfo.selectedCount,
-        cartData: cartData,
-        selectedType: cartDetailInfo.selectedType,
-        totalPrice: cartDetailInfo.totalPrice
-      })
-    })     
-  },  
+    onHide() {
+        wx.setStorageSync(cart._storageKeyName, this.data.cartData)
+    },
 
-  onHide() {
-    wx.setStorageSync(cart._storageKeyName, this.data.cartData)
-  },
+    selectTap(event) {
+        let id = event.currentTarget.dataset.id
+        let selected = event.currentTarget.dataset.selected
+        let index = this._getIndexByID(id)
 
-  submitOrder(event){
-    wx.navigateTo({
-      url: '../order/order?totalPrice=' + this.data.totalPrice + '&from=cart',
-    })
-  },
+        this.data.cartData[index].selected = !selected
+        this._updateCartData()
+    },
 
-  selectTap(event){
-    let id = event.currentTarget.dataset.id
-    let selected = event.currentTarget.dataset.selected    
-    let index = this._getIndexByID(id)
+    selectAllTap(event) {
+        let selected = event.currentTarget.dataset.selected
+        let data = this.data.cartData
+        for (let i = 0; i < data.length; i++) {
+            data[i].selected = !selected
+        }
+        this._updateCartData()
+    },
 
-    this.data.cartData[index].selected = !selected
-    this._updateCartData()
-  },
+    changeCount(event) {
+        let id = event.currentTarget.dataset.id
+        let type = event.currentTarget.dataset.type
+        let index = this._getIndexByID(id)
+        let count = 1
 
-  selectAllTap(event) {
-    let selected = event.currentTarget.dataset.selected
-    let data = this.data.cartData
-    for (let i = 0; i < data.length; i++){
-      data[i].selected = !selected
+        if (type === 'plus') {
+            cart.plusCount(id)
+        } else {
+            count = -1
+            cart.minusCount(id)
+        }
+
+        this.data.cartData[index].count += count
+        this._updateCartData()
+    },
+
+    delete(event) {
+        let id = event.currentTarget.dataset.id
+        let index = this._getIndexByID(id)
+        this.data.cartData.splice(index, 1)
+        this._updateCartData()
+    },
+
+    // 更新购物车页面的数据
+    _updateCartData() {
+        let newData = this._calTotalCountAndPrice(this.data.cartData)
+        this.setData({
+            selectedCount: newData.selectedCount,
+            cartData: this.data.cartData,
+            selectedType: newData.selectedType,
+            totalPrice: newData.totalPrice
+        })
+    },
+
+    // 计算选择的商品总数以及总金额
+    _calTotalCountAndPrice(cartData) {
+        let totalPrice = 0, selectedCount = 0, selectedType = 0
+        let multiple = 100
+        for (let i = 0; i < cartData.length; i++) {
+            if (cartData[i].selected) {
+                totalPrice += (cartData[i].count) * (cartData[i].price * multiple)
+                selectedCount += cartData[i].count
+                selectedType++
+            }
+        }
+
+        return {
+            selectedCount: selectedCount,
+            selectedType: selectedType,
+            totalPrice: totalPrice / (multiple)
+        }
+    },
+
+    // 根据商品id获取商品下标
+    _getIndexByID(id) {
+        for (let i = 0; i < this.data.cartData.length; i++) {
+            if (this.data.cartData[i].id === id) {
+                return i
+            }
+        }
+        return -1
+    },
+
+    toDetail(event) {
+        let id = event.currentTarget.dataset.id
+        let type = event.currentTarget.dataset.type
+        wx.navigateTo({
+            url: '/pages/detail/detail?id=' + id + '&type=' + type,
+        })
+    },
+
+    submitOrder(event) {
+        wx.navigateTo({
+            url: '../order/order?totalPrice=' + this.data.totalPrice,
+        })
+    },
+
+    isLoadAll(event) {
+        this.image.isLoadedAll()
     }
-    this._updateCartData()
-  },
-
-  changeCount(event){
-    let id = event.currentTarget.dataset.id
-    let type = event.currentTarget.dataset.type
-    let index = this._getIndexByID(id)
-    let count = 1
-
-    if(type == 'plus'){
-      cart.plusCount(id)      
-    }else{
-      count = -1
-      cart.minusCount(id)
-    }
-    
-    this.data.cartData[index].count += count
-    this._updateCartData()
-  },
-
-  delete(event){
-    let id = event.currentTarget.dataset.id
-    let index = this._getIndexByID(id)
-    this.data.cartData.splice(index, 1)
-    this._updateCartData()
-    // cart.delete(id)
-  },
-  
-  // 更新购物车页面的数据
-  _updateCartData(){
-    let newData = this._calTotalCountAndPrice(this.data.cartData)
-    this.setData({
-      selectedCount: newData.selectedCount,
-      cartData: this.data.cartData,
-      selectedType: newData.selectedType,
-      totalPrice: newData.totalPrice
-    })
-  },
-
-  // 计算选择的商品总数以及总金额
-  _calTotalCountAndPrice(cartData) {
-    let totalPrice = 0, selectedCount = 0, selectedType = 0
-    let multiple = 100
-    for (let i = 0; i < cartData.length; i++) {
-      if (cartData[i].selected) {
-        totalPrice += (cartData[i].count) * (cartData[i].price * multiple)
-        selectedCount += cartData[i].count
-        selectedType++
-      }
-    }
-
-    return {
-      selectedCount: selectedCount,
-      selectedType: selectedType,
-      totalPrice: totalPrice / (multiple)
-    }
-  },
-
-  // 根据商品id获取商品下标
-  _getIndexByID(id){
-    for (let i = 0; i < this.data.cartData.length; i++){
-      if (this.data.cartData[i].id == id){
-        return i
-      }
-    }
-  },
-
-  toDetail(event){
-    let id = event.currentTarget.dataset.id
-    let type = event.currentTarget.dataset.type
-    wx.navigateTo({
-      url: '/pages/detail/detail?id=' + id + '&type=' + type,
-    })
-  },
-
-  isLoadAll(event) {
-    let that = this
-    app.isLoadAll(that)
-  }
 })
