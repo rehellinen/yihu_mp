@@ -32,6 +32,7 @@ Page({
         cart.setCartStorage(this.data.cartData)
     },
 
+    // 单选按钮
     selectTap(event) {
         let id = event.currentTarget.dataset.id
         let selected = event.currentTarget.dataset.selected
@@ -41,6 +42,7 @@ Page({
         this._updateCartData()
     },
 
+    // 全选按钮
     selectAllTap(event) {
         let selected = event.currentTarget.dataset.selected
         let data = this.data.cartData
@@ -50,6 +52,7 @@ Page({
         this._updateCartData()
     },
 
+    // 改变商品数量
     changeCount(event) {
         let id = event.currentTarget.dataset.id
         let type = event.currentTarget.dataset.type
@@ -64,6 +67,7 @@ Page({
         this._updateCartData()
     },
 
+    // 删除商品
     delete(event) {
         let id = event.currentTarget.dataset.id
         let index = this._getIndexByID(id)
@@ -73,7 +77,7 @@ Page({
 
     // 更新购物车页面的数据
     _updateCartData() {
-        let newData = this._calTotalCountAndPrice(this.data.cartData)
+        let newData = this._calTotalCountAndPrice()
         this.setData({
             selectedCount: newData.selectedCount,
             cartData: this.data.cartData,
@@ -83,14 +87,17 @@ Page({
     },
 
     // 计算选择的商品总数以及总金额
-    _calTotalCountAndPrice(cartData) {
+    _calTotalCountAndPrice() {
+        let cartData = this.data.cartData
         let totalPrice = 0, selectedCount = 0, selectedType = 0
         let multiple = 100
-        for (let i = 0; i < cartData.length; i++) {
-            if (cartData[i].selected) {
-                totalPrice += (cartData[i].count) * (cartData[i].price * multiple)
-                selectedCount += cartData[i].count
-                selectedType++
+        if(cartData.length !== 0){
+            for (let i = 0; i < cartData.length; i++) {
+                if (cartData[i].selected) {
+                    totalPrice += (cartData[i].count) * (cartData[i].price * multiple)
+                    selectedCount += cartData[i].count
+                    selectedType++
+                }
             }
         }
 
@@ -119,13 +126,14 @@ Page({
         })
     },
 
+    // 跳转确认订单的页面
     submitOrder(event) {
         wx.navigateTo({
             url: '../order/order?totalPrice=' + this.data.totalPrice,
         })
     },
 
-    isLoadAll(event) {
+    isLoadedAll(event) {
         this.image.isLoadedAll()
     }
 })

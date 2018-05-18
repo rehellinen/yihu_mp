@@ -9,16 +9,19 @@ class CartModel extends Base {
     // 更新购物车中商品信息
     updateGoods(cb) {
         let goods = this.getCartDataFromLocal()
+        let ids = []
+        let idsStr = ''
+
         if (goods.length === 0) {
             cb && cb()
             return
         }
-        let ids = []
-        for (let index in goods) {
-            ids.push(goods[index].id)
+
+        for (let item of goods) {
+            ids.push(item.id)
         }
-        let idsStr = ids.join('|')
-        let that = this
+        idsStr = ids.join('|')
+
         let params = {
             url: 'goods/check',
             data: {
@@ -52,23 +55,22 @@ class CartModel extends Base {
                 eCallBack && eCallBack()
             }
         }
-
         wx.setStorageSync(this._storageKeyName, cartData)
     }
 
     // 从缓存中获取所有购物车商品
     // 1. flag [true，只获取选中的商品;false，获取所有商品]
     getCartDataFromLocal(flag) {
-        let res = wx.getStorageSync(this._storageKeyName)
+        let res = this.getCartStorage()
         if (!res) {
             res = []
         }
 
         if (flag) {
             let newRes = []
-            for (let i = 0; i < res.length; i++) {
-                if (res[i].selected) {
-                    newRes.push(res[i])
+            for(let item of res){
+                if(item.selected){
+                    newRes.push(item)
                 }
             }
             res = newRes
@@ -82,6 +84,11 @@ class CartModel extends Base {
         wx.setStorageSync(this._storageKeyName, data);
     }
 
+    // 获取缓存
+    getCartStorage(){
+        return wx.getStorageSync(this._storageKeyName);
+    }
+
     // 删除购物车中的商品
     // 1. ids [id的数组]
     delete(ids) {
@@ -89,13 +96,13 @@ class CartModel extends Base {
             ids = [ids]
         }
         let cartData = this.getCartDataFromLocal()
-        for (let i = 0; i < ids.length; i++) {
-            let isExisted = this._isExistedThatOne(ids[i], cartData)
+        for(let item of ids){
+            let isExisted = this._isExistedThatOne(item, cartData)
             if (isExisted.index !== -1) {
                 cartData.splice(isExisted.index, 1)
             }
         }
-        wx.setStorageSync(this._storageKeyName, cartData)
+        this.setCartStorage(cartData)
     }
 
     // 获取购物车所有商品数量
@@ -103,13 +110,14 @@ class CartModel extends Base {
     getCartTotalCount(flag = false) {
         let cartData = this.getCartDataFromLocal()
         let count = 0
-        for (let i = 0; i < cartData.length; i++) {
+
+        for(let item of cartData){
             if (flag) {
-                if (cartData[i].selected === true) {
-                    count += cartData[i].count
+                if (item.selected === true) {
+                    count += item.count
                 }
             } else {
-                count += cartData[i].count
+                count += item.count
             }
         }
         return count
@@ -126,7 +134,7 @@ class CartModel extends Base {
                 cartData[isExisted.index].count += count
             }
         }
-        wx.setStorageSync(this._storageKeyName, cartData)
+        this.setCartStorage(cartData)
     }
 
     // 根据商品id判断此商品是否存在于缓存中
@@ -134,31 +142,31 @@ class CartModel extends Base {
     // 2. cartData [缓存中购物车商品]
     _isExistedThatOne(id, cartData) {
         let result = {index: -1}
-        for (let i = 0; i < cartData.length; i++) {
-            if (cartData[i].id === id) {
+        cartData.forEach( (item, index) => {
+            if (item.id === id) {
                 result = {
-                    data: cartData[i],
-                    index: i
+                    data: item,
+                    index: index
                 }
-                break
             }
-        }
+        })
         return result
     }
 
     // 更新缓存中商品信息
     _updateStorageGoods(res, goods) {
         let data = []
-        for (let i in res) {
-            let id = res[i].id
+        for (let item of res) {
+            let id = item.id
             let goodsIndexObj = this._isExistedThatOne(id, goods)
             let index = goodsIndexObj.index
             let storageGoods = goodsIndexObj.data
-            data[index] = res[i]
+
+            data[index] = item
             data[index].count = storageGoods.count
             data[index].selected = storageGoods.selected
         }
-        wx.setStorageSync(this._storageKeyName, data)
+        this.setCartStorage(data)
     }
 }
 

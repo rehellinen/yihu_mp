@@ -11,7 +11,7 @@
               </image>
             </view>
             <view class='cart-item-img'>
-              <image class='goods-image' src='{{item.image_id.image_url}}' mode='aspectFill' bindtap='toDetail' data-id='{{item.id}}' data-type='{{item.type}}' bindload="isLoadAll"></image>
+              <image class='goods-image' src='{{item.image_id.image_url}}' mode='aspectFill' bindtap='toDetail' data-id='{{item.id}}' data-type='{{item.type}}' bindload="isLoadedAll"></image>
             </view>
             <view class='cart-item-word'>
               <view class='title-box' bindtap='toDetail' data-id='{{item.id}}' data-type='{{item.type}}'>
