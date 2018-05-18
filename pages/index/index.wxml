@@ -13,7 +13,7 @@
   <swiper class='banner' indicator-dots='{{false}}' autoplay='{{true}}' interval='5000'>
     <block wx:for="{{banner}}" wx:key="">
       <swiper-item>
-        <image src="{{item.image_id.image_url}}" bindload="isLoadAll"></image>
+        <image src="{{item.image_id.image_url}}" bindload="isLoadedAll"></image>
       </swiper-item>
     </block>
   </swiper>
@@ -25,7 +25,7 @@
     <text class='theme-text'>精 选 主 题</text>
     <view class='theme-photo-container'>
       <block wx:for="{{theme}}" wx:key="">
-        <image src='{{item.image_id.image_url}}' bindtap='toTheme' data-id='{{item.id}}' bindload="isLoadAll"></image>
+        <image src='{{item.image_id.image_url}}' bindtap='toTheme' data-id='{{item.id}}' bindload="isLoadedAll"></image>
       </block>
     </view>
   </view>
@@ -37,7 +37,7 @@
   <view class='find-image-container'>
     <image class='find-image' src='/images/theme/find.png'></image>
   </view>
-  <goods-list-index goods="{{newGoods}}" bind:loaded="isLoadAll"></goods-list-index>
+  <goods-list-index goods="{{newGoods}}" bind:loaded="isLoadedAll"></goods-list-index>
   <view class='more-container' bindtap="toGoodsMore" data-type='1'>
     <text class='more-text'>查看更多</text>
     <image src="/images/icon/arrow@downBlack.png"></image>
@@ -47,7 +47,7 @@
   <view class='find-image-container margin-top-image'>
     <image class='find-image' src='/images/theme/old.png'></image>
   </view>
-  <goods-list-index goods="{{oldGoods}}" bind:loaded="isLoadAll"></goods-list-index>
+  <goods-list-index goods="{{oldGoods}}" bind:loaded="isLoadedAll"></goods-list-index>
   <view class='more-container' bindtap="toGoodsMore" data-type='2'> 
     <text class='more-text'>查看更多</text>
     <image src="/images/icon/arrow@downBlack.png"></image>

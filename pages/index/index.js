@@ -1,5 +1,6 @@
 import {Index} from 'index-model.js'
 import {DetailModel} from '../detail/detail-model.js'
+import {Image} from '../../utils/image.js'
 let detail = new DetailModel()
 let index = new Index()
 let app = getApp()
@@ -7,45 +8,22 @@ let app = getApp()
 
 Page({  
   data: {
-    banner : [],
     loadingHidden: false,
-    photoCount: 0,
-    loadedPhoto: 0
   },
 
   onLoad: function (options) {
+    this.image = new Image(this)
+    this.image.setLoadingHidden()
+
     this._loadData();
-    setTimeout( () => {
-      this.setData({
-        loadingHidden: true
-      })
-    }, 5000)
-  },  
+  },    
 
-  onShareAppMessage(res){
-    return {
-      title: '校园易乎',
-      path: '/pages/index/index',
-      success(res){
-        wx.showToast({
-          title: '分享成功',
-          image: '/images/icon/pay@success.png'
-        })
-      },
-      fail(res){
-        wx.showToast({
-          title: '分享失败',
-          image: '/images/icon/pay@error.png'
-        })
-      }
-    }
-  },
+  _loadData : function() {
+    let totalCount = 3 + 4 + 6 + 6
+    this.image.addPhotosCount(totalCount)
 
-  // 加载所有数据
-  _loadData : function(cb) {
     // 获取Banner
-    index.getBanners( (data) => {
-      this.data.photoCount += (data.length + 14)
+    index.getBanners( (data) => {      
       this.setData({
         banner : data
       })
@@ -83,8 +61,12 @@ Page({
         oldGoods: data
       })
 
-      cb && cb()
+      wx.stopPullDownRefresh()
     })       
+  },
+
+  isLoadedAll(event) {
+    this.image.isLoadedAll()
   },
 
   toTheme(event){
@@ -92,12 +74,7 @@ Page({
     wx.navigateTo({
       url: '../theme/theme?id=' + id,
     })
-  },
-
-  isLoadAll(event){ 
-    let that = this
-    app.isLoadAll(that)
-  },
+  },  
 
   toSearch(event){
     wx.navigateTo({
@@ -112,9 +89,28 @@ Page({
     })
   },
 
+  // 下拉刷新
   onPullDownRefresh(){
-    this._loadData( () => {
-      wx.stopPullDownRefresh()
-    })
-  }
+    this._loadData()
+  },
+
+  // 分享
+  onShareAppMessage(res) {
+    return {
+      title: '校园易乎',
+      path: '/pages/index/index',
+      success(res) {
+        wx.showToast({
+          title: '分享成功',
+          image: '/images/icon/share@success.png'
+        })
+      },
+      fail(res) {
+        wx.showToast({
+          title: '分享失败',
+          image: '/images/icon/share@error.png'
+        })
+      }
+    }
+  },
 })
