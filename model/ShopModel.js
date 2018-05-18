@@ -1,6 +1,6 @@
-import {Base} from './BaseModel.js'
+import {BaseModel} from './BaseModel.js'
 
-class ShopModel extends Base{
+export class ShopModel extends BaseModel{
   constructor(){
     super()
   }
@@ -39,5 +39,3 @@ class ShopModel extends Base{
 
   }
 }
-
-export {ShopModel}

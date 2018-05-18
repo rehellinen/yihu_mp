@@ -1,6 +1,6 @@
-import {Base} from './BaseModel.js'
+import {BaseModel} from './BaseModel.js'
 
-class OrderModel extends Base{
+class OrderModel extends BaseModel{
   constructor(){
     super()
     this.key = 'newOrder'

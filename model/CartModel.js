@@ -1,4 +1,4 @@
-import {BaseModel} from './BaseModel.js'
+import {BaseModel} from './BaseModel'
 
 export class CartModel extends BaseModel {
     constructor() {

@@ -1,4 +1,4 @@
-import { ShopModel } from '../../model/shop-model.js'
+import { ShopModel } from '../../model/ShopModel.js'
 let shop = new ShopModel()
 let app = getApp()
 

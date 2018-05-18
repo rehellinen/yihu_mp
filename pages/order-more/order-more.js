@@ -1,4 +1,4 @@
-import { OrderModel } from '../../model/order-model.js'
+import { OrderModel } from '../../model/OrderModel.js'
 let order = new OrderModel()
 let app = getApp()
 

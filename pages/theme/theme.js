@@ -1,4 +1,4 @@
-import { ThemeModel } from '../../model/theme-model.js'
+import { ThemeModel } from '../../model/ThemeModel.js'
 import { DetailModel } from '../../model/GoodsModel.js'
 let detail = new DetailModel()
 let theme = new ThemeModel()

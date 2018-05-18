@@ -1,9 +1,11 @@
-import {Index} from '../../model/index-model'
-import {GoodsModel} from '../../model/GoodsModel.js'
+import {BannerModel} from "../../model/BannerModel"
+import {GoodsModel} from '../../model/GoodsModel'
+import {ThemeModel} from "../../model/ThemeModel"
 import {Image} from '../../utils/image.js'
 
 let goods = new GoodsModel()
-let index = new Index()
+let banner = new BannerModel()
+let theme = new ThemeModel()
 
 Page({
     data: {
@@ -19,7 +21,7 @@ Page({
 
     _loadData: function () {
         // 获取Banner
-        index.getBanners((data) => {
+        banner.getBanners((data) => {
             this.image.addPhotosCount(data.length + 16)
             this.setData({
                 banner: data
@@ -27,7 +29,7 @@ Page({
         })
 
         // 获取主题
-        index.getTheme((data) => {
+        theme.getTheme((data) => {
             this.setData({
                 theme: data,
             })

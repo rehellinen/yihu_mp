@@ -3,21 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="0fe448c7-f403-44e1-9c4c-f6d980ffd7f2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/model/base.js" afterPath="$PROJECT_DIR$/model/BaseModel.js" />
-      <change beforePath="$PROJECT_DIR$/model/cart-model.js" afterPath="$PROJECT_DIR$/model/CartModel.js" />
-      <change beforePath="$PROJECT_DIR$/model/detail-model.js" afterPath="$PROJECT_DIR$/model/GoodsModel.js" />
-      <change beforePath="$PROJECT_DIR$/model/edit-info-model.js" afterPath="$PROJECT_DIR$/model/edit-info-model.js" />
-      <change beforePath="$PROJECT_DIR$/model/index-model.js" afterPath="$PROJECT_DIR$/model/index-model.js" />
-      <change beforePath="$PROJECT_DIR$/model/order-model.js" afterPath="$PROJECT_DIR$/model/order-model.js" />
-      <change beforePath="$PROJECT_DIR$/model/personal-model.js" afterPath="$PROJECT_DIR$/model/personal-model.js" />
-      <change beforePath="$PROJECT_DIR$/model/shop-model.js" afterPath="$PROJECT_DIR$/model/shop-model.js" />
-      <change beforePath="$PROJECT_DIR$/model/theme-model.js" afterPath="$PROJECT_DIR$/model/theme-model.js" />
-      <change beforePath="$PROJECT_DIR$/pages/cart/cart.js" afterPath="$PROJECT_DIR$/pages/cart/cart.js" />
-      <change beforePath="$PROJECT_DIR$/pages/detail/detail.js" afterPath="$PROJECT_DIR$/pages/detail/detail.js" />
-      <change beforePath="$PROJECT_DIR$/pages/goods-more/goods-more.js" afterPath="$PROJECT_DIR$/pages/goods-more/goods-more.js" />
+      <change beforePath="$PROJECT_DIR$/model/BannerModel.js" afterPath="$PROJECT_DIR$/model/BannerModel.js" />
+      <change beforePath="$PROJECT_DIR$/model/CartModel.js" afterPath="$PROJECT_DIR$/model/CartModel.js" />
+      <change beforePath="$PROJECT_DIR$/model/edit-info-model.js" afterPath="$PROJECT_DIR$/model/UserModel.js" />
+      <change beforePath="$PROJECT_DIR$/model/index-model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/model/order-model.js" afterPath="$PROJECT_DIR$/model/OrderModel.js" />
+      <change beforePath="$PROJECT_DIR$/model/personal-model.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/model/shop-model.js" afterPath="$PROJECT_DIR$/model/ShopModel.js" />
+      <change beforePath="$PROJECT_DIR$/model/theme-model.js" afterPath="$PROJECT_DIR$/model/ThemeModel.js" />
+      <change beforePath="$PROJECT_DIR$/pages/component/buyer-info/buyer-info.js" afterPath="$PROJECT_DIR$/pages/component/buyer-info/buyer-info.js" />
+      <change beforePath="$PROJECT_DIR$/pages/component/order-list/order-list.js" afterPath="$PROJECT_DIR$/pages/component/order-list/order-list.js" />
+      <change beforePath="$PROJECT_DIR$/pages/edit-info/edit-info.js" afterPath="$PROJECT_DIR$/pages/edit-info/edit-info.js" />
       <change beforePath="$PROJECT_DIR$/pages/index/index.js" afterPath="$PROJECT_DIR$/pages/index/index.js" />
+      <change beforePath="$PROJECT_DIR$/pages/order-detail/order-detail.js" afterPath="$PROJECT_DIR$/pages/order-detail/order-detail.js" />
+      <change beforePath="$PROJECT_DIR$/pages/order-more/order-more.js" afterPath="$PROJECT_DIR$/pages/order-more/order-more.js" />
       <change beforePath="$PROJECT_DIR$/pages/order/order.js" afterPath="$PROJECT_DIR$/pages/order/order.js" />
+      <change beforePath="$PROJECT_DIR$/pages/personal/personal.js" afterPath="$PROJECT_DIR$/pages/personal/personal.js" />
       <change beforePath="$PROJECT_DIR$/pages/shop-detail/shop-detail.js" afterPath="$PROJECT_DIR$/pages/shop-detail/shop-detail.js" />
+      <change beforePath="$PROJECT_DIR$/pages/shop/shop.js" afterPath="$PROJECT_DIR$/pages/shop/shop.js" />
       <change beforePath="$PROJECT_DIR$/pages/theme/theme.js" afterPath="$PROJECT_DIR$/pages/theme/theme.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -32,55 +35,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GoodsModel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/GoodsModel.js">
+      <file leaf-file-name="UserModel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/UserModel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            <state relative-caret-position="787">
+              <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cart.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/cart/cart.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pages/index/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BannerModel.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/model/BannerModel.js">
+      <file leaf-file-name="OrderModel.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/model/OrderModel.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="50">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CartModel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/CartModel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+              <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -119,11 +88,18 @@
         <option value="$PROJECT_DIR$/pages/cart/cart.wxml" />
         <option value="$PROJECT_DIR$/model/cart-model.js" />
         <option value="$PROJECT_DIR$/model/BaseModel.js" />
-        <option value="$PROJECT_DIR$/model/CartModel.js" />
         <option value="$PROJECT_DIR$/model/GoodsModel.js" />
         <option value="$PROJECT_DIR$/pages/cart/cart.js" />
-        <option value="$PROJECT_DIR$/pages/index/index.js" />
         <option value="$PROJECT_DIR$/model/BannerModel.js" />
+        <option value="$PROJECT_DIR$/model/edit-info-model.js" />
+        <option value="$PROJECT_DIR$/model/CartModel.js" />
+        <option value="$PROJECT_DIR$/model/index-model.js" />
+        <option value="$PROJECT_DIR$/model/ThemeModel.js" />
+        <option value="$PROJECT_DIR$/pages/index/index.js" />
+        <option value="$PROJECT_DIR$/model/ShopModel.js" />
+        <option value="$PROJECT_DIR$/model/personal-model.js" />
+        <option value="$PROJECT_DIR$/model/UserModel.js" />
+        <option value="$PROJECT_DIR$/model/order-model.js" />
       </list>
     </option>
   </component>
@@ -257,12 +233,12 @@
       <option name="presentableId" value="Default" />
       <updated>1526616758214</updated>
       <workItem from="1526616759941" duration="8975000" />
-      <workItem from="1526628699892" duration="864000" />
+      <workItem from="1526628699892" duration="1437000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9839000" />
+    <option name="totallyTimeSpent" value="10412000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -412,10 +388,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/GoodsModel.js">
+    <entry file="file://$PROJECT_DIR$/model/BannerModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        <state relative-caret-position="250">
+          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/CartModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/index-model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="19" column="2" lean-forward="false" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/ThemeModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="27" column="14" lean-forward="true" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/ShopModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="715">
+          <caret line="40" column="1" lean-forward="false" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -430,28 +450,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/CartModel.js">
+    <entry file="file://$PROJECT_DIR$/model/GoodsModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+        <state relative-caret-position="200">
+          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index/index.js">
+    <entry file="file://$PROJECT_DIR$/model/personal-model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/BannerModel.js">
+    <entry file="file://$PROJECT_DIR$/model/UserModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="787">
+          <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/OrderModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
           <folding />
         </state>
       </provider>

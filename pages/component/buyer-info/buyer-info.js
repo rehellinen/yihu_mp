@@ -1,4 +1,4 @@
-import { EditInfoModel } from '../../../model/edit-info-model.js'
+import { EditInfoModel } from '../../../model/UserModel.js'
 let edit = new EditInfoModel()
 
 Component({
