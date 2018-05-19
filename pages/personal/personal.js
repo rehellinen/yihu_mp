@@ -1,8 +1,10 @@
 import {UserModel} from "../../model/UserModel"
 import {OrderModel} from '../../model/OrderModel.js'
 import {Image} from "../../utils/image"
+import {ElectricityModel} from "../../model/ElectricityModel"
 
 let order = new OrderModel()
+let electricity = new ElectricityModel()
 let user = new UserModel()
 
 Page({
@@ -15,16 +17,7 @@ Page({
         this.image = new Image(this)
         this.image.setLoadingHidden()
 
-        let res = order.isHasNewOrder()
-        if (!res) {
-            this._loadOrder()
-        }
-        user.getUserInfo((res) => {
-            this.setData({
-                avatar: res.avatarUrl,
-                name: res.nickName
-            })
-        })
+        this._loadData()
     },
 
     onShow() {
@@ -32,6 +25,29 @@ Page({
         if (res) {
             this.reload()
             order.setNewOrderStorage(false)
+        }
+    },
+
+    _loadData(){
+        // 获取用户信息
+        user.getUserInfo((res) => {
+            this.setData({
+                avatar: res.avatarUrl,
+                name: res.nickName
+            })
+        })
+
+        // 关于电费
+        electricity.getThreeDays( (res) => {
+            this.setData({
+                threeDays: res.elec
+            })
+        })
+
+        // 关于订单
+        let res = order.isHasNewOrder()
+        if (!res) {
+            this._loadOrder()
         }
     },
 
