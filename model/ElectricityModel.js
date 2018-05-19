@@ -16,4 +16,16 @@ export class ElectricityModel extends BaseModel{
 
         this.request(params)
     }
+
+    // 获取剩余电费
+    getSurplus(cb){
+        let params = {
+            url: 'electricity/surplus',
+            callBack(res){
+                cb && cb(res)
+            }
+        }
+
+        this.request(params)
+    }
 }

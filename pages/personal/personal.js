@@ -44,6 +44,12 @@ Page({
             })
         })
 
+        electricity.getSurplus( (res) => {
+            this.setData({
+                surplus: res.elec
+            })
+        })
+
         // 关于订单
         let res = order.isHasNewOrder()
         if (!res) {
